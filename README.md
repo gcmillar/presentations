@@ -1,15 +1,7 @@
 NCSU GeoForAll Lab Tangible Landscape talks
 ===========================================
 
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/geoforall-webinar.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/cbi-webinar.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/ncgis2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/EDRA_2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/worldbank2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/ICC_2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/FOSS4G_2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/ACADIA_2017.html
- * https://ncsu-geoforall-lab.github.io/tangible-landscape-talk/CHI2018.html
+ * https://https://gcmillar.github.io/presentations//CHI2018.html
 
 Building and publishing pages for this repository
 -------------------------------------------------
