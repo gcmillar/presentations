@@ -1,7 +1,7 @@
-NCSU GeoForAll Lab Tangible Landscape talks
+Collection of presentations
 ===========================================
 
- * https://gcmillar.github.io/presentations/chi2018.html
+ * https://gcmillar.github.io/presentations/chi2018#/
 
 Building and publishing pages for this repository
 -------------------------------------------------
