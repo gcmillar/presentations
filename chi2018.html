@@ -220,7 +220,7 @@ pattern of water flow.-->
         <li>Inflexible in use, and inadequate for users to perceive and process information</li>
         <li>Limit ways geospatial data can be represented</li>
     </ul>
-<img height="250px" src="img/collaboration_computer.JPG">
+<img class="stretch" src="img/collaboration_computer.JPG">
 <!-- <p><small>GRASS GIS Command Line Interface (CLI) &amp; Graphical User Interface (GUI)</a>
 </small></p>-->
 </section>
@@ -237,10 +237,14 @@ pattern of water flow.-->
         <li>Connect intention, thought, action, and feedback</li>
     </ul>    
 <div align="center">
-    <img width="200px" src="img/interaction/tl_hand_1.png" alt="" align="left" style="float:leftt"/>
-    <img width="200px" src="img/interaction/tl_hand_3.png" alt="" align="right" style="float:right"/>
+    <img class="stretch" src="img/interaction/tl_hand_1.png" alt="" align="left" style="float:leftt"/>
+    <img class="stretch" src="img/interaction/tl_hand_3.png" alt="" align="right" style="float:right"/>
  <div id="content" align="center"> 
-     <img width="200px" src="img/interaction/tl_hand_3.png" alt="" align="center" />
+     <img class="stretch" src="img/interaction/tl_hand_2.png" alt="" align="center" />
+    <!-- <img width="300px" src="img/interaction/tl_hand_1.png" alt="" align="left" style="float:leftt"/>
+    <img width="300px" src="img/interaction/tl_hand_3.png" alt="" align="right" style="float:right"/>
+ <div id="content" align="center"> 
+     <img width="300px" src="img/interaction/tl_hand_2.png" alt="" align="center" />-->
 </div>
 </div>
 <!-- <img height="300px" src="img/interaction/TUI_GUI.png"> -->
@@ -300,7 +304,7 @@ pattern of water flow.-->
             <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">building physical models
         </tr>
 </table>
-<aside class="notes"> Only some directly teach students how to translate between 2D and 3D space. 
+<aside class="notes"> Of these teaching methods however, only some directly teach students how to translate between 2D and 3D space. 
 Tangibles can allow students to associate 2D field, map, and GIS data simultaneously with complex, 3D landscape structures and 
 therefore reduce the cognitive burden of computing what is logically implied by 2D spatial information. 
 </aside>
@@ -309,7 +313,7 @@ therefore reduce the cognitive burden of computing what is logically implied by 
 <!-- TL -->
 
 <!-- Tangible Landscape -->
-<section data-background-image="img/model.png" data-background-size="stretch" >
+<section data-background-image="img/model.png" data-background-size="100%" >
 <h1 class="shadow">Tangible Landscape:</h1>
 <h3 class="shadow">A tangible user interface powered by open source GIS</h3>
 <img height="150px" src="img/logos/logo_black.png">
@@ -326,6 +330,19 @@ therefore reduce the cognitive burden of computing what is logically implied by 
   Your browser does not support the video tag.
 </video>
 <p>With Tangible Landscape you can hold a GIS in your hands - feeling the shape of the earth, sculpting its topography, and directing the flow of water.</p>
+<aside class="notes"> 
+    - This hands-on approach (interacting w 3D spatial data) allows students to actively participate in the scientific inquiry process 
+      -> This is BECAUSE the system allows them to: 
+      -> (1) iteratively observe natural phenomena
+      -> (2) generate inferences
+      -> (3) form hypotheses and test them
+      -> (4) and draw conclusions
+    - Powered by an open-source GIS software (GRASS GIS: contains > 300 simulation modules developed & maintained by the scientific community,
+    TL can be flexibly programmed to accommodate simple to complex geospatial applications and simulations
+      -> BECAUSE OF THIS: TL provides a much broader range of teaching opportunities than preceding geospatial TUIs. 
+          ->>> Examples of these applications include: 
+              ->>> landform analysis, elevation difference analysis, erosion modeling, firespread, plant disease modeling AND MANY others.
+</aside>
 </section>
 
 <!-- TL: Design -->
@@ -339,7 +356,14 @@ therefore reduce the cognitive burden of computing what is logically implied by 
         <li> (2) point cloud processing</li>
         <li> (3) geospatial computation</li>
         <li> (4) projection</li>
-    </ul>        
+    </ul> 
+<aside class="notes"> 
+       Specifically, as users change the physical model, the model is 3D scanned as a point cloud, georeferenced, imported into
+    GRASS GIS, and either binned or interpolated as a digital elevation model. 
+    The digital elevation model is used to compute geospatial analyses, models, and simulations, which are then
+    projected back onto the physical model, ALL in REAL-TIME.
+</aside>
+
 </section>
                 
 <!-- TL: Design (2) -->
@@ -369,6 +393,7 @@ therefore reduce the cognitive burden of computing what is logically implied by 
 teaching methods within the hard sciences, social sciences, and mathematics.</p>
 <aside class="notes"> Hard Sciences: biology chemistry, physics, geography
               Social Sciences: sociology, human geology
+    ^^This is in specific consideration of the multiple ways students can interact and therefore learn with TL... (GO TO NEXT SLIDE)
 </aside>
 <img height="300px" src="img/class.JPG">
 <img height="300px" src="img/collaboration2.JPG">
@@ -388,11 +413,11 @@ teaching methods within the hard sciences, social sciences, and mathematics.</p>
         <col width="20%">
         <col width="20%">
         <tr>
-            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">sculpting (hands)
-            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">sculpting (tools)
-            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">placing markers
-            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">establishing viewpoints
-            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">planting vegetation (patches)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">sculpting surfaces (hands)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">placing waypoints (markers)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">drawing walking routes (laser)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">establishing areas (clay)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">planting vegetation (felt)
         </tr>
 </table> 
 <aside class="notes"> These various modes of interaction enable students to immediately see how they are changing terrain properties like
@@ -401,7 +426,7 @@ contours, hillslope steepness, or water flow.
 </section>
 
 <!-- Pilot Study -->
-<section data-background-image class="stretch" src="img/interaction/interactions.png" >
+<section data-background-image="img/interaction/interactions.png" data-background-size="100%" >
          <!-- <section data-background-image="img/Hero_orig.png" data-background-size="stretch" > -->
 <h1 class="shadow">Pilot Study:</h1>
 <h3 class="shadow">Teaching Terrain Analyis</h3>
