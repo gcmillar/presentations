@@ -2,6 +2,7 @@ Collection of presentations
 ===========================================
 
  * https://gcmillar.github.io/presentations/chi2018#/
+ * https://gcmillar.github.io/presentations/us_iale2018#/
 
 Building and publishing pages for this repository
 -------------------------------------------------
