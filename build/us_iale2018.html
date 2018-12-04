@@ -1,0 +1,1062 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>US-IALE 2018</title>
+
+        <meta name="description" content="Slides for US-IALE 2018 talk">
+        <meta name="author" content="NCSU GeoForAll Lab members">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        /*
+          background-image: url("pictures/elevation-nagshead.gif");
+          background-repeat: no-repeat;
+          background-position: left bottom;*/
+        }
+        .reveal section img {
+            background: transparent;
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+        }
+        .small {
+            font-size: smaller !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                
+<!-- Title slide -->
+<section>
+<h5 style="color: #888">
+    US-IALE 2018</h4>
+<h4 style="margin-top: 0.25em;color: #000">Hands-on Methods for Teaching Landscape Form and Processes</h4>
+<img height="350px" src="img/Hero_orig.png">
+<h6 style="margin-top: 0.5em;color: #888">Garrett C. Millar, Payam Tabrizian, Anna Petrasova, Vaclav Petras, Brendan Harmon, Helena Mitasova, Ross K. Meentemeyer</h6>
+<img height="50px" style="margin-top: 2em" src="img/logos/cgaBlack.png">
+<img height="50px" style="margin-top: 2em" src="img/logos/ncstate.png"> 
+<aside class="notes"> 
+    Good afternoon everyone, and thank you for coming to my talk. I'll be presenting new ways to teach about topics of Landscape Ecology, topics
+    that are being presented here at the conference this week. <br>
+    
+
+</aside>
+</section>
+                
+  
+<!-- Outline -->
+<!--<section>
+<h2>Presentation Outline</h2>
+<ul>
+    <li>Introduction</li>
+    <li>Tangible Landscape</li>
+    <li>Pilot Study</li>
+    <li>Methods</li>
+    <li>Results</li>
+    <li>Discussion</li>
+<li>Limitations &amp Future Directions</li>
+    <li>Conclusion</li>
+</ul>
+</section> -->
+
+<!-- Introduction -->
+<!--<section data-background="img/skyview_30.png" data-state="dimbg">
+<h4 style="color: #888">
+    Introduction</h4>-->
+<!--<h3 class="shadow">Introduction</h3>
+<ul class="shadow">
+    <li><b>Spatial Computations:</b></li>
+    <ul class="shadow">
+        <li>digital mapping, modeling, analysis, &amp simulation </li>
+        <li>help people learn about spatial patterns &amp processes </li>
+    </ul>
+    <li><b>Graphical User Interfaces:</b></li>
+    <ul class="shadow">
+            <li>constrain interaction &amp perception of space </li>
+            <li>limit spatial learning </li>
+        </ul>
+    <li><b>Tangible User Interfaces:</b></li>
+        <ul class="shadow">
+            <li>enable embodied interaction with spatial computations</li>
+            <li>are being rapidly adopted for spatial education</li>
+        </ul>
+    <li>Why is this research important?</li>
+</ul>
+<aside class="notes"> 
+- Spatial patterns & processes: understanding the shape of the earth’s surface or the pattern of water flow.
+- GUIS: (paradigmatic mode computer interaction), constrain how users interact, perceive, think about, & learn about
+  space w/ (as input is limited to pointing devices & keyboards & feedback to graphics).
+- Embodied cognition: thinking grounded in bodily presence and experience of 3-dimensional (3D) space 
+- 3D spatial learning = learning with tangibles
+- Why is this research important?
+    <ul>
+         <li>TUIs are being rapidly adopted for spatial education </li>
+         <li>Quick development and adoption Little to NO methods are being developed to assess spatial learning using tangibles </li>
+         <li>Therefore, it is increasingly important to study how to effectively teach about space & assess spatial learning using tangibles.</li>
+    </ul>
+</aside>
+</section>-->
+
+<!-- Background (1)-->
+<section>
+<h3 style="color: #888">
+    Embodied Interaction</h3>
+<img class="stretch" src="img/system/tl_concept_crop.png">
+    <ul>
+        <li>Embodied cognition: a link between perception &amp action</li>
+        <!--<li>Tools for solving spatial problems can be cognitively grasped, understood, &amp simulated into one’s body schema</li>-->
+        <li>Feeling, action, &amp thought are functionally integral to cognition</li>
+        <!--<li>Divide between natural thought processes &amp the virtual confinement of traditional computer interaction (2D)</li>-->
+    </ul>
+<aside class="notes"> First, lets briefly discuss the theory that motivates the research to follow. <br>
+    The notion of Embodied Cognition states that human cognition is shaped by aspects of the entire body. This means feeling, 
+    action, &amp thought are all functionally integral to cognition. <br>
+    And Embodied interaction is when people interact both mentally and physically with technology. So, the way 
+    someone interacts with technology can influence how that system is perceived, processed, and understood.
+    Now that we know this, lets talk about spatial education, and why exactly embodied interaction is of interest.
+    
+   <!-- As you could imagine, this has implications within the field of spatial education (regarding technology used in the classroom), 
+    which will be discussed shortly. -->
+</aside>
+</section>  
+                
+<!-- Intro -->
+<section>
+<h3 style="color: #888">
+    Spatial Education</h3>
+<img class="stretch" src="img/collaboration_computer.JPG">
+    <ul>
+        <li>Spatially-focused curricula = improved student success</li>
+        <li>Difficult for students to visualize complex landscape processes</li>
+        <li>Limits students’ success in geoscience classrooms</li>
+        <li>Why is this?</li>
+    </ul>
+<aside class="notes"> Recently, spatial education curricula have more frequently been incorporating spatial thinking 
+    techniques to improve students’ problem-solving skills. <br>
+    However, students often have difficulty with visualizing spatial relations such as object shapes, 
+    relative locations, and how these change over time. <br>
+    Coming from a cognitive scientist standpoint, we asked why exactly this may be. <br>
+    It was proposed that the difficulty students have when it comes to visualizing spatial relations stems (in part) from the inadequacy of traditional teaching methods. I'm specifically referring to the use of 2D materials (such as computers) to teach about complex 3D spatial concepts. 
+<!-- hands-on learning activities should be used to foster embodied interaction and spatial learning.<br>-->
+    
+    So, this research focuses on the restrictions of traditional teaching methods for Terrain Analysis, and propose an 
+    alternative to help students overcome the difficulty of visualizing landscape processes.<br>
+</aside>
+</section>     
+                
+<!-- Background (5) -->    
+<section>
+<h3 style="color: #888">
+    Teaching Methods for Terrain Analysis:</h3>
+<div align="center">
+    <img width="300px" src="img/rural_surveyor_popup.jpg" alt="" align="left" style="float:leftt"/>
+    <img width="300px" src="img/physical_model2.jpg" alt="" align="right" style="float:right"/>
+ <div id="content" align="center"> 
+     <img width="320px" src="img/contour2.png" alt="" align="center" />
+</div>
+</div>
+<!-- <div align="center">
+    <img height="150px" src="img/rural_surveyor_popup.jpg" alt="" align="left" style="float:leftt"/>
+    <img height="150px" src="img/physical_model.jpg" alt="" align="right"/> style="float:right" />
+ <div id="content" align="center"> 
+     <img height="150px" src="img/contour2.png" alt="" align="center" />
+</div>-->
+<!-- </div> 
+<!--<img height="150px" src="img/rural_surveyor_popup.jpg">
+<img height="150px" src="img/contour2.png">
+<img height="150px" src="img/physical_model.jpg">-->
+<table width="100%">
+        <col width="33%">
+        <col width="33%">
+        <col width="33%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">in-situ surveying
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">drawing contour maps
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">building physical models
+        </tr>
+</table>
+<aside class="notes"> 
+    First, here are a few typical methods used to teach Terrain analysis: On-site Surveying, Drawing of Contour Maps, &
+    Building Physical Models. <br>
+    However, only some directly teach students how to translate between 2D and 3D space. <br>
+</aside>
+</section>
+
+<!-- Background (2)-->
+<section>
+<h3 style="color: #888">
+    Graphical User Interfaces (GUIs)</h3>
+<img height="400px" src="img/arcmap_gui.png">
+    <ul>
+        <li>Inflexible in use, and inadequate for users to perceive &amp process spatial information</li>
+        <li>Limit ways geospatial data can be represented</li>
+        <li>Solution?</li>
+    </ul>
+<aside class="notes"> 
+    Spatial analyses are also typically carried out with computers, or Grahical User Interfaces.
+    However, GUIs limit a users input to mouse & keyboards, and feedback to 2D graphics <br>
+    This means they are inflexible in their use, and are inadequate for students to visualize & process complex landscape 
+    processes because GUIs do NOT allow students to associate spatial data with 3D space, or landscapes.<br>
+</aside>    
+</section>
+
+<!-- Tangible user interfaces (TUIs)-->
+<section>
+<h3 style="color: #888">
+    Tangible User Interfaces (TUIs)</h3>
+    <ul>
+        <li>Offer more natural &amp intuitive mode of interaction</li>
+        <li>Allow users to cognitively grasp &amp physically manipulate 3D data</li>
+        <li>Connect intention, thought, action, &amp feedback</li>
+        <li>Help students better explore, model, visualize, &amp think about complex landscape processes</li>
+    </ul>    
+<div align="center">
+    <img width="350px" src="img/interaction/tl_hand_1.png" alt="" align="left" style="float:leftt"/>
+    <img width="350px" src="img/interaction/tl_hand_3.png" alt="" align="right" style="float:right"/>
+ <div id="content" align="center"> 
+     <img width="350px" src="img/interaction/tl_hand_2.png" alt="" align="center" />
+    <!-- <img width="300px" src="img/interaction/tl_hand_1.png" alt="" align="left" style="float:leftt"/>
+    <img width="300px" src="img/interaction/tl_hand_3.png" alt="" align="right" style="float:right"/>
+ <div id="content" align="center"> 
+     <img width="300px" src="img/interaction/tl_hand_2.png" alt="" align="center" />-->
+</div>
+</div>
+<!-- <img height="300px" src="img/interaction/TUI_GUI.png"> -->
+<!-- <p><small>GRASS Tangible User Interface (TUI) &amp; Graphical User Interface (GUI)</a>
+</small></p>-->
+<aside class="notes"> 
+    One solution may be Tangible User Interfaces, as they have previously been shown to enhance spatial ability by 
+    affording embodied interaction and improving perception through visual and haptic feedback. <br>
+    TUIs are systems which allow users to interact with digital information through user-performed physical (i.e., hands-on) input. <br>
+    This more natural mode of interaction allows students to associate 2D field, map, and GIS data simultaneously with 
+    complex, 3D landscape structures <br>
+    Therefore, TUIs help students better explore, model, visualize, and learn about 
+    complex landscape processes.
+</aside>
+</section>  
+                
+<!-- TL -->
+
+<!-- Tangible Landscape -->            
+<section data-background-image="img/interaction/tl_interaction.gif" data-background-size="100%" data-state="dimbg" >
+<h1 class="shadow">Tangible Landscape:</h1>
+<h3 class="shadow">A tangible user interface powered by open source GIS</h3>
+<!--<img class="500px" src="img/interaction/tl_interaction.gif">-->
+<img height="150px" src="img/logos/logo_black.png">
+<!--<p><small>Source: <i class="fa fa-creative-commons" aria-hidden="true"></i> <a href="https://tangible-landscape.github.io">NCSU GeoForAll Lab</a></small></p>-->
+</section>
+
+<!-- TL: Concept -->
+<section>
+<h3 style="color: #888">
+    Tangible Landscape: Design & Concept </h3>
+<img height="350px" src="img/system/system_schema.png">
+<!--<video data-autoplay src="video/tl_flow.mp4" width="560" height="315" loop="loop">-->
+<video data-autoplay width="560" height="315" controls muted>
+  <source src="video/tl_flow.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<p>With Tangible Landscape you can hold a GIS in your hands - feeling the shape of the earth, sculpting its topography, and directing the flow of water.</p>
+<aside class="notes"> 
+    Tangible Landscape is a tangible user interface that uses a physical representation of a landscape which students can 
+    make changes to. <br>
+    As users change the physical model, the changes are 3D scanned by the Kinect, georeferenced, and imported 
+    into GRASS GIS. <br>
+    GRASS uses this information to compute any kind of geospatial analyses, models, and simulations. The results of 
+    these analyses are then projected back onto the physical model to the user as feedback, ALL in REAL-TIME. <br>
+    BECAUSE OF THIS: TL provides a much broader range of teaching opportunities than other technologies. <br>
+    Examples of these applications include: <br>
+    --> landform analysis, elevation difference analysis, erosion modeling, firespread, plant disease modeling AND MANY others.
+</aside>
+</section>
+<!-- <iframe data-autoplay <iframe width="560" height="315" src="https://www.youtube.com/embed/Cd3cCQTGer4?rel=0&amp;showinfo=0;loop=1&amp;playlist=Cd3cCQTGer4" frameborder="0" allowfullscreen></iframe>-->
+
+
+<!-- TL: Design -->
+<!--<section>
+<h4 style="color: #888">
+    Tangible Landscape</h4>
+<h3>Design</h3>
+<p>The Tangible Landscape system integrates four main computational components:</p>
+    <ol>
+        <li>3D scanning (of physical model)</li>
+        <li>point cloud processing</li>
+        <li>geospatial computation</li>
+        <li>projection</li>
+    </ol> 
+<aside class="notes"> 
+       Specifically, as users change the physical model, the model is 3D scanned as a point cloud, georeferenced, imported into
+    GRASS GIS, and either binned or interpolated as a digital elevation model. <br>
+    The digital elevation model is used to compute geospatial analyses, models, and simulations, which are then
+    projected back onto the physical model, ALL in REAL-TIME.
+</aside>
+</section>-->
+                
+<!-- TL: Design (2) -->
+<!--<section>
+<h4 style="color: #888">
+    Tangible Landscape</h4>
+<h3>Design</h3>
+<p>These components combine to create a continuous cycle of 3D scanning, geospatial modeling, and projection.</p>    
+<img class="stretch" src="img/system/system_schema.png">
+</section>    -->
+
+<!-- Scanning 
+<section>
+<h4 style="color: #888">
+    Tangible Landscape</h4>
+<h3>3D Scanning</h3>    
+<img class="stretch" src="img/interaction/fusion.jpg">
+<p>with Kinect sensor</p>
+</section> -->
+        
+<!-- TL as a Teaching Tool -->
+<!-- <section>
+<h4 style="color: #888">
+    Tangible Landscape as a Teaching Tool</h4>
+<p>By combining computerbased design and embodiment, Tangible Landscape has the potential to transform existing
+teaching methods within the hard sciences, social sciences, and mathematics.</p>
+<aside class="notes"> Hard Sciences: biology chemistry, physics, geography<br>
+              Social Sciences: sociology, human geology<br>
+    ^^This is in specific consideration of the multiple ways students can interact and therefore learn with TL... (GO TO NEXT SLIDE)
+</aside>
+<img height="300px" src="img/class.JPG">
+<img height="300px" src="img/collaboration2.JPG">
+</section>        -->           
+                
+<!-- Interactions -->
+<section>
+<h3 style="color: #888">
+    Interactions</h3>
+<p>Students can physically interact with digital models and simulations by:</p>  
+<img class="stretch" src="img/interaction/TL_Interaction.png">
+<table width="100%">
+        <col width="16.50%">
+        <col width="16.50%">
+        <col width="16.50%">
+        <col width="16.50%">
+        <col width="16.50%">
+        <col width="16.50%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">sculpting surfaces (hands)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">carving surfaces (knife)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">placing waypoints (markers)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">drawing walking routes (laser)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">establishing viewpoints (marker)
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">planting vegetation (felt)
+        </tr>
+</table> 
+<aside class="notes"> Tangible Landscape is also unique in that it allows students to interact with a landscape in many different ways
+    These various modes of interaction enable students to immediately see how they are changing terrain properties like
+    contours, hillslope steepness, or water flow.
+</aside>  
+</section>
+                
+<!-- Methods: Tangible Lessons -->
+<section>
+<h3 style="color: #888">
+    Tangible Lessons</h3>
+<ol>
+    <li>Water flow: flowpath, channeling, &amp ponding  </li>
+    <li>Landforms: required participants to build &amp identify landforms </li>
+    <li>Cut &amp fill: participants changes landscapes based on provided contours </li>
+</ol> 
+<aside class="notes"> 
+    Using Tangible Landscape, we developed 3 tangible teaching lessons to teach the concepts of grading 
+    (i.e., earthwork), geomorphology, and hydrology.
+</aside>  
+</section> 
+    
+<!-- Tangible Lessons: Water Flow -->
+<section>
+<h3 style="color: #888">
+    Water Flow</h3>
+<video data-autoplay height="195px" controls muted>
+  <source src="video/Drain.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<video data-autoplay height="195px" controls muted>
+  <source src="video/Channeling.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<video data-autoplay height="195px" controls muted>
+  <source src="video/Ponding.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<table width="100%">
+        <col width="33%">
+        <col width="33%">
+        <col width="33%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">flowpath<br>
+                <small>(r.drain)</small>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">channeling<br>
+                <small>(r.sim.water)</small>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">ponding<br> 
+                <small>(r.fill.dir)</small>
+        </tr>
+</table>    
+<aside class="notes"> 
+    The first lesson is Water Flow, or Hydrology. It is split into 3 parts... or "sub-tasks" <br>
+    FLOWPATH: students have to find the highest source point from which water will
+    flow into the target point in the landscape.<br>
+    CHANNELING: had to modify the terrain surface–while making minimal changes to the landscapes–to 
+    make water flow from the given source point to the given target point.<br>
+    PONDING: (given a limited amount of sand) had to build a damn on a stream to impound the maximum volume of water.
+</aside>  
+</section>
+    
+<!-- Tangible Lessons: Landforms -->
+<section>
+<h3 style="color: #888">
+    Landforms</h3>
+<video data-autoplay class="stretch" style="margin-top: 1em" controls muted>
+  <source src="video/Landforms.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video>  
+<p><small>GRASS GIS module: r.geomorphon</small></p>
+<aside class="notes"> 
+    The second is Landforms, which also contains 3 subtasks... simple, compound, & complex landforms. <br>
+    Each sub-task requires students to create and identify given landforms, completed in 3 rounds of increasing difficulty.<br>
+    SIMPLE: 1 depression (round 1); 1 ridge (round 2); & 1 valley (round 3)<br>
+    COMPUND: 2 ridges & 1 valley (round 1); 1 peak, 1 valley, & 1 depression (round 2); 2 valleys & 1 depression (round 3)<br>
+    COMPLEX: 3 ridges & 3 valleys (round 1); 3 peaks, 2 depression, & 2 ridges (round 2); 1 footslope & 1 spur (round 3)<br>
+</aside>  
+</section>     
+    
+<!-- Methods: Tangible Lessons: Cut & Fill -->
+<section>
+<h3 style="color: #888">
+    Cut & Fill</h3>
+<video data-autoplay height="275px" controls muted>
+  <source src="video/Cut_Fill1.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<video data-autoplay height="275px" controls muted>
+  <source src="video/Cut_Fill2.mp4" type="video/mp4" data-background-video-loop="loop">
+  Your browser does not support the video tag.
+</video> 
+<table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">basic
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">advanced
+        </tr>
+</table>    
+<aside class="notes"> The third is Cut & Fill, or Grading, where students must try to change landscapes to match a desired elevation
+    based on provided feedback. <br>
+    This is made up of two parts: (1) Basic where students are provided with blue and red colors, 
+    with blue signifying where sand should be added, and red to signify where sand should be cut; and <br>
+    (2) Advanced which required students to match the desired elevation using only contour lines and grapical feedback (bar graph)
+</aside>  
+</section>         
+
+<!-- Pilot Study -->
+<section data-background-image="img/Hero_ppl.png" data-background-size="100%" data-state="dimbg" >
+<h1 class="shadow">Pilot Study:</h1>
+<h2 class="shadow">Teaching Landscape Form & Processes</h2>
+</section>
+
+<!-- Research objectives -->
+<section>
+<h3 style="color: #888">
+    Research Objectives</h3>
+<ul>
+<li>Test the effectiveness of a hands-on method for teaching spatial concepts using Tangible Landscape by:</li>
+    <ul>
+        <li>examining students’ ratings of the system’s usability &amp user experience</li>
+        <li>testing students’ acquisition &amp transfer of knowledge </li>
+    </ul>
+</ul>
+<img class="100%" src="img/session_format.jpg"> 
+<aside class="notes"> In efforts to test the effectiveness of using a TUI to teach spatial concepts (specifically Terrain Analysis), <br>
+    these lessons were used in a pilot study, where graduate Landscape Architecture students were tested before and after
+     each tangible lesson in order to examine any increases in spatial learning.
+</aside>  
+</section> 
+
+<!-- Methods: Environment -->
+<!--<section>
+<h4 style="color: #888">
+    Study Environment</h4>
+<p>Conference room &amp adjacent workshop room</p>
+<img class="100%" src="img/session_format.jpg">    
+    <aside class="notes">  
+</aside>  
+</section> -->
+
+<!-- Methods: Apparatus -->
+<!--<section>
+<h4 style="color: #888">
+    Apparatus</h4> -->
+<!-- <img class="100%" src="img/TL_Setup.png">  -->
+<!--<ul>
+    <li><p>Three Tangible Landscape systems </p></li>
+        <ul>
+            <li>Computer: operated on Linux with GRASS GIS</li>
+            <li>Physical models: made of malleable deformable polymer enriched sand</li>
+            <li>3D sensor: Kinect sensor connected to GRASS GIS</li>
+        </ul>
+</ul>
+    <aside class="notes"> 
+        Computer: System 76 Oryx Laptop, operated on Linux with GRASS GIS<br>
+        –GRASS: open source software for geospatial modeling and analysis–with Tangible Landscape plugin<br>
+        Models: 35x35cm in size, precisely casted with digitally fabricated molds based on local regions (e.g., Asheville, North Carolina, USA).<br>
+        Kinect sensor: an efficient & inexpensive 3D scanner connected to GRASS GIS
+</aside>  
+</section> -->
+    
+<!-- Methods: Procedure -->
+<section>
+<h3 style="color: #888">
+    Procedure</h3>   
+<ul>
+    <li>Three, one-week sessions </li>
+    <ul>
+        <li>Contained tangible lessons for teaching fundamentals of grading, geomorphology, &amp hydrology </li>
+        <li>Session format:  
+            <ol>
+                <li>paper-based pretest</li>
+                <li>introduction explaining the lesson content</li>
+                <li>tangible lessons</li>
+                <li>paper-based posttest</li>
+            </ol>
+        <li>Particpants:
+            <ul>
+                <li>16 graduate students from a Landform, Grading, &amp Site Systems course</li>
+            </ul>
+    </ul>
+</ul>
+    <aside class="notes"> Students worked in pairs for entire 3-week study 
+</aside>  
+</section> 
+                
+    
+<!-- Methods: Tangible Lessons -->
+<section>
+<p>Interaction, feedback, &amp example solutions </p>
+<img class="stretch" src="img/Taskprogress_19.jpg">  
+<aside class="notes"> 
+</aside>  
+</section> 
+
+<!-- Methods: Materials & Scoring -->
+<section>
+<h3 style="color: #888">
+    Materials & Scoring</h3>
+<ul>
+    <li>Topographic Map Assessment (TMA) <small>(Newcombe et al., 2015)</small></li>
+    <ul>
+        <li>Assessed students’ acquisition &amp transfer of spatial skills</li>
+    </ul>
+    <li>Tangible Lesson Assessments</li>
+    <ul>
+        <li>Measured student’s knowledge specific to tangible lesson content (landforms, cut &amp fill) </li>
+    </ul>
+    <li>User Experience Survey</li>
+    <ul>
+        <li>Examined how students perceived and interacted with Tangible Landscape, &amp how they collaborated to solve a problem </li>
+    </ul>
+</ul>
+<aside class="notes"> 
+    TMA: Administered in the 1st session &amp two weeks after the last session<br>
+
+    Tangible Lesson Assessments: administered before & after the TL tasks<br>
+    Landforms assessment: had to identify & write the landform type (out of 5 types total) inside the boundary of a contour map of a mountainous area<br>
+    
+    Cut & fill assessment: 2 problems (simple & complex) corresponding to the tasks completed with TL. <br>
+     --> 1st problem- had to highlight areas in the contour map that had undergone cut & fill operations.<br>
+     --> 2nd problem- had to use 3D views & profiles to complete the contour lines inside a demarcated blank region on the contour map. <br>
+    
+    TMA contains 3 types of topographic map test items: <br>
+    (1) elevation items–require an understanding of how elevation is represented through contour lines; <br>
+    (2) shape items–comprehension of 3D shapes within the represented terrain;  <br>
+    (3) shape and elevation items–contain both the aforementioned constructs.<br>
+    
+    Spatial skills: related to understanding how elevation is encoded on topographic maps & how 3D terrain shape is represented
+on map
+</aside>  
+</section> 
+                 
+<!-- Results: Knowledge Building -->
+<section>
+<h4 style="color: #888">
+    Results</h4>
+<h3>Knowledge Building: Tangible Lessons</h3>
+<img height="350px" src="img/Landforms_CutFill_Scatterplot2.png">
+<img height="350px" src="img/Cutfill_Landforms_barplot_errorbars.png">
+<table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">Individual Scores
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">Mean Scores
+        </tr>
+</table>
+<aside class="notes"> 
+    Landforms pretest: Paired t-test (to determine if there was a significant difference between administration
+    time (Pre –> Post)) found no significant response accuracy differences <br>
+    
+    Cut & Fill: Paired t-test revealed a significant increase in mean response accuracy between pre- & posttest (t(2.73), p = .016). <br>
+    Specifically, after completing the cut & fill tangible lesson, participants performed significantly higher on the cut & 
+    fill assessment (post (M = 59.97, SD = 16.14)) when compared to assessment performance before the lesson (pre (M = 53.25, SD =
+    19.27))
+</aside>  
+</section> 
+            
+<!-- Results: Knowledge Building (2) -->
+<section>
+<h4 style="color: #888">
+    Results</h4>
+<h3>Knowledge Building: TMA</h3>
+<img height="350px" src="img/TMA_scatterplot.png">
+<img height="350px" src="img/TMA_barplot_errorbars.png">
+<table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">Individual Scores
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">Mean Scores
+        </tr>
+</table>
+<aside class="notes"> 
+    Majority of participants (N = 12) scored above 70% . <br>
+    Paired t-test revealed no significant differences in mean TMA response accuracy between Pre & Post
+    differences (t(-0.66), p = .521). <br>
+    Paired t-tests by TMA question type showed no significant differences 
+    in response accuracy across multiple levels of geographic understanding.
+</aside>  
+</section> 
+            
+<!-- Results: User Experience -->
+<section>
+<h4 style="color: #888">
+    Results</h4>
+<h3>User Experience</h3>
+<ul>
+    <li>All constructs pass the neutral value of 4 =  students rated the system positively</li>
+    <li>Most advantageous aspects of Tangible Landscape?</li>
+    <ul>
+        <li>ability to explore various solutions for the given problems (e.g., water flow, landforms, cut and fill) </li>
+        <li>physical objects allowed students to change parameters (e.g., location of solution points) very quickly</li>
+        <li>projected visual feedback helped them better understand the effects of changing those parameters</li>
+    </ul>
+</ul>
+<aside class="notes"> Most advantageous: <br>
+    -> Given problems: water flow, landforms, cut and fill) (M = 6.63, SD = 0.62)<br>
+    -> Physical objects: wooden markers & sculpting knife allowed them to change parameters very quickly (M = 6.63, SD = 0.62)<br>
+    Parameters: location of solution points, adding or removing sand <br>
+    -> projected visual feedback helped them better understand the effects of changing those parameters (M = 6.38, SD = 0.84).
+</aside>  
+</section>            
+
+<!-- Discussion-->
+<section>
+<h3 style="color: #888">
+    Discussion</h3>
+<ul>
+    <li>Preliminary evidence for Tangible Landscape supporting improved user experience and marginal, task-specific 
+        knowledge building</li>
+    <li>Knowledge building:</li>
+    <ul>
+        <li>Ability to directly feel, grasp, and manipulate the various tangible materials </li>
+    </ul>
+    <li>User Experience:</li>
+    <ul>
+        <li>Students can try, see and feel, and directly experience multiple variations of a given solution </li>
+    </ul>
+</ul>
+<aside class="notes"> KNOWLEDGE BUILDING: However, this does not explain why only the cut and fill tangible lesson produced 
+    an increase in assessment scores (from pre- posttest). Potentially, the ability to interact with 3D space 
+    is more appropriate for learning about concepts of land surface grading–in comparison to other geospatial concepts.<br>
+    
+    SECOND: Cut & Fill involved a logical progression in information perception provided users with a real-time guide to 
+    help them better understand where to add or remove sand to match the target digital elevation model. 
+    This likely gives users a more concrete and simplified 3D physical representation of land surface change, leading to 
+    increased understanding of the concept as a whole, and then using this to better identify and comprehend more abstract, 
+    paper-based 2D representations when taking the assessment.<br>
+    
+    UX: Action is reversible with TL, this encourages users to explore w/o risk of consequence <br>
+    Results showed visual feedback given enabled students to better understand 
+    effects of changing topographic parameters (e.g., contours), as it allows users to physically act upon 
+    tangible objects and immediately projects feedback to assist them in understanding how their actions 
+    impact spatiotemporal processes like the flow of water over a landscape.
+</aside>  
+</section>   
+
+<!-- Limitations & Future Directions-->
+<!--<section>
+<h4 style="color: #888">
+    Limitations &amp Future Directions</h4>
+<ul>
+    <li>Limited methodological scope and low statistical power of the presented results</li>
+    <li>Knowledge building:</li>
+    <li>User Experience:</li>
+</ul> 
+<aside class="notes"> 
+</aside>  
+</section> -->
+
+<!-- Conclusions-->
+<!-- <section>
+<h4 style="color: #888">
+    Conclusions</h4>
+<h3>Tangible Lessons</h3> 
+<p>Interaction, feedback, &amp example solutions </p>
+<img class="stretch" src="img/Taskprogress_19.jpg">  
+<aside class="notes"> 
+</aside>  
+</section> --> 
+    
+<section>
+    <h3 style="color: #888">
+    Authors</h3>
+    <!-- This is a terrible example of HTML -->
+    <table>
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <col width="15%">
+        <tr>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <img width="140px" src="img/garrett.jpg"></td>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <p style="font-size: 0.6em">Garrett C. Millar
+                    <p style="font-size: 0.4em">PhD Student<br>Geospatial Analytics</td>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <img width="140px" src="img/payam.jpg"></td>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <p style="font-size: 0.6em">Payam Tabrizian
+                    <p style="font-size: 0.4em">PhD Student<br>College of Design</td>
+            <td style="vertical-align: middle">
+                <img width="140px" src="img/petrasova.jpg"></td>
+            <td style="vertical-align: middle" style="vertical-align: middle">
+                <p style="font-size: 0.6em">Anna Petrasova
+                    <p style="font-size: 0.4em">Postdoctoral Scholar<br>Center for Geospatial Analytics</td>
+            </tr>
+            <tr>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <img width="140px" src="img/vpetras.jpg"></td>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <p style="font-size: 0.6em">Vaclav Petras
+                    <p style="font-size: 0.4em">PhD Candidate<br>Geospatial Analytics</td>    
+            <td style="vertical-align: middle">
+                <img width="140px" src="img/baharmon.jpg"></td>
+            <td style="vertical-align: middle">
+                <p style="font-size: 0.6em">Brendan Harmon
+                    <p style="font-size: 0.4em">Assistant Professor<br>Landscape Architecture<br>Louisiana State University</td>
+            <td style="vertical-align: middle">
+                <img width="140px" src="img/mitasova.jpg"></td>
+            <td style="vertical-align: middle">
+                <p style="font-size: 0.6em">Helena Mitasova
+                <p style="font-size: 0.4em">Associate Director of Geovisualization<br>Center for Geospatial Analytics</td>
+            </tr>
+            <tr>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <img width="140px" src="img/ross.jpg"></td>
+            <td style="vertical-align: middle; border-bottom: 0px">
+                <p style="font-size: 0.6em">Ross Meentemeyer
+                    <p style="font-size: 0.4em">Director<br>Center for Geospatial Analytics</td>
+            </tr>    
+    </table>
+</section>                    
+    
+<!-- Full Paper --> 
+<section>
+<h4 style="color: #888">
+    Full Paper</h4>
+<img class="stretch" src="img/CHI_paper_cover.png">
+<p>
+    Full Paper: <em><a href="https://www.researchgate.net/profile/Brendan_Harmon2/publication/322355724_Tangible_Landscape_A_Hands-on_Method_for_Teaching_Terrain_Analysis/links/5a753deb45851541ce566c0c/Tangible-Landscape-A-Hands-on-Method-for-Teaching-Terrain-Analysis.pdf">
+    Tangible Landscape: A Hands-on Method for Teaching Terrain Analysis</a></em>
+    Millar G.C., Tabrizian P., Petrasova A., Petras V., Harmon B., Mitasova H., Meentemeyer R.K.
+    ACM SIGCHI. 2018.</p>
+</section>    
+    
+<!-- Acknowledgments-->
+<section>
+<h4 style="color: #888">
+    Acknowledgments</h4>
+<p>We would like to thank Carla Delcambre of the Landscape Architecture department at North Carolina State University for
+working with us to implement this study in her course. We also thank the Landscape Architecture graduate students for 
+    participating in the study.</p>
+<aside class="notes"> 
+</aside>  
+</section>
+            
+<!-- Questions --> 
+<section>
+<h4 style="color: #888">
+    Come see Tangible Landscape for yourself!<br>
+    (Tonight's poster social)
+    </h4>
+    <img class="110%' src="img/TL_team_iale.jpg">
+<h4 style="color: #888">
+    Questions?</h4>
+<p>Thank you!</p>
+</section>  
+<aside class="notes"> Lastly, we were planning to demonstrate Tangible Landscape during this session, 
+    but it made more sense to do so at the poster social. <br>
+    So we would love for anyone to come by, interact with the models, and chat with us. 
+    And with that, thank you, and I will take any questions. 
+</aside>             
+<!-- Open source -->
+<section>
+<h4 style="color: #888">
+    Open Source</h4>
+<!--<p><a href="https://github.com/baharmon/tangible_topography">Repository with experiment instructions, scripts, data, and results</a></p>-->
+<p>Tangible Landscape plugin for GRASS GIS <br>
+    <a href="https://github.com/tangible-landscape/grass-tangible-landscape">
+        github.com/tangible-landscape/grass-tangible-landscape
+    </a></p>
+<p>GRASS GIS module for importing data from Kinect v2 <br>
+    <a href="https://github.com/tangible-landscape/r.in.kinect">
+        github.com/tangible-landscape/r.in.kinect
+    </a></p>
+<p>Tangible Landscape repository on Open Science Framework <br>
+    <a href="https://osf.io/w8nr6/">
+        osf.io/w8nr6
+    </a></p>
+<img width="20%" src="img/tl_logo.png">
+</section>
+<!-- Resources -->
+<section>
+<h4 style="color: #888">
+    Resources</h4>
+<!-- website, open education paper, book -->
+<ul>
+    <li>Tangible Landscape website:  <a href="https://tangible-landscape.github.io">tangible-landscape.github.io</a></li>
+    <li>Tangible Landscape wiki: <br><a href="https://github.com/tangible-landscape/grass-tangible-landscape/wiki">github.com/tangible-landscape/grass-tangible-landscape/wiki</a> </li>
+    <li>Book: <a href="http://www.springer.com/us/book/9783319257730">
+        <em>Tangible Modeling with Open Source GIS</em></a></li>
+</ul>
+<!-- <img width="20%" src="img/tl_book_cover.png"> -->
+<!--</section>
+<section>
+    <h2>Thank you!</h2>
+-->
+<p>
+</section> 
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>

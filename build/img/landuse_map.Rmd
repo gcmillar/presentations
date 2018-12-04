@@ -1,0 +1,686 @@
+---
+title: "GIS 713 | Preliminary Analyses"
+author: "G. Millar"
+output:
+  html_document:
+    toc: yes
+  pdf_document:
+    toc: yes
+---
+```{r global_options, include=FALSE}
+library(knitr)
+opts_chunk$set(echo=TRUE,
+               fig.pos = 'h')
+```
+
+## Setup
+```{r setup, tidy=TRUE, message=FALSE, warning=FALSE, cache=TRUE}
+library(rgdal)
+library(dplyr)
+library(tidyr)
+library(sp)
+library(raster)
+library(rgeos)
+library(rgbif)
+library(viridis)
+library(gridExtra)
+library(sp)
+library(raster)
+library(R.matlab)
+library(plyr)
+library(data.table)
+library(maptools)
+library(rgdal)
+library(spatstat) 
+library(rasterVis)
+```
+
+## Data Proccessing
+```{r Data Setup & Manipulation, tidy=TRUE, message=FALSE, warning=FALSE, cache=TRUE}
+setwd("~/Desktop/Fall_2018_Classes/GIS_713/Final_Project")
+CHIPS_df = read.table("chips.csv", header = TRUE, row.names=NULL, sep=",")
+CHIPS_df <- CHIPS_df[!CHIPS_df$lat < 500000.00, ]
+CHIPS_df <- CHIPS_df[!CHIPS_df$long < 50000.00, ]
+# correcting odd lat coords
+CHIPS_df$lat <- CHIPS_df$lat / 10000
+CHIPS_df$long <- CHIPS_df$long / 10000
+setnames(CHIPS_df, "long", "lon")
+# aggregate data 
+n <- 5
+CHIPS_df <- aggregate(CHIPS_df,list(rep(1:(nrow(CHIPS_df)%/%n+1),each=n,len=nrow(CHIPS_df))),mean)[-1]
+# And a function to shift vectors conviniently:
+shift.vec <- function (vec, shift) {
+  if(length(vec) <= abs(shift)) {
+    rep(NA ,length(vec))
+  }else{
+    if (shift >= 0) {
+      c(rep(NA, shift), vec[1:(length(vec)-shift)]) }
+    else {
+      c(vec[(abs(shift)+1):length(vec)], rep(NA, abs(shift))) } }
+  }
+# Calculating distances between successive positions and the respective speed in this segment.
+# Shifting vectors for lat and lon so that each row also contains the next position.
+CHIPS_df$lat.p1 <- shift.vec(CHIPS_df$lat, -1)
+CHIPS_df$lon.p1 <- shift.vec(CHIPS_df$long, -1)
+# Calculating distances (in metres) using the function pointDistance from the ‘raster’ package.
+CHIPS_df$dist.to.prev <- apply(CHIPS_df, 1, FUN = function (row) {
+  pointDistance(c(as.numeric(row["lat.p1"]), as.numeric(row["long.p1"])), 
+                c(as.numeric(row["lat"]), as.numeric(row["long"])), 
+                lonlat = T)
+})
+# Transforming the column ‘time’ so that R knows how to interpret it.
+CHIPS_df$time_new <- strptime(CHIPS_df$initial_time_stamp_mat,
+                              format="%m/%d/%Y %H:%M")
+# Shift the time vector, too.
+CHIPS_df$time.p1 <- shift.vec(CHIPS_df$time_new, -1)
+# Calculating number of seconds between two positions.
+CHIPS_df$time.diff.to.prev <- as.numeric(difftime(CHIPS_df$time.p1, 
+                                                  CHIPS_df$time_new))
+# Calculating metres per seconds, kilometres per hour, and two LOWESS smoothers to get rid of some noise.
+CHIPS_df$speed.m.per.sec <- CHIPS_df$dist.to.prev / CHIPS_df$time.diff.to.prev
+CHIPS_df$speed.km.per.h <- CHIPS_df$speed.m.per.sec * 3.6
+CHIPS_df$speed.km.per.h <- ifelse(is.na(CHIPS_df$speed.km.per.h), 0, 
+                                  CHIPS_df$speed.km.per.h)
+CHIPS_df$lowess.speed <- lowess(CHIPS_df$speed2, f = 0.2)$y
+CHIPS_df$lowess.alt <- lowess(CHIPS_df$altitude, f = 0.2)$y
+CHIPS_df$lowess.conduct <- lowess(CHIPS_df$conductance_z, f = 0.2)$y
+```
+
+## Exploratory Data Visualizations
+### GPS
+```{r Initial Plotting Exploration, tidy=TRUE, message=FALSE, fig.align='center', fig.cap="", warning=FALSE, dpi=300, fig.height=7, cache=TRUE}
+# Now, let’s plot all the stuff!
+# Plot elevations and smoother
+layout(matrix(1:3, nrow=3))
+plot(CHIPS_df$altitude, type = "l", bty = "n", xaxt = "n", lwd= 3, 
+     ylab = "Elevation", 
+     xlab = "", col = "grey60")
+lines(CHIPS_df$lowess.alt, col = "green", lwd = 3)
+abline(h = mean(CHIPS_df$altitude), lty = 2, lwd = 3, col = "green")
+legend(x="bottomright", legend = c("GPS elevation", "LOWESS elevation", 
+                                "Mean elevation"),
+       col = c("grey60", "green", "green"), lwd = c(2,4,2), lty = c(1,2,2),
+       bty = "n")
+# Plot speeds and smoother
+plot(CHIPS_df$speed2, type = "l", bty = "n", lwd= 3, xaxt = "n", 
+     ylab = "Speed (km/h)", xlab = "", col = "grey60")
+lines(CHIPS_df$lowess.speed, col = "red", lwd = 3)
+abline(h = mean(CHIPS_df$speed2), lty = 2, lwd = 3, col = "red")
+legend(x="topright", legend = c("GPS speed", "LOWESS speed", 
+                                   "Mean speed"),
+       col = c("grey60", "red", "red"), lwd = c(2,4,2), lty = c(1,2,2), 
+       bty = "n")
+# Plot conductnace and smoother
+plot(CHIPS_df$conductance_z, type = "l", bty = "n", lwd= 3, xaxt = "n", 
+     ylab = "Skin Conductance", xlab = "", col = "grey60")
+lines(CHIPS_df$lowess.conduct, col = "blue", lwd = 3)
+abline(h = mean(CHIPS_df$conductance_z), lty = 2, lwd = 3,  col = "blue")
+legend(x="topright",
+       legend = c("Conductance", "LOWESS conductance", "Mean conductance"),
+       col = c("grey60", "blue", "blue"), lwd = c(2,4,2), lty = c(1,2,2),
+       bty = "n")
+par(mar=c(5, 4, 4, 2) + 0.1)
+```
+
+### Skin Conductance
+Plotting the elevation and timestamp of each waypoint using ggplot, allows us to visualise the hike towards the valley of Grauson. As a preparatory step, we use the `ymd_hms()` function from the lubridate library to convert the string representating the timestamp to a proper R time-object. As to not confuse ggplot, we also do not pass the SpatialPointsDataFrame-object directly, but convert it to a regular dataframe with `as.data.frame()`:
+```{r Initial Plotting Exploration b, tidy=TRUE, message=FALSE, fig.align='center', fig.cap="", warning=FALSE, dpi=300, fig.height=5, cache=TRUE}
+if(!require(lubridate)) install_github("rstudio/lubridate")
+if(!require(ggplot2)) install_github("rstudio/ggplot2")
+if(!require(gridExtra)) install_github("rstudio/gridExtra")
+# plot of time and elevation, colored by skin conductance
+time_ele_conduct_plot <- ggplot(as.data.frame(CHIPS_df), # convert to regular dataframe
+            aes(x=time, y=altitude, color = conductance_z)) +
+            scale_color_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(CHIPS_df$conductance_z)) +
+            theme_bw() +
+            geom_point(alpha = 0.8, size = 2) + 
+            labs(x='\nCycling time', y='Elevation (meters)\n')
+# plot of time and speed, colored by skin conductance
+time_speed_conduct_plot <- ggplot(as.data.frame(CHIPS_df), # convert to regular dataframe
+            aes(x=time, y=speed2, color = conductance_z)) +
+            scale_color_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(CHIPS_df$conductance_z)) +
+            theme_bw() +
+            geom_point(alpha = 0.8,size = 2) + 
+  labs(x='\nCycling time', y='Speed (km/h)\n')
+grid.arrange(time_ele_conduct_plot, time_speed_conduct_plot, nrow=2)
+```
+
+## Spatial Data Processing
+```{r Spatial Data Processing a, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=3}
+# shp_dsn <- "~/Desktop/Fall_2018_Classes/GIS_713/Final_Project/NL006L3_TILBURG/Shapefiles"
+# landcover <- readOGR(path.expand(shp_dsn), 'NL006L3_TILBURG_UA2012')
+# 
+# # Projection
+# landcover <- spTransform(landcover, CRS("+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs"))
+# Conversion into SpatialPoints
+coordinates(CHIPS_df) <- ~ lon + lat
+# coordinates(pt1) <- ~ lon + lat
+# coordinates(pt2) <- ~ lon + lat
+# coordinates(pt3) <- ~ lon + lat
+# coordinates(pt4) <- ~ lon + lat
+# coordinates(pt5) <- ~ lon + lat
+# coordinates(pt6) <- ~ lon + lat
+# coordinates(pt7) <- ~ lon + lat
+# coordinates(pt8) <- ~ lon + lat
+# coordinates(pt9) <- ~ lon + lat
+# coordinates(pt10) <- ~ lon + lat
+# coordinates(pt11) <- ~ lon + lat
+# Setting default projection
+proj4string(CHIPS_df) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt1) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt2) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt3) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt4) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt5) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt6) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt7) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt8) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt9) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt10) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+# proj4string(pt11) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+pt1 <- CHIPS_df[CHIPS_df$participant == 1, ]
+pt2 <- CHIPS_df[CHIPS_df$participant == 2, ]
+pt3 <- CHIPS_df[CHIPS_df$participant == 3, ]
+pt4 <- CHIPS_df[CHIPS_df$participant == 4, ]
+pt5 <- CHIPS_df[CHIPS_df$participant == 5, ]
+pt6 <- CHIPS_df[CHIPS_df$participant == 6, ]
+pt7 <- CHIPS_df[CHIPS_df$participant == 7, ]
+pt8 <- CHIPS_df[CHIPS_df$participant == 8, ]
+pt9 <- CHIPS_df[CHIPS_df$participant == 9, ]
+pt10 <- CHIPS_df[CHIPS_df$participant == 10, ]
+pt11 <- CHIPS_df[CHIPS_df$participant == 11, ]
+```
+
+## Web-mapping
+```{r Initial Web Mapping, tidy=TRUE, message=FALSE, warning=FALSE, fig.height=6, fig.width=9.5, cache=TRUE, include=TRUE}
+library(leaflet)
+require(pals)
+conduct.pal <- colorNumeric (c("dodgerblue4", "slategray2", "red3"), 
+                             pt1$conductance_z)
+m <- leaflet() %>%
+  # Add tiles
+  addProviderTiles("Esri.WorldTopoMap", group = "Topographical") %>%
+  addProviderTiles("OpenStreetMap.Mapnik", group = "Road map") %>%
+  addProviderTiles("Esri.WorldImagery", group = "Satellite") %>%
+  addCircles (data=pt1, group='Participant 1', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt1$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt1$conductance_z)) %>%
+  addCircles (data=pt2, group='Participant 2', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt2$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt2$conductance_z)) %>%
+  addCircles (data=pt3, group='Participant 3', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt3$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt3$conductance_z)) %>%
+  addCircles (data=pt4, group='Participant 4', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt4$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt4$conductance_z)) %>%
+  addCircles (data=pt5, group='Participant 5', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt5$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt5$conductance_z)) %>%
+  addCircles (data=pt6, group='Participant 6', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt6$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt6$conductance_z)) %>%
+  addCircles (data=pt7, group='Participant 7', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt7$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt7$conductance_z)) %>%
+  addCircles (data=pt8, group='Participant 8', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt8$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt8$conductance_z)) %>%
+  addCircles (data=pt9, group='Participant 9', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt9$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt9$conductance_z)) %>%
+  addCircles (data=pt10, group='Participant 10', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt10$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt10$conductance_z)) %>%
+  addCircles (data=pt11, group='Participant 11', stroke = T, radius = 80, 
+              fillOpacity = 0.2, fillColor = conduct.pal(pt11$conductance_z),
+              opacity = 0.2, color = conduct.pal(pt11$conductance_z)) %>%
+  # Layers control
+  addLayersControl(position = 'bottomright',
+                   baseGroups = c("Topographical", "Road map", "Satellite"),
+                   overlayGroups = c("Participant 1", "Participant 2", 
+                                     "Participant 3", "Participant 4", 
+                                     "Participant 5", "Participant 6",
+                                     "Participant 7", "Participant 8", 
+                                     "Participant 9", "Participant 10", 
+                                     "Participant 11"),
+                   options = layersControlOptions(collapsed = FALSE)) %>%
+  hideGroup(c("Participant 2", "Participant 3", "Participant 4", "Participant 5", 
+              "Participant 6", "Participant 7", "Participant 8", "Participant 9",
+              "Participant 10", "Participant 11")) %>%
+  addLegend(values = pt1$conductance_z, pal = conduct.pal, 
+            opacity = 1, title = "Skin Conductivity", position = "bottomleft")
+# m
+```
+
+## Study Area
+```{r Study Area, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=5.5, fig.weight=8, cache=TRUE, include=TRUE}
+# Land use
+shp_dsn <- "~/Desktop/Fall_2018_Classes/GIS_713/Final_Project/NL_Landcover_polys.shp.shp"
+land_poly_shps <- readOGR(path.expand(shp_dsn), 'NL_Landcover_polys.shp')
+# ensure proj is longlat
+proj4string(land_poly_shps) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+land_poly_shps <- spTransform(land_poly_shps, CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs'))
+# land classes
+urban <-  c("cemetery",  "industrial", "residential", "retail", "doityourself", "artwork",
+            "graveyard", "university", "attraction", "theme_park", "cafe", "doctors",
+            "gift_shop", "theatre", "zoo", "swimming_pool", "wastewater_plant", "museum", "fast_food",
+            "pub", "library", "school", "college", "hotel", "sports_centre", "supermarket",
+            "water_tower", "bank", "shelter", "parking", "parking_multistorey", "fuel", "parking_underground")
+green_areas <- c("grass",  "park", "forest", "farm", "orchard", "heath", "scrub", "meadow", "quarry", "allotments",
+                 "golf_course", "playground", "camp_site", "pitch", "chalet", "dog_park", "beach",
+                 "parking_bicycle")
+water  <- c( "water", "wetland", "fountain")
+land_name = land_poly_shps$fclass
+land_poly_shps$group <- with(land_poly_shps, ifelse(land_name %in% urban, "urban",
+                                                    ifelse(land_name %in% green_areas,
+                                                           "green_areas", "water")))
+
+# read in road polys
+shp_dsn <- "~/Desktop/Fall_2018_Classes/GIS_713/Final_Project/NL_roads_lines.shp.shp"
+roads_poly_shps <- readOGR(path.expand(shp_dsn), 'NL_roads_lines.shp')
+# ensure proj is longlat
+# proj4string(roads_poly_shps)
+proj4string(roads_poly_shps) <- CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs')
+roads_poly_shps  <- spTransform(roads_poly_shps, CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs'))
+
+# road classes
+small_roads  <- c("residential", "track_grade1", "track_grade2", "track_grade3", "track_grade4", 
+                  "track_grade5", "track", "path", "footway", "cycleway", "steps", "bridleway")
+med_roads  <- c( "pedestrian",  "living_street", "service", "secondary", "secondary_link",
+                 "tertiary", "tertiary_link")
+large_roads  <- c( "motorway_link", "motorway", "primary", "primary_link", "trunk", "trunk_link")
+road_name = roads_poly_shps$fclass
+roads_poly_shps$group <- with(roads_poly_shps, ifelse(road_name %in% small_roads, "small_roads",
+                                                    ifelse(road_name %in% med_roads, 
+                                                           "med_roads", "large_roads")))
+```
+
+## Spatial Analysis 
+### Mapping Cycling Routes 
+```{r Spatial Analysis / Visualization a, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+# clipping landcover polygon to cycling route
+library(leaflet)
+# RColorBrewer::brewer.pal(3, "YlOrRd")
+land.pal <- colorFactor (c("forestgreen","pink3","cornflowerblue"), 
+                         land_poly_shps$group)
+roads.pal <- colorFactor (rev(c("#FFEDA0", "#FEB24C", "indianred4")), 
+                          roads_poly_shps$group)
+conduct.pal <- colorNumeric (c("dodgerblue4", "slategray2", "red3"), 
+                             pt1$conductance_z)
+
+# test plots with newly assigned groups
+# assign distinct colors to each class
+land_poly_shps$group = factor(land_poly_shps$group, levels = c("urban", "green_areas", "water"))
+# define color vector in the same order.
+land_colors <- c("azure3", "seagreen", "cornflowerblue")
+
+# and same process for roads
+roads_poly_shps$group = factor(roads_poly_shps$group, levels = c("small_roads", "med_roads", "large_roads"))
+roads_colors <- c("yellow","orange","firebrick")
+
+pt1_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 1", cex=0.7)) + 
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt1, col = conduct.pal(pt1$conductance_z), cex = 1.5, pch = 20 ))
+
+pt2_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 2", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt2, col = conduct.pal(pt2$conductance_z), cex = 1.5, pch = 20 ))
+
+pt3_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 3", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt3, col = conduct.pal(pt3$conductance_z), cex = 1.5, pch = 20 ))
+
+pt4_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 4", cex=0.7)) + 
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt4, col = conduct.pal(pt4$conductance_z), cex = 1.5, pch = 20 ))
+
+pt5_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 5", cex=0.7)) + 
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt5, col = conduct.pal(pt5$conductance_z), cex = 1.5, pch = 20 ))
+
+pt6_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = list(space = "right", height = 0.4, width = 0.35),
+       main = list(label="Participant 6", cex=0.7)) + 
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors,
+                 colorkey = list(space = "right", height = 0.4, width = 0.35))) +
+  layer(sp.points(pt6, col = conduct.pal(pt6$conductance_z), cex = 1.5, pch = 20)) 
+library(gridExtra)
+grid.arrange(ncol = 6, nrow = 1, pt1_plot, pt2_plot, pt3_plot, pt4_plot, pt5_plot, pt6_plot)
+```
+
+```{r Spatial Analysis / Visualization b, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, echo=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+pt7_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 7", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt7, col = conduct.pal(pt7$conductance_z), cex = 1.5, pch = 20 ))
+
+pt8_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 8", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt8, col = conduct.pal(pt8$conductance_z), cex = 1.5, pch = 20 ))
+
+pt9_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 9", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt9, col = conduct.pal(pt9$conductance_z), cex = 1.5, pch = 20 ))
+
+pt10_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 10", cex=0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) +
+  layer(sp.points(pt10, col = conduct.pal(pt10$conductance_z), cex = 1.5, pch = 20 ))
+
+pt11_plot <- spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = F,
+       main = list(label="Participant 11", cex = 0.7)) +  
+  layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors,
+                 colorkey = list(space = "right", height = 0.4, width = 0.35))) +
+  layer(sp.points(pt11, col = conduct.pal(pt11$conductance_z), cex = 1.5, pch = 20))
+library(gridExtra)
+grid.arrange(ncol = 5, nrow = 1, pt7_plot, pt8_plot, pt9_plot, pt10_plot, pt11_plot)
+
+
+
+spplot(land_poly_shps, zcol = "group", col.regions = land_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = list(space = "right", height = 0.4, width = 1)) 
+
+spplot(roads_poly_shps, zcol = "group", col.regions = roads_colors,
+       col = 'transparent', edge.col = "transparent",
+       par.settings = list(axis.line = list(col = 'transparent')),
+       colorkey = list(space = "right", height = 0.4, width = 1)) 
+
+
+# +  
+#   layer(sp.lines(roads_poly_shps, zcol = "group", col = roads_colors)) 
+
+
+```
+
+### Land Use Buffer Analysis
+This land use buffer (SpatialPolygonsDataFrame) was created with the following code, 
+it has previously been saved and is read in as shp file to save time:
+`buf_all <- buffer(CHIPS_df, width=100, dissolve = F, doEdge = T)`
+`land_buf <- intersect(buf_all, land_poly_shps)`
+```{r Land Use Buffer Analysis, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+# read in landcover polys
+shp_dsn <- "~/Desktop/Fall_2018_Classes/GIS_713/Final_Project/buffer_landuse.shp"
+land_buf <- readOGR(path.expand(shp_dsn), 'buffer_landuse')
+# ensure proj is longlat
+land_buf <- spTransform(land_buf, CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs'))
+```
+
+### Road Type Buffer Analysis
+This road type buffer (SpatialPolygonsDataFrame) was created with the following code, 
+it has previously been saved and is read in as shp file to save time:
+`buf_all <- buffer(CHIPS_df, width = 100, dissolve = F, doEdge = T)`
+`roads_buf <- intersect(roads_poly_shps, buf_all)`
+```{r Road Type Buffer Analysis, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+shp_dsn <- "~/Desktop/Fall_2018_Classes/GIS_713/Final_Project/buffer_roads.shp"
+roads_buf <- readOGR(path.expand(shp_dsn), 'buffer_roads')
+# ensure proj is longlat
+roads_buf <- spTransform(roads_buf, CRS('+proj=longlat +lat_0=52 +lon_0=10 +x_0=4321000 +y_0=3210000 +ellps=GRS80 +units=m +no_defs'))
+```
+
+### Skin Conductance by Landcover Types 
+```{r Spatial Analysis / Visualization c, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+### Skin Conductance by Landcover Types (only tables with counts and means per land cover group)
+require(spatialEco)
+require(sp)
+# Number of points in each landcover group
+Conduct_Points_per_group <- tapply(land_buf@data$conductance_z, 
+                                   land_buf@data$group, 
+                                   FUN=length)
+# Mean conductance in each landcover group
+Conduct_Mean_per_group <- tapply(land_buf@data$conductance_z, land_buf@data$group, FUN=mean)
+Conduct_Mean_per_group <- round(Conduct_Mean_per_group, 2)
+conductance_groups <- data.frame(t(rbind("Skin Conductance Points (N)"=Conduct_Points_per_group,
+                                         "Mean Skin Conductance"=Conduct_Mean_per_group)))
+conductance_groups[is.na(conductance_groups$Skin.Conductance.Points..N.)] <- NULL
+conductance_groups[is.na(conductance_groups$Mean.Skin.Conductance)] <- NULL
+# Number of points in each polygon
+Conduct_Points_per_Poly <- tapply(land_buf@data$conductance_z, land_buf@data$fclass, 
+                                  FUN=length)
+# Mean conductance in each polygon
+Conduct_Mean_per_Poly <- tapply(land_buf@data$conductance_z, land_buf@data$fclass, FUN=mean)
+Conduct_Mean_per_Poly <- round(Conduct_Mean_per_Poly, 2)
+conductance_polys <- data.frame(t(rbind("Skin Conductance Points (N)"=Conduct_Points_per_Poly,
+                                        "Mean Skin Conductance"=Conduct_Mean_per_Poly)))
+
+library(tableHTML)
+# Table: Number of points and means (landcover groups)
+conductance_groups[is.na(conductance_groups)] <- NULL
+conductance_groups_table <- conductance_groups %>%
+  tableHTML( border = 2,
+             rownames = TRUE, 
+             headers = c("Sampled Points (N)", "Skin Conductance (M)"), 
+             second_headers = list(c(1, 3), c('Landcover Class', 'Statistic'))) %>%
+  add_css_second_header(css = list(c('background-color', 'color', 'height'),
+                                   c('#C0C0C0', 'black', '50px')),
+                        second_headers = 1:2) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'), rows = odd(3:6)) %>%
+  add_css_conditional_column(conditional = ">=",
+                             value = 1000,
+                             css = list('background-color', "lightcoral"),
+                             columns = c("Skin Conductance (M)")) %>%
+  add_css_conditional_column(conditional = "<=",
+                             value = -300,
+                             css = list('background-color', "lightsteelblue"),
+                             columns = c("Skin Conductance (M)"))
+# Table: Number of points and means (all landcover types)
+conductance_polys[is.na(conductance_polys)] <- 0
+conductance_polys_table <- conductance_polys %>%
+  tableHTML( border = 2,
+             rownames = TRUE, 
+             headers = c("Sampled Points (N)", "Skin Conductance (M)"), 
+             second_headers = list(c(1, 3), c('Landcover Class', 'Statistic'))) %>%
+  add_css_second_header(css = list(c('background-color', 'color', 'height'),
+                                   c('#C0C0C0', 'black', '50px')),
+                        second_headers = 1:2) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'), rows = odd(3:25)) %>%
+  add_css_conditional_column(conditional = ">=",
+                             value = 1000,
+                             css = list('background-color', "lightcoral"),
+                             columns = c("Skin Conductance (M)")) %>%
+  add_css_conditional_column(conditional = "<=",
+                             value = -300,
+                             css = list('background-color', "lightsteelblue"),
+                             columns = c("Skin Conductance (M)"))
+# print tables
+conductance_groups_table
+conductance_polys_table
+```
+
+### Skin Conductance by Road Types 
+```{r Skin Conductance by Road Types  c, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+### Skin Conductance by road Types (only tables with counts and means per land cover group)
+require(spatialEco)
+require(sp)
+# Number of points in each landcover group
+Conduct_Points_per_group_roads <- tapply(roads_buf@data$conductance_z, 
+                                   roads_buf@data$group, 
+                                   FUN=length)
+# Mean conductance in each landcover group
+Conduct_Mean_per_group_roads <- tapply(roads_buf@data$conductance_z, roads_buf@data$group, FUN=mean)
+Conduct_Mean_per_group_roads <- round(Conduct_Mean_per_group_roads, 2)
+conductance_groups_roads <- data.frame(t(rbind("Skin Conductance Points (N)"=Conduct_Points_per_group_roads,
+                                         "Mean Skin Conductance"=Conduct_Mean_per_group_roads)))
+# Number of points in each polygon
+Conduct_Points_per_Poly_roads <- tapply(roads_buf@data$conductance_z, roads_buf@data$fclass, 
+                                  FUN=length)
+# Mean conductance in each polygon
+Conduct_Mean_per_Poly_roads <- tapply(roads_buf@data$conductance_z, roads_buf@data$fclass, FUN=mean)
+Conduct_Mean_per_Poly_roads <- round(Conduct_Mean_per_Poly_roads, 2)
+conductance_polys_roads <- data.frame(t(rbind("Skin Conductance Points (N)"=Conduct_Points_per_Poly_roads,
+                                        "Mean Skin Conductance"=Conduct_Mean_per_Poly_roads)))
+
+library(tableHTML)
+# Table: Number of points and means (landcover groups)
+conductance_groups_roads[is.na(conductance_groups_roads)] <- 0
+conductance_groups_table_roads <- conductance_groups_roads %>%
+  tableHTML( border = 2,
+             rownames = TRUE, 
+             headers = c("Sampled Points (N)", "Skin Conductance (M)"), 
+             second_headers = list(c(1, 3), c('Road Class', 'Statistic'))) %>%
+  add_css_second_header(css = list(c('background-color', 'color', 'height'),
+                                   c('#C0C0C0', 'black', '50px')),
+                        second_headers = 1:2) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'), rows = odd(3:6)) %>%
+  add_css_conditional_column(conditional = ">=",
+                             value = 1000,
+                             css = list('background-color', "lightcoral"),
+                             columns = c("Skin Conductance (M)")) %>%
+  add_css_conditional_column(conditional = "<=",
+                             value = -300,
+                             css = list('background-color', "lightsteelblue"),
+                             columns = c("Skin Conductance (M)"))
+# Table: Number of points and means (all landcover types)
+conductance_polys_roads[is.na(conductance_polys_roads)] <- 0
+conductance_polys_table_roads <- conductance_polys_roads %>%
+  tableHTML( border = 2,
+             rownames = TRUE, 
+             headers = c("Sampled Points (N)", "Skin Conductance (M)"), 
+             second_headers = list(c(1, 3), c('Road Type', 'Statistic'))) %>%
+  add_css_second_header(css = list(c('background-color', 'color', 'height'),
+                                   c('#C0C0C0', 'black', '50px')),
+                        second_headers = 1:2) %>%
+  add_css_row(css = list('background-color', '#f2f2f2'), rows = odd(3:25)) %>%
+  add_css_conditional_column(conditional = ">",
+                             value = 1000,
+                             css = list('background-color', "lightcoral"),
+                             columns = c("Skin Conductance (M)")) %>%
+  add_css_conditional_column(conditional = "<=",
+                             value = -300,
+                             css = list('background-color', "lightsteelblue"),
+                             columns = c("Skin Conductance (M)"))
+# print tables
+conductance_groups_table_roads
+conductance_polys_table_roads
+```
+
+# Conductance by land use bar charts
+```{r Conductance by land use bar charts, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+conductance_groups$road <- row.names(conductance_groups)
+conductance_polys$road <- row.names(conductance_polys)
+# groups
+library(ggplot2)
+ggplot(conductance_groups, aes(x = road, y = Mean.Skin.Conductance, fill=Mean.Skin.Conductance)) +
+  geom_bar(stat="identity") +
+  scale_fill_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(conductance_groups$Mean.Skin.Conductance)) +
+  labs(x="\nLand Use Group", y="Mean Skin Conductance\n") +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+# all
+ggplot(data=conductance_polys[which(conductance_polys$Mean.Skin.Conductance!=0),], 
+       aes(x = road, y = Mean.Skin.Conductance, fill=Mean.Skin.Conductance)) +
+  geom_bar(stat="identity") +
+  scale_fill_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(conductance_groups$Mean.Skin.Conductance)) +
+  labs(x="\nLand Use Type", y="Mean Skin Conductance\n") +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+```
+
+# Conductance by roads bar charts
+```{r Conductance by roads bar charts, cache=TRUE, tidy=TRUE, message=FALSE, warning=FALSE, fig.cap="", dpi=300, fig.height=6, fig.width=10}
+conductance_groups_roads$road <- row.names(conductance_groups_roads)
+conductance_polys_roads$road <- row.names(conductance_polys_roads)
+# groups
+library(ggplot2)
+ggplot(conductance_groups_roads, aes(x = road, y = Mean.Skin.Conductance, fill=Mean.Skin.Conductance)) +
+  geom_bar(stat="identity") +
+  scale_fill_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(conductance_groups_roads$Mean.Skin.Conductance)) +
+  labs(x="\nLand Use Group", y="Mean Skin Conductance\n") +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+# all
+ggplot(data=conductance_polys_roads[which(conductance_polys_roads$Mean.Skin.Conductance!=0),], 
+       aes(x = road, y = Mean.Skin.Conductance, fill=Mean.Skin.Conductance)) +
+  geom_bar(stat="identity") +
+  scale_fill_gradient2(low= "dodgerblue4", mid="slategray2", high="red3", 
+                       midpoint = median(conductance_groups_roads$Mean.Skin.Conductance)) +
+  labs(x="\nLand Use Type", y="Mean Skin Conductance\n") +
+  theme_bw() +
+  theme(axis.text.x=element_text(angle=45, vjust=0.5))
+```
+
+## Space-time Cube
+```{r Space-time Cube, cache=TRUE}
+library(OpenStreetMap)
+map <- openmap(as.numeric(c(max(pt1$lat), min(pt1$lon))),
+               as.numeric(c(min(pt1$lat), max(pt1$lon))),
+               type = "stamen-terrain")
+transmap <- openproj(map, projection = proj4string(pt1))
+map3d <- function(map, ...){
+  if(length(map$tiles)!=1){stop("multiple tiles not implemented") }
+  nx = map$tiles[[1]]$xres
+  ny = map$tiles[[1]]$yres
+  xmin = map$tiles[[1]]$bbox$p1[1]
+  xmax = map$tiles[[1]]$bbox$p2[1]
+  ymin = map$tiles[[1]]$bbox$p1[2]
+  ymax = map$tiles[[1]]$bbox$p2[2]
+  xc = seq(xmin,xmax,len=ny)
+  yc = seq(ymin,ymax,len=nx)
+  colours = matrix(map$tiles[[1]]$colorData,ny,nx)
+  m = matrix(0,ny,nx)
+  surface3d(xc,yc,m,col=colours, ...) }
+library(RColorBrewer)
+bp = brewer.pal(11,"RdBu")
+library(colourschemes)
+cs = rampInterpolate(pt1$conductance_z, rev(bp))
+pt1$conduct_pal <- cs(pt1$conductance_z)
+```
+
+```{r space-time cube setup, warning=FALSE, include=FALSE}
+library(knitr)
+library(rgl)
+knit_hooks$set(webgl = hook_webgl)
+```
+
+```{r Space-time Cube Plot, webgl=TRUE, warning=FALSE, message=FALSE}
+plot3d(pt1$lon, pt1$lat, pt1$time, xlab="Longitude", 
+       ylab="Latitude", zlab="Time", type = "s", 
+       col = pt1$conduct_pal, size = 2.5) 
+map3d(transmap)
+```
