@@ -1,0 +1,761 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>GIS 713</title>
+
+        <meta name="description" content="Slides for 713 Final Project Presentation">
+        <meta name="author" content="Garrett C. Millar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        
+          background-image: url("img/city_pointcloud_washed.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          background: #fff;
+          background: linear-gradient(to top, #648880, #293f50);
+          background: -webkit-linear-gradient(to top,#648880, #293f50);
+          background:    -moz-linear-gradient(to top,#648880, #293f50);
+          background:         linear-gradient(to top,#648880, #293f50);
+        }
+        .reveal section img {
+            background: transparent;
+
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+        }
+        .small {
+            font-size: smaller !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 0px;
+        }
+
+        /* Style the button used to pause/play the video */
+        #myBtn {
+            width: 20px;
+            font-size: 12px;
+            padding: 5px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: transparent;
+            color: transparent;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+<!-- Title slide -->
+<section>
+<h6 style="color: #909090 ">
+    GIS 713 - Geospatial Data Mining</h6>
+<h5 style="margin-top: 0.25em;color: #F0F0F0">Mapping the Emotional Dimension: Measuring Cyclists’ Physiological Responses Across Space and Time</h5>
+<center><video data-autoplay align="center" height="425" controls muted loop>
+  <source src="video/space_time.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></center>
+<h6 style="margin-top: 0.5em;color: #A9A9A9">Garrett C. Millar</h6>
+<img height="30px" style="margin-top: 1em" src="img/logos/cgaWhite.png">
+<img height="30px" style="margin-top: 1em" src="img/logos/ncstate_white.png"> 
+<aside class="notes"> 
+    Good morning everyone, and thank you for coming to my talk. 
+
+    I'll be presenting on... <br>
+</aside>
+</section>
+
+<!-- Intro -->
+<section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Why do emotions matter?</li>
+            <ul>
+                <li> How in the world do they belong in a conversation with geospatial analytics?</li> 
+            </ul>    
+    </ul>
+<aside class="notes">  
+    First off, why emotions? 
+
+    In fact I wouldn't be the least bit surprised if some of you were thinking what in the world emotions have to do with geospatial analytics, or vice versa. Some of you may even be wearing similar faces to this one right now -->. NEXT SLIDE.
+</aside>
+</section>  
+
+<!-- Questions --> 
+<section>
+<img class="fixed-background" src="img/wat.jpeg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<!-- Questions --> 
+<section>
+    <h3 style="color: #F0F0F0">
+    Or even . . .</h3>
+<img class="fixed-background" src="img/whaaaa.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<!-- Intro -->
+<section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Emotions</li>
+        <li>Measuring Emotion</li>
+        <li>Emotions in Space</li>
+        <li>Spatial-Emotional Analytics in Urban Planning</li>
+    </ul>
+<aside class="notes"> 
+    Emotions play a major role in our day-to-day lives, significantly contributing
+    to how we perceive and experience the world. They can be interpreted many ways, but largely depend on the context, or the place, in which they are experienced. Despite their wide range of interpretation, they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. Bumper-to-bumper traffic, large noisy crowds, unpleasant smells, all will evoke a distinct emotional response. In fact, there is a complex interplay between emotion, mood, place, and space. While we may feel happy and secure in one place, we might feel worried and unhappy in another.
+
+    How we emotionally respond to a place depends on any number of factors.
+    Empirically examining every one of these factors is a significant undertaking.
+    However, such an investigation could improve our understanding of how emotions
+    vary across space and determine our perceptions of a place. This would
+    be of considerable interest to those responsible for designing the spaces in
+    which these emotional patterns occur, specifically lending great insight to urban
+    and city planners.
+
+</aside>
+</section>  
+
+<!-- Relating to Cycling - Mini Experiment -->
+
+<!-- Mini Experiment --> 
+<section>
+<img class="fixed-background" src="img/path_med.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<!-- Mini Experiment --> 
+<section>
+<img class="fixed-background" src="img/path_good.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<!-- Mini Experiment --> 
+<section>
+<img class="fixed-background" src="img/path_bad.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<!-- Background (1)-->
+<!-- <section>
+<h3 style="color: #F0F0F0">
+    Introduction</h3>
+    <ul style="color: #F0F0F0">
+        <li><b>Motivation</b></li>
+        <ul>
+            <li> Quantify & visualize tangible interaction to foster spatial thinking & decision-making
+        </ul>
+        <li><b>Implications</b></li>
+        <ul>
+            <li> UI & UX design
+            <li> Human-interaction Sensing & Visualization
+            <li> Landscape & Urban Design
+            <li> Spatial Education, Decision Making, & Thinking
+        </ul>
+    </ul>
+<aside class="notes"> Currently, most tangible interfaces for geospatial modeling do not offer users a historical context of their interactions. Therefore, users are required to remember previous states of the tangible model they are working with. In result, their working memory becomes at risk of being overloaded. A shortage in cognitive resources should not be an end product of interfaces that are primarily developed to offer more natural modes of interaction. As such, the following tool was developed to provide users with feedback to foster their spatial thinking and decision-making during tangible interaction.
+</aside>
+</section>   -->
+                
+<!-- Research objectives -->
+<!-- <section>
+<h3 style="color: #F0F0F0">
+    Research Objectives</h3>
+    <ul style="color: #F0F0F0">
+        <li>Test the effectiveness of a hands-on method for teaching spatial concepts
+        using Tangible Landscape by:</li>
+    <ul>
+        <li>testing students’ acquisition &amp transfer of knowledge </li>
+        <li>examining students’ ratings of the system’s usability &amp user
+        experience</li>
+    </ul>
+</ul>
+<img class="100%" src="img/session_format.jpg"> 
+<aside class="notes"> In efforts to test the effectiveness of using a TUI to teach spatial concepts (specifically Terrain Analysis), <br>
+    these lessons (that were just shown) were used in a pilot study, where graduate Landscape
+    Architecture students were tested before & after each tangible lesson in order
+    to examine any increases in spatial learning. <br>
+    Ratings of Tangible Landscape's usability were also collected.
+</aside>  
+</section>  -->
+
+    
+<!-- Methodology: Study Area --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Study Area — Netherlands</h3>   
+<img height="570px" align="center"  src="img/NL_lidar_DEM.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Study Area --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Study Area</h3>   
+<img height="430px" align="center" src="img/study_area_leaf.png">
+<table width="100%">
+        <col width="80%">
+        <tr>
+            <td style="vertical-align: right; text-align:center; border-bottom: 0px; padding: 0px, 0px;"> Area of Interest: Cycling Highway <br>
+                between Tilburg /& Waalwijk
+        </tr>
+</table>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: GPS Data --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    GPS Data</h3>   
+    <img class="stretch" src="img/GPS_charts.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: Skin Conductance --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Skin Conductance</h3>   
+    <img class="stretch" src="img/Conductance_charts_2.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Viewshed Buffers --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Viewshed Buffers</h3>   
+    <img class="stretch" src="img/100_yd_buffer.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Framework for Cyclists' Experiences --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Framework for Cyclists' Emotional Experiences</h3>   
+    <img class="stretch" src="img/cyclist_exp_framework_no_descrip_2.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: Mapping Emotion --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Mapping Emotion</h3>   
+    <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts1-6.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Mapping Emotion --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Mapping Emotion cont'd</h3>   
+    <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts7-11.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Space-Time Cube --> 
+<section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+    <h3 style="color: #F0F0F0">
+    Mapping Emotion over Space /& Time</h3>
+<video autoplay muted loop id="space_time" height = "570px">
+  <source  src="video/space_time.mp4" type="video/mp4">
+</video>
+<aside class="notes"> 
+    . . . . . . . . BS TEXT HERE . . . . . . . . . . . 
+</aside> 
+</section>  
+
+
+<!-- Results: Land Use Tables -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use</h3>   
+    <img width= "450px" src="img/table_conductance_by_land_groups.png">
+    <table width="100%">
+        <col width="95%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">By Group
+        </tr>
+    </table> 
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Results: Land Use Bar Charts -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use</h3>   
+    <img class="stretch" src="img/conductance_by_land_group.png">
+    <center><p> By Group </p> </center>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Results: Land Use Tables -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use</h3>  
+    <img width= "345px" align="left" src="img/table_conductance_by_land_type_TOP.png">
+    <img width= "345px" align="right" src="img/table_conductance_by_land_type_bottom_comb.png">
+    <table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: bottom; text-align:left; border-bottom: 0px; padding: 0;">By Individual type
+            <td style="vertical-align: bottom; text-align:right; border-bottom: 0px; padding: 0;">By Individual Type cont'd
+        </tr>
+    </table> 
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Land Use Bar Charts -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use</h3>   
+    <img class="stretch" src="img/conductance_by_land_type.png">
+    <center><p> By Individual Land Use Types </p> </center>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Road Type Tables -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Types</h3>  
+    <img width= "345px" align="left" src="img/table_conductance_by_road_groups.png">
+    <img width= "345px" align="right" src="img/tableconductance_by_road_types.png">
+    <table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: bottom; text-align:left; border-bottom: 0px; padding: 0;">By Group
+            <td style="vertical-align: bottom; text-align:right; border-bottom: 0px; padding: 0;">By Individual Type
+        </tr>
+    </table> 
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Results: Road Types Bar Charts -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Types</h3>   
+    <img class="stretch" src="img/conductance_by_road_groups.png">
+    <center><p> By Group </p> </center>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Road Types Bar Charts -->
+<section>
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Types</h3>   
+    <img class="stretch" src="img/conductance_by_road_types.png">
+    <center><p> By Individual Road Types </p> </center>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Conclusion-->
+<section>
+<h3 style="color: #888">
+    Conclusion</h3>
+<ul>
+    <li>Preliminary evidence for Tangible Landscape supporting improved user experience and marginal, task-specific 
+        knowledge building</li>
+    <li>Knowledge building:</li>
+    <ul>
+        <li>Ability to directly feel, grasp, and manipulate the various tangible materials </li>
+    </ul>
+    <li>User Experience:</li>
+    <ul>
+        <li>Students can try, see and feel, and directly experience multiple variations of a given solution </li>
+    </ul>
+</ul>
+<aside class="notes"> 
+Our findings showed that participants performed significantly
+better on the Cut & Fill (earth moving) assessment after having completed the analogous task with Tangible Landscape. <br>
+
+This can be explained by the ability to directly feel, grasp,
+and manipulate the various tangible materials as well as the projected visual feedback which helped them better understand the effects of their changes. <br>
+
+Also, results from the User Experience Survey highlight how Tangible Landscape allows users to try, see & feel, and directly experience multiple variations
+of a given solution. <br>
+
+Specifically, action is reversible with Tangible Landscape, and this encourages students to explore without risk of consequence. <br><br>
+
+</aside>  
+</section>   
+
+<!-- Limitations & Future Directions-->
+<!--<section>
+<h4 style="color: #888">
+    Limitations &amp Future Directions</h4>
+<ul>
+    <li>Limited methodological scope and low statistical power of the presented results</li>
+    <li>Knowledge building:</li>
+    <li>User Experience:</li>
+</ul> 
+<aside class="notes"> 
+</aside>  
+</section> -->
+
+
+            
+<!-- Questions --> 
+<section>
+<h3 style="color: #F0F0F0">
+Questions?</h3>
+<video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/3d_app_movie.mp4" type="video/mp4">
+</video>
+<p> Thank you! </p>
+<!-- The video -->
+
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <!-- <h3 style="color: #F0F0F0">
+    Questions?</h3>
+  <p>Thank you!</p> -->
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <!-- <button id="myBtn" onclick="myFunction()">Pause</button> -->
+</div>
+<aside class="notes"> 
+    And with that, I thank you all. While I take any questions you may have, a recent development for this cycling data will be shown in the background.
+
+    Specifically, I am in the very early stages of developing a fully functional 3D interactive application using the cycling data (the one I sent you a video on) and any similar data that may measure how people respond to space and the features within it. With this you can see buildings in 3D, follow the cyclists' path in the first person POV (so to speak), and better understand what they were seeing throughout the duration of the cycling journey.
+
+    I'm currently working on a feature to allow users to click on one of the points/markers, to then display a street view (from collected video recordings) in the popup window so they can know exactly what the cyclist was seeing (or not seeing) during various levels of 'stress'. Charts, graphs, and other useful information will also soon be added and I hope to have it up to CGA lab demo standards in the next couple of months (as a fully functioning software application).
+</aside> 
+</section>  
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>

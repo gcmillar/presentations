@@ -34,7 +34,13 @@
     --outfile=us_iale2018.html \
     --title="US-IALE 2018" \
     --meta-description="Slides for us_iale 2018 Presentation" \
-    us_iale2018.html      
+    us_iale2018.html  
+    
+./build-slides.py --outdir=build \
+    --outfile=713_final_presentation.html \
+    --title="GIS 713 Project Presentation" \
+    --meta-description="Slides for GIS 713 Final Project Presentation" \
+    713_final_presentation.html          
 
 cp ncgis2017.html ./build/
 cp EDRA_2017.html ./build/
@@ -44,6 +50,7 @@ cp FOSS4G_2017.html ./build/
 cp ACADIA_2017.html ./build/
 cp chi2018.html ./build/
 cp us_iale2018.html ./build/
+cp 713_final_presentation ./build/
 
 # make this presentation primary for convenience
 cp build/geoforall-webinar.html build/index.html
