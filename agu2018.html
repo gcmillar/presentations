@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>GIS 713</title>
+
+        <meta name="description" content="Slides for 713 Final Project Presentation">
+        <meta name="author" content="Garrett C. Millar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+          body {
+          /*background-color: #FFF !important;*/
+          /*
+            background-image: url("pictures/elevation-nagshead.gif");
+            background-repeat: no-repeat;
+            background-position: left bottom;*/
+            background-image: url("img/city_pointcloud_washed.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            background: #fff;
+            background: linear-gradient(to top, #648880, #293f50);
+            background: -webkit-linear-gradient(to top,#648880, #293f50);
+            background:    -moz-linear-gradient(to top,#648880, #293f50);
+            background:         linear-gradient(to top,#648880, #293f50);
+            }
+          .reveal section img {
+              background: transparent;
+              border: 0;
+              box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+          }
+          /* for standalone frame */
+          /*
+          iframe {
+              display: block;
+              margin-left: auto;
+              margin-right: auto;
+          }
+          */
+          /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+          .rounded-corners {
+              border: 0px solid black;
+              border-radius: 5px;
+              -moz-border-radius: 5px;
+              -khtml-border-radius: 5px;
+              -webkit-border-radius: 5px;
+          }
+          a:hover {
+              color: #444 !important;
+              text-decoration: underline !important;
+          }
+          h1, h2, h3, h4, h5 {
+              text-transform: none !important;
+              /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+              /* color: #060 !important; */
+              /* color: #444 !important; */ /* grey from the wab page */
+              font-weight: bold !important;
+              -webkit-hyphens: none !important;
+              -moz-hyphens: none !important;
+              -ms-hyphens: none !important;
+              hyphens: none !important;
+              line-height: 110% !important;
+          }
+          .reveal .progress span {
+              background-color: #444 !important;
+          }
+          /* predefined element positioning */
+          .top {
+              /*position: relative;*/
+              top: 5%;
+              height: 45%; /* is the height even needed? */
+          }
+          .bottom {
+              height: 45%;
+          }
+          .ne {
+              position: absolute;
+              top: 5%;
+              right: 5%;
+              height: 45%;
+              width: 45%;
+          }
+          .nw {
+              position: absolute;
+              top: 5%;
+              left: 5%;
+              height: 45%;
+              width: 45%;
+          }
+          .se {
+              position: absolute;
+              bottom: 5%;
+              right: 5%;
+              height: 45%;
+              width: 45%;
+          }
+          .sw {
+              position: absolute;
+              bottom: 5%;
+              left: 5%;
+              height: 45%;
+              width: 45%;
+          }
+          /* classes for sections with predefined elements */
+          /* using !important because, reveal styles are applied afterwards  */
+          .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+              float: right;
+              text-align: left;
+              max-width: 47% !important;
+          }
+          .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+              float: left;
+              text-align: left;
+              max-width: 47% !important;
+          }
+          li > ul, li > ol {
+              font-size: 85% !important;
+              line-height: 110% !important;
+          }
+          .small {
+              font-size: smaller !important;
+              color: gray;
+              margin: 0.1em !important;
+          }
+          .credit {
+              font-size: small !important;
+              color: gray;
+              margin: 0.1em !important;
+          }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+<!-- Title slide -->
+<section>
+<h6 style="color: #909090 ">
+    AGU 2018</h6>
+<h5 style="margin-top: 0.25em;color: #F0F0F0">Increasing Underrepresented High School Students’ STEM Career Awareness and Interest: An Informal Geospatial Science Program
+</h5>
+<center>
+  <img height="380px" src="img/gaps_logo_nowords.png">
+</center>
+<p style="margin-top: 1em;color: #F0F0F0" border="">Garrett C. Millar, Eric S. Money, Kyle S. Bunds, Helena Mitasova</p>
+<img height="40px" style="margin-top: 0em" src="img/logos/cga&ncstate_white.png">
+<aside class="notes"> 
+    Good morning everyone, and thank you for coming to my talk. 
+
+    I'll be presenting on... <br>
+</aside>
+</section>
+
+<!-- Intro -->
+<section>
+<h3 style="color: #F0F0F0">
+    Background & Motivation</h3>
+    <ul style="color: #F0F0F0">
+        <li>Importance of STEM interest and awareness</li>
+            <!-- <ul>
+                <li> How in the world do they belong in a conversation with geospatial analytics?</li> 
+            </ul> -->
+        <li>Students begin losing interest in science as early as elementary school</li>    
+<!--         <ul>
+                <li> Why would this be?</li> 
+        </ul> -->
+        <li>Can a more meaningful learning experience be given? How?</li>
+        <ul>
+                <li>Geospatial technologies (GSTs)</li> 
+                <!-- <ul>
+                  <li>Reconnect students to real-world scientific problems</li>
+                  <li>Increases students’ feelings of responsibility and sensitivity toward geographical issues </li>
+                </ul> -->
+        </ul>
+            
+    </ul>
+<aside class="notes">  
+    Interest in and awareness of STEM content and careers are important factors that influence high school students’ motivation to pursue STEM topics later on in college and as a career.
+
+    Unfortunately, students begin losing interest in science as early as elementary school, as most science taught in the classroom is unrelated to or disconnected from the real world.
+    
+    We propose that a more meaningful learning experience can be provided to underrepresented high school students through the use of innovative geospatial technologies (GSTs), as the use and study of GSTs reconnects students to scientific problems that occur naturally in the real world (climate change, geohazards, and urbanization impacts on natural resources), specifically increasing students’ feelings of responsibility and sensitivity towards local and global geographical issues. 
+
+    Thus, we present an informal 8-week geospatial science program (Geospatial Applications for Problem Solving; GAPS)–which introduces students to cutting-edge technologies in the geospatial sciences to solve real-world geographic problems, while learning about all the exciting benefits of a career in the geospatial sciences and STEM. 
+</aside>
+</section>  
+
+<!-- TL -->
+
+<!-- Tangible Landscape -->            
+<section data-background-image="img/interaction/tl_interaction.gif" data-background-size="100%" data-state="dimbg" >
+<h1 class="shadow">Tangible Landscape:</h1>
+<h3 class="shadow">A tangible user interface powered by open source GIS</h3>
+<!--<img class="500px" src="img/interaction/tl_interaction.gif">-->
+<img height="150px" src="img/logos/logo_black.png">
+<!--<p><small>Source: <i class="fa fa-creative-commons" aria-hidden="true"></i> <a href="https://tangible-landscape.github.io">NCSU GeoForAll Lab</a></small></p>-->
+<aside class="notes"> 
+One example of an innovative geospatial technology is Tangible Landscape, a system developed by my colleagues at the Center for Geospatial Analytics, at NC State University.
+</aside>
+</section>
+
+<!-- TL: Design & Concept -->
+<section>
+    <h5 style="color: #F0F0F0">
+    Tangible Landscape: Design & Concept </h5>
+<center><img height="340px" vertical-align="middle" src="img/system/system_schema.png">
+<!--<video data-autoplay src="video/tl_flow.mp4" width="560" height="315" loop="loop">-->
+<video data-autoplay width="620" height="340px" vertical-align="middle" controls muted loop>
+  <source src="video/tl_flow.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> </center>
+<p style="color: #F0F0F0">With Tangible Landscape you can hold a GIS in your hands - feeling the shape of the earth, sculpting its topography, and directing the flow of water.</p>
+<aside class="notes"> 
+    Tangible Landscape uses a physical representation of a landscape which
+    students can make changes to. <br>
+    As students change the physical model, the changes are 3D scanned by the Kinect
+    sensor, georeferenced, and imported 
+    into GRASS GIS. <br>
+    GRASS uses this information to compute and update any kind of geospatial
+    analysis, model, and simulation. <br>
+    The results of these analyses are then projected back onto the physical model
+    as feedback so students can see how their physical changes affect a
+    landscape's form and its simulated processes, ALL in REAL-TIME. <br>
+    BECAUSE OF THIS: TL provides great potential for reconnecting students to scientific problems that occur naturally in the real world<br>
+    
+</aside>
+</section>
+
+
+<!-- Methods: Participants -->
+<section>
+<h3 style="color: #F0F0F0">
+    Student Demographics</h3> 
+    <div align="center">
+    <img width="530px" src="img/Gender.png" alt="" align="left" style="float:leftt"/>
+    <img width="530px" src="img/Race_Ethnicity.png" alt="" align="right" style="float:right"/>
+</div>
+    <!-- <ul>
+        <li>16 graduate students from a Landform, Grading, &amp Site Systems course</li>
+        <li>Age ranges:</li>
+        <ul>
+            <li>18-24 (N = 10)</li>
+            <li>25-34 (N = 5)</li>
+            <li>35-44 (N = 1)</li>
+        </ul>
+        <li>Voluntary participation during class time </li> 
+        <li>Divided into pairs based on preference </li> 
+    </ul>
+</ul> -->
+    <aside class="notes"> Females comprised 47% of the cohort. African Americans comprised 42%, followed by White (26%), Asian (15%), Hispanic/Latino (10%). 
+
+      And for student grade level, most students were from 9th grade (35%), followed by 8th and 10th (25% each) and 11th (15%). <br>
+</aside>  
+</section> 
+
+
+
+<!-- Timeline -->
+  <section data-background="img/timeline_intro.png" data-background-size="100%" >
+<!-- <img height="600px" src="img/timeline_intro.png"> -->
+<!-- data-background= "img/timeline_intro.png" data-background-size="100%" background-position: top   -->
+</section>
+
+<section data-background= "img/timeline_day1.png" data-background-size="100%">
+
+      <aside class="notes">
+      Space & Place
+      
+      GeoGuessr (place identification game) 
+      
+      Mental Mapping Exercise; Peer Interpretation; Spatial Identity Exercise
+      
+      Introduction to Maps 
+      </aside>
+</section>
+
+<section data-background= "img/timeline_day2.png" data-background-size="100%">
+
+      <aside class="notes">
+      Tools & Tech 
+      
+      What is GIS? Mapping tutorial and computer exercises, introduction to geoviz technologies
+      
+      The Power of Maps: real-world applications of geospatial science
+      
+      Citizen Science: contributing to a real project by mapping trees
+
+      </aside>
+
+</section>
+
+<section data-background= "img/timeline_day3.png" data-background-size="100%">
+
+      <aside class="notes">
+      Modeling & Geovisualization
+
+      Field Trip to NC State GeoViz Lab:
+        • Projections: how do we represent the world on a map?
+        • Virtual Reality demonstrations
+        • Tangible Landscape demonstrations; hands on modeling of the environment
+        • 3D City design activity: how do we plan the next generation city using maps?
+      </aside>
+</section>
+
+<section data-background= "img/timeline_day6.png" data-background-size="100%">
+
+      <aside class="notes">
+      Project Team breakouts and mentoring
+      </aside>
+</section>
+
+<section data-background= "img/timeline_day8.png" data-background-size="100%">
+
+      <aside class="notes">
+        Project Fair: project teams present their map projects to parents and GIS professionals (who judged student projects)
+
+        Students were evaluated by a panel of 3 judges, consisting of a high school teacher, and 2 geospatial professionals. They judged the project teams on their ability to describe concepts and explain their project. 
+</aside>
+
+</section>
+
+<!-- 1 Space & Place
+  GeoGuessr (place identification game) 2
+  Mental Mapping Exercise; Peer Interpretation; Spatial Identity Exercise
+  Introduction to Maps 
+
+2 Tools & Tech 
+    What is GIS? Mapping tutorial and computer exercises, introduction to geoviz technologies
+    The Power of Maps: real-world applications of geospatial science
+    Citizen Science: contributing to a real project by mapping trees
+
+3 Modeling & Geovisualization
+    Field Trip to NC State GeoViz Lab:
+      • Projections: how do we represent the world on a map?
+      • Virtual Reality demonstrations
+      • Tangible Landscape demonstrations; hands on modeling of the environment
+      • 3D City design activity: how do we plan the next generation city using maps?
+
+4 Scientific & Professional Discovery
+    Geospatial in the real-world demonstrations 
+    Let’s Map: Develop a map from the Living Atlas
+    Project Brainstorming 
+    GIS Professional Panel (5 professionals interviewed by students)
+
+5 Project Brainstorming : Model development using Tangible Landscape: molding the landscape
+  Map Making & Research Design: Web map application development exercise. Using Living Atlas data to make a dynamic map online
+
+Solving Community Problems Part 1
+  Project Team breakouts and mentoring: teams develop projects using mapping relevant to their community
+
+7 Solving Community Problems Part 2 
+  Project Team breakouts and mentoring
+
+8 Project Fair
+  Project Fair: project teams present their map projects to parents and GIS professionals (who judged student projects) -->
+
+
+<!-- Lessons Learned-->
+<section>
+<h3 style="color: #F0F0F0">
+    Reflections</h3>
+    <ul style="color: #F0F0F0">
+        <li> Main points </li>
+            <ul>
+                <li> [ sub-text here ] </li>
+            </ul>
+    </ul>
+    
+    <aside class="notes"> 
+      See Project Implementation section (p. 24) in report
+
+    </aside>  
+</section>   
+
+
+<!-- Conclusion-->
+<section>
+<h3 style="color: #F0F0F0">
+    Results & Conclusions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Goal 1: Improving student competence in science. </li>
+<!--             <ul>
+                <li> [ sub-text here ] </li>
+            </ul> -->
+        <li>Goal 2: Nurturing student enthusiasm for science. </li>
+<!--         <ul>
+                <li> [ sub-text here ] </li>
+            </ul> -->
+        <li>Goal 3: Interesting students in research or other science-related careers. </li>
+<!--         <ul>
+                <li> [ sub-text here ] </li>
+            </ul> -->
+            
+    </ul>
+    
+    <aside class="notes"> 
+      Goal 1: We were able to see improvement in student achievement by the end of the 8-week program. 
+      While students presented their student projects, the judges were impressed with the student’s ability and mastery of science concepts. 
+      Overall on the judging rubric, the students scored relatively high, with an average 3.39 (out of 4) on being able to explain the background material. 
+      Considering the majority of students (80%) had never heard of GIS or geospatial science when starting the program, we found this data encouraging, but continued use of technologies and concept learning could be enhanced to further improve confidence and competence in science, particular as it relates to geospatial science, which is a brand new field to many of these students.
+
+      Goal 2: Several students indicated they are more interested learning science. This is a positive indication that the program, at least marginally, is increasing student interest in science. 
+      Half of the participants indicated that they are thinking about taking more science classes in the future and 56% of participants indicated an increased interest in learning science. Overall, this is encouraging and indicates that the program is having a positive outcome on student interest in science. 
+      Of course, there is still room for improvement and we are examining ways to adjust activities and technology to show further improvement in this metric (next slide). 
+
+      Goal 3: 50% of participants indicated an increased interest in a science career. 
+      Another positive indicator came from the parental survey, where 80% of parents stated their child gained skills to use in a STEM career. 
+
+      Overall, we are moving in the right direction, but more career oriented activities may be necessary to demonstrate to students the breadth and depth of science careers that exist, particularly in the area of geospatial science. Our own survey (MISO) also showed that there wasn’t a significant difference before and after the program in science career interest, therefore, more work is definitely needed in this area.
+
+    </aside>  
+</section>   
+
+
+<!-- Lessons Learned-->
+<section>
+<h3 style="color: #F0F0F0">
+    Future Directions</h3>
+    <ul style="color: #F0F0F0">
+        <li> El futuro </li>
+            <ul>
+                <li> [ sub-text here ] </li>
+            </ul>
+    </ul>
+    
+    <aside class="notes"> 
+
+    </aside>  
+</section>   
+
+
+            
+<!-- Questions --> 
+<section>
+<h3 style="color: #F0F0F0">
+Questions?</h3>
+<video data-autoplay align="left" width="250px" controls muted loop id="2">
+  <source src="video/Untitled_2....mp4" type="video/mp4"> </video> 
+<video data-autoplay align="left"  width="790px" controls muted loop id="1">
+  <source src="video/Untitled....mp4" type="video/mp4"> </video>
+   
+<!-- <video data-autoplay align="right" width="300px" controls muted loop id="2">>  
+    <source src="video/IMG_3627.mp4" type="video/mp4"></video> -->
+<!-- <table width="100%">
+        <col width="50%">
+        <col width="50%">
+        <tr>
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">
+            <td style="vertical-align: middle; text-align:center; border-bottom: 0px; padding: 0;">
+        </tr>      
+ <video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/3d_app_movie.mp4" type="video/mp4"> 
+</video> -->
+<p> Thank you! </p>
+<!-- The video -->
+
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <!-- <h3 style="color: #F0F0F0">
+    Questions?</h3>
+  <p>Thank you!</p> -->
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <!-- <button id="myBtn" onclick="myFunction()">Pause</button> -->
+</div>
+<aside class="notes"> 
+    And with that, I thank you all. While I take any questions you may have, a recent development for this cycling data will be shown in the background.
+
+    Specifically, I am in the very early stages of developing a fully functional 3D interactive application using the cycling data (the one I sent you a video on) and any similar data that may measure how people respond to space and the features within it. With this you can see buildings in 3D, follow the cyclists' path in the first person POV (so to speak), and better understand what they were seeing throughout the duration of the cycling journey.
+
+    I'm currently working on a feature to allow users to click on one of the points/markers, to then display a street view (from collected video recordings) in the popup window so they can know exactly what the cyclist was seeing (or not seeing) during various levels of 'stress'. Charts, graphs, and other useful information will also soon be added and I hope to have it up to CGA lab demo standards in the next couple of months (as a fully functioning software application).
+</aside> 
+</section>  
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
