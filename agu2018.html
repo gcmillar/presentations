@@ -418,11 +418,11 @@ Solving Community Problems Part 1
     <ul style="color: #F0F0F0">
         <li>Goal 1: Improving student competence in science </li>
 <!--             <ul>
-                <li> [ sub-text here ] </li>
+                <li> Student project presentations: Average 3.39 (out of 4) on being able to explain background material </li>
             </ul> -->
         <li>Goal 2: Nurturing student enthusiasm for science </li>
 <!--         <ul>
-                <li> [ sub-text here ] </li>
+                <li> 56% of participants indicated an increased interest in learning science. </li>
             </ul> -->
         <li>Goal 3: Interesting students in research or other science-related careers </li>
 <!--         <ul>
@@ -599,7 +599,8 @@ Questions?</h3>
                     { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
-                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true },
+                    // { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
                     { src: 'plugin/math/math.js', async: true }
                 ]
             });
