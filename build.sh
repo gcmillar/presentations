@@ -46,7 +46,14 @@
     --outfile=agu2018.html \
     --title="AGU 2018 Presentation" \
     --meta-description="Slides for AGU 2018 Presentation" \
-    agu2018.html             
+    agu2018.html 
+    
+./build-slides.py --outdir=build \
+    --outfile=710_proposal_presentation.html \
+    --title="GIS 710 Presentation" \
+    --meta-description="Slides for GIS 710 Presentation" \
+    710_proposal_presentation.html     
+    
 
 cp ncgis2017.html ./build/
 cp EDRA_2017.html ./build/
@@ -58,6 +65,7 @@ cp chi2018.html ./build/
 cp us_iale2018.html ./build/
 cp 713_final_presentation ./build/
 cp agu2018 ./build/
+cp 710_proposal_presentation ./build/
 
 # make this presentation primary for convenience
 cp build/geoforall-webinar.html build/index.html

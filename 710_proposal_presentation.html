@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>GIS 710</title>
+
+        <meta name="description" content="Slides for 710 Proposal Presentation">
+        <meta name="author" content="Garrett C. Millar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        
+          background-image: url("img/city_pointcloud_washed.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          background: #fff;
+          background: linear-gradient(to top, #648880, #293f50);
+          background: -webkit-linear-gradient(to top,#648880, #293f50);
+          background:    -moz-linear-gradient(to top,#648880, #293f50);
+          background:         linear-gradient(to top,#648880, #293f50);
+        }
+        .reveal section img {
+            background: transparent;
+
+            border: 0;
+            box-shadow: 0 0 0 rgba(0,0,0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+            /*color: #F0F0F0;*/
+            /*margin-top: 0;*/
+            margin:0px;
+            padding:0px;
+          color: white;
+          text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+        }
+        h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+            /*margin-top: 0;*/
+            margin:0px;
+            padding:0px;
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+        }
+        .small {
+            font-size: smaller !important;
+            color: #F0F0F0;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 0px;
+        }
+
+        /* Style the button used to pause/play the video */
+        #myBtn {
+            width: 20px;
+            font-size: 12px;
+            padding: 5px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: transparent;
+            color: transparent;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+<!-- Title slide -->
+<!-- 3d_app_movie_intro -->
+<section>
+  <h6 style="color: #D3D3D3 ">
+    GIS 710 - Geospatial Analytics for Grand Challenges</h6>
+<h5 style="margin-top: 0.25em;color: white">Examining the Spatial Relationship between Landscape Characteristics and Cyclists’ Skin Conductivity</h5>
+<center><video data-autoplay align="center" height="500" controls muted loop>
+  <source src="video/3d_app_movie_intro.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></center>
+<h6 style="margin-top: 0.5em;color: #D3D3D3">Garrett C. Millar</h6>
+<!-- <img height="40px" style="margin-top: 0em" src="img/logos/cga&ncstate_white.png"> -->
+<aside class="notes"> 
+    Good morning everyone, and thank you for coming to my talk. 
+
+    I'll be presenting on... <br>
+</aside>
+</section>
+
+
+<!-- <section>
+<h6 style="color: #909090 ">
+    GIS 710 - Geospatial Analytics for Grand Challenges</h6>
+<h5 style="margin-top: 0.25em;color: #F0F0F0">Examining the Spatial Relationship between Landscape Characteristics and Cyclists’ Skin Conductivity</h5>
+<center><video data-autoplay align="center" height="425" controls muted loop>
+  <source src="video/space_time.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></center>
+<h6 style="margin-top: 0.5em;color: #A9A9A9">Garrett C. Millar</h6>
+<img height="40px" style="margin-top: 0em" src="img/logos/cga&ncstate_white.png">
+<aside class="notes"> 
+    Good morning everyone, and thank you for coming to my talk. 
+
+    I'll be presenting on... <br>
+</aside>
+</section>
+ -->
+<!-- Intro -->
+<!-- <section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Why do emotions matter?</li>
+            <ul>
+                <li> How in the world do they belong in a conversation with geospatial analytics?</li> 
+            </ul>    
+    </ul> -->
+<!-- <aside class="notes">  
+    First off, why emotions? 
+
+    In fact I wouldn't be the least bit surprised if some of you were thinking what in the world emotions have to do with geospatial analytics, or vice versa. Some of you may even be wearing similar faces to this one right now -->
+<!-- </aside>
+</section>   -->
+
+
+<!-- <section>
+<img class="fixed-background" src="img/wat.jpeg">
+<aside class="notes"> 
+    And if you're a hardcore geospatial analyst or scientist, you might even be thinking "WHHAAAAAA??!!!?!?"
+    "WHY???"  
+    " IT JUST DOESN'T MAKE ANY SENSE ! ! ! ! "
+</aside> 
+</section>  
+
+<section>
+    <h3 style="color: #F0F0F0">
+    Or even . . .</h3>
+<img class="fixed-background" src="img/whaaaa.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>   -->
+
+<!-- Intro -->
+
+
+<section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Emotions</li>
+        <li>Measuring Emotion</li>
+        <li>Emotions in Space</li>
+        <li>Spatial-Emotional Analytics in Urban Planning</li>
+    </ul>
+<aside class="notes"> 
+    <ul>
+        
+        <li>Emotions play a major role in our day-to-day lives, significantly contributing to how we perceive and experience the world. </li>
+
+        <li>They can be interpreted in many ways, but they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment.</li>
+
+        <li>Bumper-to-bumper traffic, large noisy crowds, unpleasant smells, all will evoke a distinct emotional response. In fact, there is a complex interplay between emotion, mood, place, and space. While we may feel happy and secure in one place, we might feel worried and unhappy in another.</li>
+
+        <li>How we emotionally respond to a place depends on any number of factors and an investigation of these factors could improve our understanding of how emotions vary across space and determine our perceptions of a place. </li>
+
+        <li>This would definitely be of interest to urban
+        and city planners, as they design the spaces in which these emotional patterns occur.</li>
+
+        <li>And this is what I concern myself with this work, and is to be the second chapter in my disseration. How emotions vary as a function of location, specifically through space and time. And do so, I need to begin by exploring emotional experiences using a spatial analytical framework.</li>
+
+</aside>
+</section>  
+
+<!-- Relating to Cycling - Mini Experiment -->
+
+<!-- Mini Experiment --> 
+<!-- <section>
+<img class="fixed-background" src="img/path_med.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<section>
+<img class="fixed-background" src="img/path_good.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>  
+
+<section>
+<img class="fixed-background" src="img/path_bad.jpg">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . .  
+</aside> 
+</section>   -->
+
+    
+<!-- Methodology: Study Area --> 
+<section>
+    <!-- <h6 style="color: #909090">
+    Methodology</h6>  -->
+<h3 style="color: #F0F0F0">
+    Study Area — Netherlands</h3>   
+<img height="520px" align="center"  src="img/NL_DEM_StudyArea_3D_line.png">
+<table width="100%">
+        <col width="80%">
+        <tr>
+            <td style="vertical-align: right; color: #F0F0F0; text-align:center; border-bottom: 0px; padding: 0px, 0px;"> Area of Interest: Cycling Highway
+                between Tilburg and Waalwijk 
+        </tr>
+</table>
+<aside class="notes"> 
+    First, lets take a quick look at the landscape of interest for this research.
+</aside>  
+</section> 
+
+<!-- Methodology: Framework for Cyclists' Experiences --> 
+<section>
+    <!-- <h6 style="color: #909090">
+    Methodology</h6>  -->
+<h6 style="color: #F0F0F0">
+    Framework for Cyclists' Emotional Experiences</h6>   
+    <img width="600px" src="img/cyclist_exp_framework_no_descrip_2.png">
+<aside class="notes"> 
+    <ul>
+        <li> In the proposed study, green areas in the vicinity of the bike highway will be regarded as positive contributors tocyclists’ experiences.  Areas considered as green will be parks, grass, farms, orchards, meadows, heaths, forests, andany other layers constituted by greenery </li> 
+        <li> Urban areas will be assumed to provide an oppositely negative effect on cyclists’ experiences, as any area classifiedas urbanized poses the high likelihood of surrounding urban life.  </li> 
+        <li> Road types, as a proxy for traffic volume and speed, perceived safety, noise and pollution, have a significant impact on how cyclists value their environment and the biking trips themselves. </li> 
+        <li>Within the context of this study, this variable will be split into the three classes of small, medium, and large roads: </li> 
+        <li> These groups of land use and road types will then be combined to represent geographical experi-ential layers, that is, a geographical proxy for indicating which, as well as how, spatial factors and attributes can berelated to the cyclists’ recorded emotional experiences </li>
+    </ul>
+</aside>  
+</section> 
+
+
+<!-- Space-Time Cube --> 
+<!-- <section>
+    <h6 style="color: #909090">
+    Methodology</h6> 
+    <h3 style="color: #F0F0F0">
+    Mapping Emotion over Space /& Time</h3>
+<video autoplay muted loop id="space_time" height = "570px">
+  <source  src="video/space_time.mp4" type="video/mp4">
+</video>
+<aside class="notes"> 
+    . . . . . . . . BS TEXT HERE . . . . . . . . . . . 
+</aside> 
+</section>   -->
+
+<section data-background-video="video/3d_app_movie_720.mp4" data-background-size="100%" >
+<aside class="notes"> 
+    <ul>
+        <li>Findings of low correlations among physiological measures has troubled many psychologists seeking
+    an index of general stress.  </li>
+       <li>This frustration may be extendable to Psychology’s troubling replication issue.  </li>
+       <li>This inability to replicate complex psychological research likely stems from researchers lacking insight into
+    the context in which these complex psychological, behavioral, and cognitive states occur–states that are dependent on
+    and relative to the context in which they occur.</li>
+        <li> I believe a solution to this is provided in my proposed methods. </li> 
+        <li>They will be designed as a generalizable approach opening a wider and clearer window into the fidelity and accuracy of
+    psychological data as well as the context in which analyzed psychological states occur.</li>
+      </ul>
+
+    I am also in the very early stages of developing a fully functional 3D interactive application using the cycling data (the one I sent you a video on) and any similar data that may measure how people respond to space and the features within it. With this you can see buildings in 3D, follow the cyclists' path in the first person POV (so to speak), and better understand what they were seeing throughout the duration of the cycling journey.
+
+    I'm currently working on a feature to allow users to click on one of the points/markers, to then display a street view (from collected video recordings) in the popup window so they can know exactly what the cyclist was seeing (or not seeing) during various levels of 'stress'. Charts, graphs, and other useful information will also soon be added and I hope to have it up to CGA lab demo standards in the next couple of months (as a fully functioning software application).
+</aside>
+</section>
+
+
+<!-- Conclusion-->
+<section>
+<h3 style="color: #F0F0F0">
+    Scholarly Significance</h3>
+    <ul style="color: #F0F0F0">
+        <li> General fidelity of skin conductance data and low correlations among physiological measures</li>
+        <li> Psychology's troubling replication issue </li>
+        <li> Proposed methods open wider and clearer window into the fidelity and accuracy of physiological data and the context in which they occur</li>
+    </ul>
+    
+    <aside class="notes"> 
+    <ul>
+        <li>Findings of low correlations among physiological measures has troubled many psychologists seeking
+    an index of general stress.  </li>
+       <li>This frustration may be extendable to Psychology’s troubling replication issue.  </li>
+       <li>This inability to replicate complex psychological research likely stems from researchers lacking insight into
+    the context in which these complex psychological, behavioral, and cognitive states occur–states that are dependent on
+    and relative to the context in which they occur.</li>
+        <li> I believe a solution to this is provided in my proposed methods. </li> 
+        <li>They will be designed as a generalizable approach opening a wider and clearer window into the fidelity and accuracy of
+    psychological data as well as the context in which analyzed psychological states occur.</li>
+      </ul>
+
+    
+    
+   
+    T
+
+    </aside>  
+</section>   
+
+<!-- Questions --> 
+<section Style="margin-top: -8px"
+  data-background-image="img/3d_cycle_app_darkened_img.png" data-background-size="100%" >
+<h1 style="color: #00ffff; text-shadow: 2px 2px 3px black, 0 0 200px #00ffff, 0 0 1500px #4f80ff">Questions?</h1>
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<h3 style="color: #FF0009; text-shadow: 2px 2px 3px black, 0 0 400px #FF0009, 0 0 1500px #4f80ff">Thank you!</h3>
+<!--<img class="500px" src="img/interaction/tl_interaction.gif">-->
+<!-- <img height="150px" src="img/logos/logo_black.png"> -->
+<!--<p><small>Source: <i class="fa fa-creative-commons" aria-hidden="true"></i> <a href="https://tangible-landscape.github.io">NCSU GeoForAll Lab</a></small></p>-->
+<aside class="notes"> 
+And with that, I thank you all. While I take any questions you may have, a recent development for this cycling data will be shown in the background.
+</aside>
+</section>
+
+<!-- Questions --> 
+<!-- <section>
+<h3 style="color: #F0F0F0">
+Questions?</h3>
+
+<video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/3d_app_movie_720.mp4" type="video/mp4">
+</video>
+<p> Thank you! </p>  -->
+
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
