@@ -1,28 +1,4 @@
 ./copy-common-files.py --dst-dir=build
-
-./build-slides.py --outdir=build \
-    --outfile=foss4g-na-2016.html \
-    --title="Tangible Landscape" \
-    --meta-description="Clone of slides for Tangible Landscape at FOSS4G NA" \
-    foss4g-na-2016.html
-
-./build-slides.py --outdir=build \
-    --outfile=geoforall-webinar.html \
-    --title="Tangible Landscape Webinar" \
-    --meta-description="Slides for Tangible Landscape Webinar (GeoForAll, UCGIS, ASPRS)" \
-    geoforall-webinar.html
-
-./build-slides.py --outdir=build \
-    --outfile=cbi-webinar.html \
-    --title="Tangible Landscape Webinar" \
-    --meta-description="Slides for Tangible Landscape Webinar for CBI" \
-    cbi-webinar.html
-
-./build-slides.py --outdir=build \
-    --outfile=ncaug-symposium.html \
-    --title="Tangible Landscape Webinar" \
-    --meta-description="Slides for Tangible Landscape Webinar for NCAUG" \
-    ncaug-symposium.html
     
 ./build-slides.py --outdir=build \
     --outfile=chi2018.html \
@@ -54,6 +30,12 @@
     --meta-description="Slides for GIS 710 Presentation" \
     710_proposal_presentation.html     
     
+./build-slides.py --outdir=build \
+    --outfile=715_research_presentation.html \
+    --title="GIS 715 Research Presentation" \
+    --meta-description="Slides for GIS 715 Research Presentation" \
+    715_research_presentation.html      
+    
 
 cp ncgis2017.html ./build/
 cp EDRA_2017.html ./build/
@@ -66,6 +48,8 @@ cp us_iale2018.html ./build/
 cp 713_final_presentation ./build/
 cp agu2018 ./build/
 cp 710_proposal_presentation ./build/
+cp 715_research_presentation ./build/
+
 
 # make this presentation primary for convenience
 cp build/geoforall-webinar.html build/index.html

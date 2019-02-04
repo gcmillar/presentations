@@ -1,0 +1,1212 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>GIS 715 Research Presentation</title>
+
+        <meta name="description" content="Slides for GIS 715 Research Presentation">
+        <meta name="author" content="Garrett C. Millar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        
+          background-image: url("img/city_pointcloud_washed.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          background: #fff;
+          background: linear-gradient(to top, #648880, #293f50);
+          background: -webkit-linear-gradient(to top,#648880, #293f50);
+          background:    -moz-linear-gradient(to top,#648880, #293f50);
+          background:         linear-gradient(to top,#648880, #293f50);
+        }
+        .reveal section img {
+            background: transparent;
+
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+            /*margin:4px ;*/
+            position:fixed;
+            /*margin-bottom: 80px;*/
+            /*padding-bottom: 5em;*/
+            top:-1px;
+            left:5%;
+            right:5%;
+            /*margin:0px auto;*/
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F7FDFD;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F7FDFD;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            float: left;
+            text-align: left;
+            line-height: 120% !important;
+            color: #F7FDFD;
+        }
+        .small {
+            font-size: smaller !important;
+            color: #F0F0F0;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .fixed-background {
+            position: fixed; /* or absolute */
+            top: 0%;
+            left: 15%;
+            height: 100%;
+            /*width: 100%;*/
+            /*overflow: hidden;*/
+        }
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 0px;
+        }
+
+        /* Style the button used to pause/play the video */
+        #myBtn {
+            width: 20px;
+            font-size: 12px;
+            padding: 5px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: transparent;
+            color: transparent;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+<!-- Title slide -->
+<section>
+<!-- <h6 style="color: #909090 ">
+    GIS 715 - Geovisualization</h6> -->
+<h5 style="color: #F0F0F0">Interactive & 3D Visual Explorations of the Human-Urban Form</h5><br>
+<center><video data-autoplay align="middle" vertical-align="center" height="580" controls muted loop>
+  <source src="video/stress3d.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video></center>
+<h6 style="margin-top: 0.2em;color: #F0F0F0">Garrett C. Millar</h6>
+<img height="25px" style="margin-top: 0.01em" src="img/logos/cga&ncstate_white.png">
+<aside class="notes"> 
+    Good morning everyone. I wanted to start my presentation by quickly showing what I hope to apply the to-be-presented papers towards. I've recently developed an application that uses cyclists' collected physiological data (or skin conductance) to see how stress and emotions can be affected by our environment. This application shows you in 3D how cyclists' stress levels vary along a cycleway in the Netherlands. Alongside the main map display, users can view the corresponding skin conductance chart. And when one these skin conducatnce markers are clicked, users are presented with additional information such as the associated elevation and speed the cyclist was going at that sampled point. Also with each marker click, users are presented with a first person sreet view image of the environment that cyclist was most likely experiencing at that point as well. With this, it is easier to understand what the cyclists may have been seeing while experiencing high levels of stress.
+
+    With this said, the overall theme I developed for my presentation today is Interactive & 3D Visual Explorations of the Human-Urban Form.
+
+     <br>
+</aside>
+</section>
+
+
+<!-- Papers -->
+<section>
+<h2 style="color: #F0F0F0">
+    Papers</h2>
+    <ul style="color: #F0F0F0">
+        <li style="font-size: 38px"> Visualization</li>
+        <ul>
+            <li style="color: #E1E1E1">StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views [Shen et al., 2018]</li>
+        </ul> 
+        <li style="font-size: 38px"> Analytical Approaches</li>
+        <ul>
+            <li style="color: #E1E1E1">Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data [Cao et al., 2017]</li>
+        </ul>   
+        <li style="font-size: 38px">Future Methods & Visualizations</li>
+        <ul>
+            <li style="color: #E1E1E1">Interactive 3D Visual Analysis of Atmospheric Fronts [Kern et al., 2018]</li>
+        </ul>    
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>And so to properly explore this theme, these 3 papers were selected: (READ FROM SLIDE)</li>
+        
+    </ul>
+
+    -->. NEXT SLIDE.
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+        <li style="font-size: 38px">Knowledge gap</li>
+        <ul>
+            <li style="color: #E1E1E1"><i>What</i> gaps are being addressed and <i>why?</i></li>
+        </ul> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+        <li style="font-size: 38px">Knowledge gap</li>
+        <ul>
+            <li style="color: #E1E1E1"><i>What</i> gaps are being addressed and <i>why?</i></li>
+        </ul> 
+        <li style="font-size: 38px">Research objectives / questions</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+        <li style="font-size: 38px">Knowledge gap</li>
+        <ul>
+            <li style="color: #E1E1E1"><i>What</i> gaps are being addressed and <i>why?</i></li>
+        </ul> 
+        <li style="font-size: 38px">Research objectives / questions</li>   
+        <li style="font-size: 38px">Methods (variable)</li>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+        <li style="font-size: 38px">Knowledge gap</li>
+        <ul>
+            <li style="color: #E1E1E1"><i>What</i> gaps are being addressed and <i>why?</i></li>
+        </ul> 
+        <li style="font-size: 38px">Research objectives / questions</li>   
+        <li style="font-size: 38px">Methods (variable)</li>
+        <li style="font-size: 38px">Final product</li>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Presentation Format -->
+<section>
+<h2 style="color: #F0F0F0">
+    Presentation Format</h2>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 38px"> Central problem?</li>
+        <li style="font-size: 38px"> Why is it important?</li>
+        <li style="font-size: 38px">Knowledge gap</li>
+        <ul>
+            <li style="color: #E1E1E1"><i>What</i> gaps are being addressed and <i>why?</i></li>
+        </ul> 
+        <li style="font-size: 38px">Research objectives / questions</li>   
+        <li style="font-size: 38px">Methods (vary)</li>
+        <li style="font-size: 38px">Final product</li>
+        <li style="font-size: 38px">Conclusions</li>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_whitetxt.png">
+<aside class="notes"> 
+    But first.....
+    <ul>
+        <li> So I'm interested in how the environment affects stress, and to properly explore this, the environment needs to first be both qualified and quantified.</li>
+        <li>Once this is done, stress levels can be associated with environment qualifications. </li>
+        <li>This however, poses significant challenges, as the necessary data involves spatial, multi-scale, and multivariate (e.g., greenery & urbanized areas) natures of the urban form. </li>
+        <li> Not only does this cause data analysis complications, but even more-so visualization challenges. </li>
+    </ul>
+</aside> 
+</section>  
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_visualization.png">
+<aside class="notes"> 
+    <ul>
+        <li>And so to explore how multi-scale, multivariate data can be properly, saliently, and efficiently displayed, lets take a look at the first paper.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_visualization-text.png">
+<aside class="notes"> 
+    <ul>
+        <li>In it, we'll see how multi-scale, multivariate data can be displayed, explored, and interpreted, as well as ..... </li>
+        <li> NEXT SLIDE </li>
+        <li>What sort of insights can be gained from doing so</li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_visualization-text-eye.png">
+<aside class="notes"> 
+    <ul>
+        <li>In it, we'll see how multi-scale, multivariate data can be displayed, explored, and interpreted, as well as ..... </li>
+        <li> <b>NEXT SLIDE </b></li>
+        <li>What sort of insights can be gained from doing so.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+
+<!-- Paper 1 -->
+<section>
+<h2 style="color: #F3F397">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h2>
+    <br><br>
+<img height="110%" width="110%"  style="margin-top: 0.01em" src="img/StreetVizor_system.png">
+    <ul style="color: #F0F0F0">
+    <br>
+<p style="color: #F7FDFD; font-size: 20px">[Shen, et al., 2018]</p>
+<aside class="notes">  
+</aside>
+</section>  
+
+
+<!-- Paper 1 -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+Identification of Problems</h3>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Central problem?</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Central problem explored by authors:</li>
+        <ul>
+            <li> Analysis of urban forms is extremely complex because of the involvement of spatial, multi-scale (i.e., city, region, & street), and multivariate (e.g., greenery & sky ratios) natures of urban forms </li>
+            <li>(In addition, current methods either lack quantitative measurements or are limited to a small area. </li>
+        </ul>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+Identification of Problems</h3>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Central problem?</li> 
+        <li style="font-size: 36px">Why is this important?</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>The analysis of urban forms can help planners develop high-quality urban spaces through evidence-based design</li>
+        <li>Specifically, as humans pay more attention to interactive surroundings [13], understanding human-scale urban forms is essential for urban planners in designing high-quality urban spaces.</li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: The Knowledge Gap  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    The Knowledge Gap</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Previous work mainly focuses on either a particular feature or a small area </li> 
+        <li style="font-size: 36px">Limits its applicability in urban planning, where planners need to:</li>
+        <ol> 
+            <li>quantitatively measure multivariate features of urban forms </li>
+            <li>systematically explore urban forms in areas-of-interest (AOIs) at multiple scales </li>
+        </ol> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li> This deficiency limits its applicability in urban planning, where planners need to:
+        <ol> 
+            <li> quantitatively measure multivariate features of urban forms, this includes not only greenery coverage, but also sky visibility, and vehicle density; </li>
+            <li> systematically explore urban forms in areas-of-interest (AOIs) at multiple scales, i.e., from small (e.g., streets) to mid (e.g., districts) to large scales (e.g., cities) </li>
+        </ol>
+        <li>In addition, direct means for the comparison of urban forms in two AOIs is desirable to allow planners to utilize information for the quick identification and improvement of factors that affect the quality of urban space. </li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: Addressing The Knowledge Gap / Research Objectives  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Research Objectives</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Authors' propose:</li>
+        <ul> 
+            <li> fully automatic approach measuring human-scale urban forms</li>
+            <li> visual comparison framework for exploring human-scale urban forms on multiple scales </li>
+            <li> novel visual design of parallel coordinates integrating street layout information </li>
+        </ul> 
+    </ul>
+<aside class="notes">  
+    The main contributions of this work include:
+    <ul>
+        <li>A fully automatic approach measuring human-scale urban forms by applying deep learning techniques on GSV images</li>
+        <li>A visual comparison framework for exploring human-scale urban forms on on multiple scales, such as: city-, region-, and street-scales </li>
+        <li> A novel visual design of parallel coordinates that integrate street layout information</li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: Addressing The Knowledge Gap / Research Objectives  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: Design Process</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 32px">Structured interviews with senior researcher in urban design identifying 3 main analysis criteria:</li>
+        <ol style="font-size: 24px">
+            <li>Multivariate Features</li>
+            <li>Street View Crawling </li>
+            <li>Street View Directions</li>
+        </ol>
+        <li style="font-size: 32px">Experiment with few representative cities: HongKong, Singapore, London, & NYC</li>
+    </ul>
+<aside class="notes">  
+    
+    <ul>
+        <li></li>
+        <li> </li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: Addressing The Knowledge Gap / Research Objectives  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: Design Process</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 32px">Developed questions for system to address:</li>
+        <ol style="font-size: 24px">
+            <li>How are the identified features distributed in AOI?</li>
+            <li>What are the feature differences between AOIs? </li>
+            <li>What exact views can people see on a street?</li>
+            <li>Are there any representative views?</li>
+        </ol>
+        <li style="font-size: 32px">Based on these questions, compiled list of Design Rationales:</li>
+        <ol style="font-size: 24px">
+            <li>Overview + Details</li>
+            <li>Coordinated Multiple Views </li>
+            <li>Effective Comparison</li>
+            <li>Visual Consistency</li>
+        </ol>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li></li>
+        <li> </li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: System Framework</h3>    
+    <br><br><br><br>
+    <ul style="color: #F0F0F0; text-align: left;  float: left">
+        <li style="font-size: 36px">A web-based application comprising two major phases:</li>
+        <ol> 
+            <li> Data modeling phase </li>
+            <li> Interactive visual exploration<br> phase:</li>
+            <ul>
+                <li> Ranking Explorer </li>
+                <li> AOI Explorer </li>
+            </ul>
+        </ol> 
+    </ul>
+<img height="48%" width="48%"  style="margin-top: -6.5em; float: right" src="img/StreetVizor_workflow.png">    
+<aside class="notes">  
+    <ol> 
+            <li> Data modeling phase </li>
+            <ul>
+                <li> In the data modeling phase, our system auto-matically collects hundreds of thousands of GSV images at sampling positions in each city generated from OpenStreetMap </li>
+            </ul>
+            <li> Interactive visual exploration phase:</li>
+            <ul>
+                <li> Ranking Explorer </li>
+                <ul> 
+                    <li> ranks and compares multiple AOIs/streets based on human-scale urban forms </li>
+                </ul>
+                <li> AOI Explorer </li>
+                <ul>
+                    <li>If two AOIs are selected,the system will present an AOI Explorer that compares the differences in human-scale urban forms in two AOIs at city-and region-scales.
+                </ul>
+            </ul>
+        </ol> 
+</aside>
+</section>  
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: Data Processing & Modeling</h3>    <br><br><br>
+<div align="center">
+    <img width="65%" src="img/StreetVizor_datap-processing-model.png" alt="" align="center" style="float:center"/>
+</div>
+<aside class="notes">  
+    <ul>
+        <li>Illustration of data preprocessing: sampling locations in New York City are generated from OpenStreetMap (left), a street view image is collected from Google Street View (center), and the image pixels are classified into six features using SegNet (right).</li>
+        <li>Data model: street views with six-dimensional features of greenery, sky, building, road, vehicle and others, are organized in an octree structure and a street lookup table. </li>
+    </ul>
+</aside>
+</section>  
+
+
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    StreetVizor: Visual Exploration of Human-Scale Urban Forms Based on Street Views</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: System Framework</h3>    
+    <br><br><br><br>
+    <ul style="color: #F0F0F0; text-align: left;  float: left">
+        <li style="font-size: 36px">User Interactions</li>
+        <ul> 
+            <li> Multi-scale Navigation </li>
+            <li> Feature Filtering</li>
+            <li> Details on Demand </li>
+            <li> Linking </li>
+
+        </ul> 
+    </ul>
+    <br><br><br><br><br>
+<img height="30%" width="31%"  style="margin-top: -7em; margin-right: 5.5em;float: right" src="img/StreetVizor_controlpanel.jpg">   <aside class="notes">  
+    <ul>
+        <li> Multi-scale Navigation </li>
+        <ul>
+            <li> To help users navigate effectively across different scales, developed city-, region- and street-panels. </li>
+        </ul>
+            <li> Feature Filtering</li>
+        <ul>
+            <li> System also supports filtering human-scale urban forms against a specific feature by specifying the value range with feature sliders </li>
+        </ul>
+            <li> Details on Demand </li>
+        <ul>
+            <li> enables overview + details (R.1) -  developed set of interactions that allow users to explore the details of human-scale urban forms on demand. </li>
+        </ul>
+            <li> Linking </li>
+        <ul>
+            <li> system supports automatic linking among the visualization modules in both AOI Explorer and Street Explorer for coordination across multiple views (R.2).</li>
+        </ul>
+    </ul>
+</aside>
+</section> 
+
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_visualization-text-eye.png">
+<aside class="notes"> 
+    <ul>
+        <li>So, so far we've seen an approach to visualizing multivariate features, and how an interactive visual interface can be used to systematically explore and compare features within a dataset. </li>
+        <li>But how can we ensure the data being explored and compared, is valuable data? What can be done to point out aspects within spatiotemporal data that are the most important? </li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_analyticalapproaches.png">
+<aside class="notes"> 
+    <ul>
+        <li> And thats where analysis</li>
+        <li><b> NEXT SLIDE </b></li> 
+        <li>specifically detecting anomalies in a dataset (as you'll see in the next paper), comes into play.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_analysis-text.png">
+<aside class="notes"> 
+    <ul>
+        <li> And thats where analysis</li>
+        <li><b> NEXT SLIDE </b></li> 
+        <li>specifically detecting anomalies in a dataset (as you'll see in the next paper), comes into play.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+
+
+
+<!-- Paper 2 -->
+<section>
+<h2 style="color: #F3F397">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h2>
+    <br><br><br>
+<img height="400px" style="margin-top: 0.01em" src="img/Voila_system.png">
+    <ul style="color: #F0F0F0">
+    <br>
+<p style="color: #F7FDFD; font-size: 20px">[Cao et al., 2017]</p>
+<aside class="notes">  
+</aside>
+</section>  
+
+
+<!-- Paper 2 -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+Identification of Problems</h3>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Central problem?</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Central problem explored by authors:</li>
+        <li> Effectiveness of anomaly detection techniques often hinged by 2 major inherent challenges: </li>
+        <ul>
+            <li>(1) lack a clear boundary between normal & abnormal cases; </li>
+            <li>(2) labeled data for training and verifying models usually unavailable or difficult to collect</li>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+Identification of Problems</h3>
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Central problem?</li> 
+        <li style="font-size: 36px">Why is this important?</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Finding abnormal spatial patterns at specific times is of interest in many applications (aerology, public health surveillance, urban computing). </li>
+        <ul>
+            <li>For example, urban scientists and analysts are interested in detecting sudden changes in traffic patterns in a city to help prevent future accidents likely through better traffic controls and route planning.  </li>
+        </ul>
+    </ul>
+</aside>
+</section>  
+
+<!-- Paper1: The Knowledge Gap  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    The Knowledge Gap</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Big data is needy</li> 
+        <li style="font-size: 36px">Visual analytics can fulfill these needs</li>
+        <ul> 
+            <li> Flexible & adaptive </li>
+            <li> Rich context information </li>
+        </ul> 
+        <li style="font-size: 36px">But, existing solutions are limited and not properly equipped</li> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Previous techniques useful in producing numeric results of anomalies (outlierness scores),  </li>
+        <ul>
+            <li>but are limited in offering interpretation of those anomalies – that is, what features and context exhibited in an abnormal case.  </li>
+            <li> most techniques also lack capacity to deal with multi-way or multifaceted features, such as features over time and space.</li>
+        </ul>
+    </ul>
+</aside>
+</section>  
+
+<!-- Paper1: Addressing The Knowledge Gap / Research Objectives  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Research Objectives</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Authors propose:</li>
+        <ul> 
+            <li> integrated, visual analytics system</li>
+            <li> novel tensor-based anomaly analysis algorithm  </li>
+            <li> set of novel visualization & interaction designs </li>
+        </ul> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>integrated, visual analytics system that simultaneously tackles adaptivity, interpretability, and interactivity challenges.</li>
+        <li>novel tensor-based anomaly analysis algorithm that not only adapts to the dynamics in the input data but also produces descriptive patterns that can be visually presented along with their spatiotemporal context.  </li>
+        <li> set of novel visualization & interaction designs that support users’ interpretability & interactivity. Specifically, the information foraging & sensemaking of normal & abnormal patterns.</li>
+    </ul>
+</aside>
+</section>  
+
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: Framework</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Novel visual interactive framework: Voila </li>
+        <ul> 
+            <li> Suitable for tackling the analysis challenges in detecting and interpreting anomalies in big, spatiotemporal data. </li>
+        </ul> 
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Data are transformed into a sequence of tensor time series following both the space-time cube model and the sequential snapshot models. </li>
+        <li>Proposed analysis algorithm then compares the current state of the data with the historical states (general tasks) to detect anomalies, and the visualization represents a snapshot of the data and enables a detailed exploration of anomalies given a particular time and user judgment (elementary task).  </li>
+    </ul>
+</aside>
+</section>  
+
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.5em; color: #F0F0F0">
+    Methods: System Design Requirements</h3>    
+    <ul style="color: #F0F0F0; text-align: left; float: left">
+        <li style="font-size: 36px">Concrete requirements formulated through close collaboration with a domain expert (anomaly detection & spatiotemporal data analysis):</li>
+        <ul> 
+            <li> R1 - Adaptivity: Online monitoring & analysis</li>
+            <li> R2 - Interpretability: Multifaceted pattern discovery & anomaly filtering</li>
+            <li> R3 - Interactivity: Human in the analysis loop</li>
+        </ul>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>R1 - Adaptivity: Online monitoring & analysis: </li>
+            <ul> 
+                <li> system should perform real-time monitoring & analysis, given streaming data inputs, so in real-world applications, abnormal cases detected can be examined in timely manner.</li>
+            </ul>
+        <li>R2 - Interpretability: Multifaceted pattern discovery & anomaly filtering: </li>
+            <ul> 
+                <li>system should create easy-to-understand visualizations to help users discover abnormal patterns & understand “when and where, what might happen,” with rich, spatiotemporal context. Should also direct users’ attention to more significant anomaly instances.</li>
+            </ul>
+        <li>R3 - Interactivity: Human in the analysis loop. </li>
+            <ul> 
+                <li>Users should be able to provide judgment during analysis and guide system to produce refined analysis results in real-time according to user feedback.</li>
+            </ul>
+    </ul>
+</aside>
+</section>  
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.3em; color: #F0F0F0">
+    Methods: System Overview</h3>   
+    <br><br><br>
+<p style="color: #F7FDFD; font-size: 26px">System transforms spatiotemporal data into tensor time series & derives & represents abnormal patterns via 4 modules<p>    
+<img height="300px" style="margin-top: 0.00em; padding-bottom: -5px" src="img/Voila_system_architecture.png"> 
+    <ul style="color: #F0F0F0; text-align: left; padding-top: 0.00em; float: left">
+        <ol> 
+            <li style="font-size: 20px; "> Data preprocessing (R1 - Adaptivity)</li>
+            <li style="font-size: 20px"> Analysis (R1 & 2 - Adaptivity & Interpretability)</li>
+            <li  style="font-size: 20px"> Visualization (R2 - Interpretability)</li>
+            <li  style="font-size: 20px"> Interaction (R3 - Interactivity)</li>
+        </ol>
+    </ul>
+<aside class="notes">  
+    <ul>
+        <li>Data preprocessing (R1 - Adaptivity)</li>
+            <ul> 
+                <li>streaming pipeline facilitates the online monitoring and analysis</li>
+            </ul>
+        <li>Analysis (R1 & 2 - Adaptivity & Interpretability) </li> 
+            <ul> 
+                <li>module includes novel tensor-based anomaly detection algorithm that derives interpretable, anomalous patterns from streaming inputs </li>
+            </ul>
+        <li>Visualization (R2 - Interpretability)</li>
+            <ul> 
+                <li>module contains set of rich-context views showing spatiotemporal patterns and reveal suspicious instances derived from tensor analysis</li>
+            </ul>
+        <li>Interaction (R3 - Interactivity)</li>
+            <ul> 
+                <li>module provides on-line, user feedback mechanism to let users guide the system to re-order important anomalous patterns in real-time, making the system salable and responsive to user interactions</li>
+            </ul>
+    </ul>
+</aside>
+</section>  
+
+
+
+
+<!-- Paper1: Methods  -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.3em; color: #F0F0F0">
+    Methods: Visualization & Interaction</h3>   
+    <br><br><br>
+<p style="color: #F7FDFD; font-size: 32px; float: left">Used Pirolli & Card [2005] sensemaking process model:<p>     
+    <ul style="color: #F0F0F0; text-align: left; padding-top: 0.00em; float: left">
+        <ol> 
+            <li style="font-size: 32px; "> Tasks to support information foraging loop – </li>
+                <ul> 
+                    <li> (T1) augment users’ information seeking through overview </li>
+                    <li> (T2) ranking</li>
+                    <li> (T3) linking to the raw data</li>
+                </ul>
+            <li style="font-size: 32px; "> Tasks to support sensemaking loop – </li>
+                <ul> 
+                    <li> (T4) augment users’ conceptualization of normal & abnormal cases through showing patterns in context </li>
+                    <li> (T5) comparing patterns </li>
+                    <li> (T6) external memorization </li>
+                    <li> (T7) incorporate users’ additional judgment to enhance both information foraging & sensemaking loops </li>
+                </ul>
+        </ol>
+    </ul>
+<aside class="notes">  
+     <ul>
+        <li>integrated, visual analytics system that simultaneously tackles adaptivity, interpretability, and interactivity challenges.</li>
+        <li>novel tensor-based anomaly analysis algorithm that not only adapts to the dynamics in the input data but also produces descriptive patterns that can be visually presented along with their spatiotemporal context.  </li>
+        <li> set of novel visualization & interaction designs that support users’ interpretability & interactivity. Specifically, the information foraging & sensemaking of normal & abnormal patterns.</li>
+    </ul>
+
+</aside>
+</section>  
+
+
+
+<!-- Paper 1 -->
+<section>
+<h5 style="color: #F3F397; font-size: 24px">
+    Voila: Visual Anomaly Detection and Monitoring with Streaming Spatiotemporal Data</h5>
+<h3  style="margin-top: 1.3em; color: #F0F0F0">
+    User Interface</h3>   
+    <br><br><br>
+<img height="550px" style="margin-top: 0.01em" src="img/Voila_UI.jpg">
+    <ul style="color: #F0F0F0">
+<!--         <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+    <br>
+<aside class="notes">  
+<!--     <ul>
+        <li>Central problem explored by authors:</li>
+        <li> Effectiveness of anomaly detection techniques often hinged by 2 major inherent challenges: </li>
+        <ul>
+            <li>(1) lack a clear boundary between normal & abnormal cases; </li>
+            <li>(2) labeled data for training and verifying models usually unavailable or difficult to collect</li>
+    </ul> -->
+</aside>
+</section>
+
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_analysis-text.png">
+<aside class="notes"> 
+    <ul>
+        <li>So, so far we've seen an approach to visualizing multivariate features, and how an interactive visual interface can be used to systematically explore and compare features within a dataset. </li>
+        <li>But how can we ensure the data being explored and compared, is valuable data? What can be done to point out aspects within spatiotemporal data that are the most important? </li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_analysis-text-data.png">
+<aside class="notes"> 
+    <ul>
+        <li> And thats where analysis</li>
+        <li><b> NEXT SLIDE </b></li> 
+        <li>specifically detecting anomalies in a dataset (as you'll see in the next paper), comes into play.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_vis-analysis-arrow.png">
+<aside class="notes"> 
+    <ul>
+        <li> And thats where analysis</li>
+        <li><b> NEXT SLIDE </b></li> 
+        <li>specifically detecting anomalies in a dataset (as you'll see in the next paper), comes into play.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+
+<!-- conceptual_diagram --> 
+<section>
+<img class="fixed-background" src="img/conceptual_diagram_vis-analysis-arrow-bulb.png">
+<aside class="notes"> 
+    <ul>
+        <li> And thats where analysis</li>
+        <li><b> NEXT SLIDE </b></li> 
+        <li>specifically detecting anomalies in a dataset (as you'll see in the next paper), comes into play.</li>
+    </ul>
+</aside> 
+</section>  
+
+
+
+
+
+
+
+            
+<!-- Questions --> 
+<section>
+<h3 style="color: #F0F0F0">
+Questions?</h3>
+<video data-autoplay width="110%" height="110%" align="center" controls muted loop id="stress3d">
+  <source src="video/stress3d.mp4" type="video/mp4">
+</video>
+<p style="color: #F0F0F0; margin-bottom: -20px"> Thank you! </p>
+<!-- The video -->
+
+
+<!-- Optional: some overlay text to describe the video -->
+<div class="content">
+  <!-- <h3 style="color: #F0F0F0">
+    Questions?</h3>
+  <p>Thank you!</p> -->
+  <!-- Use a button to pause/play the video with JavaScript -->
+  <!-- <button id="myBtn" onclick="myFunction()">Pause</button> -->
+</div>
+<aside class="notes"> 
+    And with that, I thank you all. While I take any questions you may have, a recent development for this cycling data will be shown in the background.
+
+    Specifically, I am in the very early stages of developing a fully functional 3D interactive application using the cycling data (the one I sent you a video on) and any similar data that may measure how people respond to space and the features within it. With this you can see buildings in 3D, follow the cyclists' path in the first person POV (so to speak), and better understand what they were seeing throughout the duration of the cycling journey.
+
+    I'm currently working on a feature to allow users to click on one of the points/markers, to then display a street view (from collected video recordings) in the popup window so they can know exactly what the cyclist was seeing (or not seeing) during various levels of 'stress'. Charts, graphs, and other useful information will also soon be added and I hope to have it up to CGA lab demo standards in the next couple of months (as a fully functioning software application).
+</aside> 
+</section>  
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
