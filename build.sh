@@ -36,6 +36,12 @@
     --meta-description="Slides for GIS 715 Research Presentation" \
     715_research_presentation.html      
     
+./build-slides.py --outdir=build \
+    --outfile=CHIPS_ExperienceLab_NL.html \
+    --title="CHIPS Experience Lab" \
+    --meta-description="Slides for CHIPS Experience Lab (NL) Presentation" \
+    CHIPS_ExperienceLab_NL.html       
+    
 
 cp ncgis2017.html ./build/
 cp EDRA_2017.html ./build/
@@ -49,6 +55,7 @@ cp 713_final_presentation ./build/
 cp agu2018 ./build/
 cp 710_proposal_presentation ./build/
 cp 715_research_presentation ./build/
+cp CHIPS_ExperienceLab_NL ./build/
 
 
 # make this presentation primary for convenience
