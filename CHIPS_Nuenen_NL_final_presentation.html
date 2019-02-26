@@ -1,0 +1,1353 @@
+<!doctype html>
+<html lang="en">
+<!-- This is a generated file. Do not edit. -->
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>CHIPS Nuenen Presentation</title>
+
+        <meta name="description" content="Slides for CHIPS Experience Lab (NL) Presentation">
+        <meta name="author" content="Garrett C. Millar">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/osgeorel_greyscale.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        /*background-color: #FFF !important;*/
+        
+          background-image: url("img/city_pointcloud_washed.jpg");
+          background-size: cover;
+          background-repeat: no-repeat;
+          background-position: left bottom;
+          background: #fff;
+          background: linear-gradient(to top, #648880, #293f50);
+          background: -webkit-linear-gradient(to top,#648880, #293f50);
+          background:    -moz-linear-gradient(to top,#648880, #293f50);
+          background:         linear-gradient(to top,#648880, #293f50);
+        }
+        .reveal section img {
+            background: transparent;
+
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 100% !important;
+            color: #F0F0F0;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+            color: #F0F0F0;
+        }
+        .small {
+            font-size: smaller !important;
+            color: #F0F0F0;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .fixed-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+        /* Style the video: 100% width and height to cover the entire window */
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+
+        /* Add some content at the bottom of the video/page */
+        .content {
+            position: fixed;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            color: #f1f1f1;
+            width: 100%;
+            padding: 0px;
+        }
+
+        /* Style the button used to pause/play the video */
+        #myBtn {
+            width: 20px;
+            font-size: 12px;
+            padding: 5px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: transparent;
+            color: transparent;
+        }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+
+<!-- Title slide -->
+<section data-transition="slide">
+
+<h5 class="shadow" style="color:#fff">Mapping the Emotional Dimension: </h5>
+<center>
+    <img height="450px" src="img/space_time_cube.gif">
+    
+<!--     <video data-autoplay align="center" height="480" controls muted loop>
+  <source src="video/space_time.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video> -->
+</center>
+<h6 class="shadow" style="font-size:1.1em; color:#fff"> Measuring Human Behavior Across Space & Time <br>to Inform Tourism & Leisure Management</h6>
+<h6 style="margin-top: 0.5em;color: #F0F0F0; font-size: 24px">Garrett C. Millar</h6>
+<img height="30px" style="margin-top: 0.2em" src="img/logos/cga&ncstate_white.png">
+
+  <aside class="notes">
+    Good morning everyone, and thank you for coming to my talk. 
+
+    Hi everyone, my name is Garrett Millar, and I'm a PhD student at North Carolina State University. I'll be talking about my recent work which uses cyclists' physiological data collected from the CHIPS work (specifically skin conductance) to see how stress can be affected by our environment. 
+
+    We'll then get into how I plan to improve upon this work while I'm here, and how I can apply similar techniques and approaches to similar data such as those collected for Nuenen.
+
+    Before we start, I'd like to briefly explain why I'm doing what I'm doing, by mentioning my background in Cognitive Science, specifically Human-Computer Interaction. I began my graduate research assessing how humans interact with computers, and how computers can be best designed to facilitate users' interaction and experience with them. Here, I apply a similar research approach using geospatial analytics, specifically analyzing how humans interact with the environment, what sort of affects it can have on them, and how it can be best configured for its users.
+
+    To do so, we must begin exploring emotional experiences using a spatial analytical framework.
+
+  </aside>
+
+</section>
+
+
+<section>
+    <h5 style="color: #F0F0F0"> My Netherlands Experience</h5>
+    <img style=" width: 500px;" src="img/stroopwafel1.png">
+    
+<aside class="notes"> 
+</aside>      
+</section>  
+
+<section>
+    <h5 style="color: #F0F0F0"> My Netherlands Experience</h5>
+    <img style=" width: 500px;" src="img/stroopwafel2.png">
+    
+<aside class="notes"> 
+</aside>      
+</section> 
+
+
+<!-- Timeline -->
+  <section data-background="img/intro_all_bw.png" data-background-size="100%" >
+<!-- <img height="600px" src="img/timeline_intro.png"> -->
+<!-- data-background= "img/timeline_intro.png" data-background-size="100%" background-position: top   -->
+<aside class="notes">
+  </aside>
+</section>
+
+<section data-background= "img/intro_cycling.png" data-background-size="100%">
+
+      <aside class="notes">
+      </aside>
+</section>
+
+<section data-background= "img/intro_musuem.png" data-background-size="100%">
+
+      <aside class="notes">
+      </aside>
+
+</section>
+
+<section data-background= "img/intro_future.png" data-background-size="100%">
+
+      <aside class="notes">
+      </aside>
+</section>
+
+<!-- Intro -->
+<section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Why do emotions matter?</li>
+            <ul>
+                <li> How do they belong in a conversation with spatial analytics?</li> 
+            </ul>    
+    </ul>
+<aside class="notes">  
+    First off, why emotions? 
+
+    In fact I wouldn't be the least bit surprised if some of you were thinking what in the world emotions have to do with spatial analytics, or vice versa. 
+</aside>
+</section>  
+
+<!-- Intro -->
+<section>
+<h3 style="color: #F0F0F0">
+    Emotions</h3>
+    <ul style="color: #F0F0F0">
+        <li>Emotions</li>
+        <li>Measuring Emotion</li>
+        <li>Emotions in Space</li>
+        <li>Spatial-Emotional Analytics (& Urban Planning)</li>
+    </ul>
+<aside class="notes"> 
+    However, emotions play a major role in our day-to-day lives, significantly contributing to how we perceive and experience the world. They can be interpreted many ways, but largely depend on the context, or the place, in which they are experienced. 
+
+    Despite their wide range of interpretation, they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. Bumper-to-bumper traffic, large noisy crowds, unpleasant smells, all will evoke a distinct emotional response. 
+
+    In fact, there is a complex interplay between emotion, mood, place, and space. While we may feel happy and secure in one place, we might feel worried and unhappy in another.
+
+    How we emotionally respond to a place depends on any number of factors.
+    Empirically examining every one of these factors is a significant undertaking. However, such an investigation could improve our understanding of how emotions vary across space and determine our perceptions of a place. This would be of considerable interest to those responsible for designing the spaces in which these emotional patterns occur, specifically lending great insight to urban and city planners.
+
+    This is what we concern ourselves within this work. How emotions vary as a function of location, specifically through space and time. To do so, we must begin exploring emotional experiences using a spatial analytical framework.
+
+    BUT first, lets see what kind of emotions (at the very least feelings of weariness and / or hesitance) can be invoked by space.... (MINI experiment)
+
+</aside>
+</section>  
+
+    
+<!-- Methodology: Study Area --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Study Area — Netherlands</h3>   
+<img height="570px" align="center"  src="img/NL_DEM_StudyArea_3D_line.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Relating to Cycling - Mini Experiment -->
+
+<!-- Mini Experiment --> 
+
+<section data-transition="slide" data-background="img/cycling_vid_1.gif" data-background-size="200" >
+
+<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+</section>  
+
+
+
+<section data-transition="slide" data-background="img/cycling_vid_2.gif" data-background-size="200" >
+
+<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+</section>  
+
+
+<section data-transition="slide" data-background="img/cycling_vid_3.gif" data-background-size="200" >
+
+<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+</section>  
+
+
+<!-- Methodology: GPS Data --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    GPS Data</h3>   
+    <img class="stretch" src="img/GPS_charts_all.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: Skin Conductance --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Skin Conductance</h3>   
+    <img class="stretch" src="img/Conductance_charts.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Viewshed Buffers --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Buffers as an Environment Interaction Metric</h3>   
+    <img class="stretch" src="img/100_yd_buffer.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Framework for Cyclists' Experiences --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Framework for Cyclists' Emotional Experiences</h3>   
+    <img class="stretch" src="img/cyclist_exp_framework_no_descrip_2.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: Mapping Emotion --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Mapping Emotion</h3>   
+    <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts1-6.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Methodology: Mapping Emotion --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Mapping Emotion cont'd</h3>   
+    <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts7-11.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Type</h3>  
+<table style="font-size: 14px;  float: left; height:10px;" class="table_6144" border="2">
+<thead>
+<tr>
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:10px;">Landcover Class</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:10px;text-align: center">Statistic</th>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">camp_site</td>
+  <td id="tableHTML_column_1">69</td>
+  <td id="tableHTML_column_2">0.11</td>
+  <td id="tableHTML_column_3">0.91</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">cemetery</td>
+  <td id="tableHTML_column_1">42</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.46</td>
+  <td id="tableHTML_column_3">0.72</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">christian</td>
+  <td id="tableHTML_column_1">2</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-1.31</td>
+  <td id="tableHTML_column_3">0.31</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">college</td>
+  <td id="tableHTML_column_1">582</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.23</td>
+  <td id="tableHTML_column_3">0.8</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">farm</td>
+  <td id="tableHTML_column_1">388</td>
+  <td id="tableHTML_column_2">0.03</td>
+  <td id="tableHTML_column_3">0.77</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">forest</td>
+  <td id="tableHTML_column_1">8466</td>
+  <td id="tableHTML_column_2">0.1</td>
+  <td id="tableHTML_column_3">0.88</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">fuel</td>
+  <td id="tableHTML_column_1">54</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.52</td>
+  <td id="tableHTML_column_3">0.5</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">grass</td>
+  <td id="tableHTML_column_1">39869</td>
+  <td id="tableHTML_column_2">-0.09</td>
+  <td id="tableHTML_column_3">0.84</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">graveyard</td>
+  <td id="tableHTML_column_1">42</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.46</td>
+  <td id="tableHTML_column_3">0.72</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">hotel</td>
+  <td id="tableHTML_column_1">67</td>
+  <td id="tableHTML_column_2">-0.09</td>
+  <td id="tableHTML_column_3">0.69</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">industrial</td>
+  <td id="tableHTML_column_1">2600</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.23</td>
+  <td id="tableHTML_column_3">1.01</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">muslim</td>
+  <td id="tableHTML_column_1">27</td>
+  <td id="tableHTML_column_2">-0.13</td>
+  <td id="tableHTML_column_3">0.56</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">orchard</td>
+  <td id="tableHTML_column_1">481</td>
+  <td id="tableHTML_column_2">0.12</td>
+  <td id="tableHTML_column_3">1.26</td>
+</tr>
+</tbody>
+</table>
+
+<table style="font-size: 14px; float: right; height:10px;" class="table_6144" border="2">
+    <thead>
+<tr style="background-color:#DBDCDE">
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:10px;">Landcover Class</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:10px; text-align: center">Statistic</th>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">park</td>
+  <td id="tableHTML_column_1">1408</td>
+  <td id="tableHTML_column_2">0.19</td>
+  <td id="tableHTML_column_3">0.71</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">parking</td>
+  <td id="tableHTML_column_1">940</td>
+  <td id="tableHTML_column_2">-0.06</td>
+  <td id="tableHTML_column_3">0.92</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">parking_bicycle</td>
+  <td id="tableHTML_column_1">38</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.52</td>
+  <td id="tableHTML_column_3">1.25</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">parking_multistorey</td>
+  <td id="tableHTML_column_1">80</td>
+  <td id="tableHTML_column_2">0.16</td>
+  <td id="tableHTML_column_3">1.03</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">pitch</td>
+  <td id="tableHTML_column_1">41</td>
+  <td id="tableHTML_column_2">-0.18</td>
+  <td id="tableHTML_column_3">0.87</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">playground</td>
+  <td id="tableHTML_column_1">87</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.29</td>
+  <td id="tableHTML_column_3">0.58</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">residential</td>
+  <td id="tableHTML_column_1">3710</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.22</td>
+  <td id="tableHTML_column_3">1</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">scrub</td>
+  <td id="tableHTML_column_1">237</td>
+  <td id="tableHTML_column_2">0.19</td>
+  <td id="tableHTML_column_3">1.14</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">swimming_pool</td>
+  <td id="tableHTML_column_1">41</td>
+  <td id="tableHTML_column_2">-0.01</td>
+  <td id="tableHTML_column_3">0.91</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">theme_park</td>
+  <td id="tableHTML_column_1">347</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.21</td>
+  <td id="tableHTML_column_3">0.7</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">wastewater_plant</td>
+  <td id="tableHTML_column_1">422</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.22</td>
+  <td id="tableHTML_column_3">0.69</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">water</td>
+  <td id="tableHTML_column_1">2291</td>
+  <td id="tableHTML_column_2">-0.05</td>
+  <td id="tableHTML_column_3">0.92</td>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <td id="tableHTML_rownames">wetland</td>
+  <td id="tableHTML_column_1">306</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.27</td>
+  <td id="tableHTML_column_3">0.68</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">zoo</td>
+  <td id="tableHTML_column_1">92</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.2</td>
+  <td id="tableHTML_column_3">0.78</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Land Use Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Type</h3>   
+    <img class="stretch" src="img/conductance_by_land_type.png">
+    <!-- <center><p style="color: #F0F0F0"> By Individual Land Use Types </p> </center> -->
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Land Use Tables -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Group</h3>  
+    <table style="border-collapse:collapse;" class="table_5452" border="2">
+<thead>
+<tr>
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:50px;">Landcover Class</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:50px;text-align: center">Statistic</th>
+</tr>
+<tr style="background-color:#DBDCDE">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">urban</td>
+  <td id="tableHTML_column_1">9019</td>
+  <td id="tableHTML_column_2">-0.17</td>
+  <td id="tableHTML_column_3">0.96</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">green_areas</td>
+  <td id="tableHTML_column_1">51084</td>
+  <td id="tableHTML_column_2">-0.05</td>
+  <td id="tableHTML_column_3">0.85</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">water</td>
+  <td id="tableHTML_column_1">2626</td>
+  <td id="tableHTML_column_2">-0.02</td>
+  <td id="tableHTML_column_3">0.9</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Results: Land Use Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Group </h3>   
+    <img class="stretch" src="img/conductance_by_land_group.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<!-- Results: Road Type Tables -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Types</h3>  
+<table style="font-size: 14px;  float: left; height:10px;" class="table_6144" border="2">
+<thead>
+<tr>
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:10px;">Road Type</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:10px; text-align: center;">Statistic</th>
+</tr>
+<tr  style="background-color:#DBDCDE ">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">cycleway</td>
+  <td id="tableHTML_column_1">22124</td>
+  <td id="tableHTML_column_2">-0.15</td>
+  <td id="tableHTML_column_3">0.94</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">footway</td>
+  <td id="tableHTML_column_1">2146</td>
+  <td id="tableHTML_column_2">-0.01</td>
+  <td id="tableHTML_column_3">0.93</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">motorway</td>
+  <td id="tableHTML_column_1">339</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.31</td>
+  <td id="tableHTML_column_3">1.05</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">motorway_link</td>
+  <td id="tableHTML_column_1">723</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.42</td>
+  <td id="tableHTML_column_3">1.02</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">path</td>
+  <td id="tableHTML_column_1">319</td>
+  <td id="tableHTML_column_2">0.04</td>
+  <td id="tableHTML_column_3">0.8</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">pedestrian</td>
+  <td id="tableHTML_column_1">238</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.31</td>
+  <td id="tableHTML_column_3">1.05</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">primary</td>
+  <td id="tableHTML_column_1">643</td>
+  <td id="tableHTML_column_2">-0.18</td>
+  <td id="tableHTML_column_3">0.79</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">residential</td>
+  <td id="tableHTML_column_1">4813</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.35</td>
+  <td id="tableHTML_column_3">0.92</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">secondary</td>
+  <td id="tableHTML_column_1">4853</td>
+  <td id="tableHTML_column_2" style="background-color:lightsteelblue;">-0.31</td>
+  <td id="tableHTML_column_3">0.95</td>
+</tr>
+</tbody>
+</table>
+
+<table style="font-size: 14px;  float: right; height:10px;" class="table_6144" border="2">
+<thead>
+<tr>
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:10px;">Road Type</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:10px; text-align: center;">Statistic</th>
+</tr>
+<tr  style="background-color:#DBDCDE ">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">service</td>
+  <td id="tableHTML_column_1">3668</td>
+  <td id="tableHTML_column_2">0.02</td>
+  <td id="tableHTML_column_3">1.03</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">steps</td>
+  <td id="tableHTML_column_1">246</td>
+  <td id="tableHTML_column_2">-0.07</td>
+  <td id="tableHTML_column_3">0.93</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">tertiary</td>
+  <td id="tableHTML_column_1">12524</td>
+  <td id="tableHTML_column_2">-0.07</td>
+  <td id="tableHTML_column_3">0.99</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">track</td>
+  <td id="tableHTML_column_1">117</td>
+  <td id="tableHTML_column_2">-0.02</td>
+  <td id="tableHTML_column_3">0.88</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">track_grade1</td>
+  <td id="tableHTML_column_1">93</td>
+  <td id="tableHTML_column_2">0.1</td>
+  <td id="tableHTML_column_3">0.65</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">track_grade3</td>
+  <td id="tableHTML_column_1">30</td>
+  <td id="tableHTML_column_2">0.11</td>
+  <td id="tableHTML_column_3">0.63</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">track_grade4</td>
+  <td id="tableHTML_column_1">28</td>
+  <td id="tableHTML_column_2" style="background-color:lightcoral;">0.23</td>
+  <td id="tableHTML_column_3">0.86</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">trunk</td>
+  <td id="tableHTML_column_1">2656</td>
+  <td id="tableHTML_column_2">0.09</td>
+  <td id="tableHTML_column_3">0.78</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">trunk_link</td>
+  <td id="tableHTML_column_1">531</td>
+  <td id="tableHTML_column_2">-0.02</td>
+  <td id="tableHTML_column_3">0.98</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">unclassified</td>
+  <td id="tableHTML_column_1">12236</td>
+  <td id="tableHTML_column_2">-0.18</td>
+  <td id="tableHTML_column_3">0.92</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+
+
+<!-- Results: Road Types Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Types</h3>   
+    <img class="stretch" src="img/conductance_by_road_types.png">
+    <!-- <center><p style="color: #F0F0F0"> By Individual Road Types </p> </center> -->
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+
+<!-- Results: Road Type Tables -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Groups</h3>  
+<table style="border-collapse:collapse;" class="table_2961" border="2">
+<thead>
+<tr>
+  <th colspan="1" id="tableHTML_second_header_1" style="background-color:#C0C0C0;color:black;height:50px;">Road Class</th>
+  <th colspan="3" id="tableHTML_second_header_2" style="background-color:#C0C0C0;color:black;height:50px;text-align: center;">Statistic</th>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Sampled Points (N)</th>
+  <th id="tableHTML_header_3">Skin Conductance (M)</th>
+  <th id="tableHTML_header_4">SD</th>
+</tr>
+</thead>
+<tbody>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">small_roads</td>
+  <td id="tableHTML_column_1">29916</td>
+  <td id="tableHTML_column_2">-0.17</td>
+  <td id="tableHTML_column_3">0.94</td>
+</tr>
+<tr style="background-color:#DBDCDE ">
+  <td id="tableHTML_rownames">med_roads</td>
+  <td id="tableHTML_column_1">21283</td>
+  <td id="tableHTML_column_2">-0.1</td>
+  <td id="tableHTML_column_3">0.99</td>
+</tr>
+<tr style="background-color:#f2f2f2;">
+  <td id="tableHTML_rownames">large_roads</td>
+  <td id="tableHTML_column_1">17128</td>
+  <td id="tableHTML_column_2">-0.15</td>
+  <td id="tableHTML_column_3">0.91</td>
+</tr>
+</tbody>
+</table>
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Road Types Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h3 style="color: #F0F0F0">
+    Descriptive Statistics: Road Groups</h3>   
+    <img class="stretch" src="img/conductance_by_road_groups.png">
+    <!-- <center><p style="color: #F0F0F0"> By Group </p> </center> -->
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Road Types Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+    <h5 style="color: #F0F0F0">
+    Regressions: Ordinary Least Squares & Spatial Autoregressive Modeling</h5>   
+<table style="border-collapse:collapse; font-size: 24px; height:20px; width:60px;background-color:#f2f2f2;" class="table_3914" border="0">
+<caption style="color: #F0F0F0;text-align: left">Comparing coefficient values and standard errors between regression models.</caption>
+<caption id="footer" align="bottom" style="text-align:left; font-size: 20px; color: #F0F0F0;margin-top:3px;"><b>Note.</b> Values highlighted in yellow significant at p < 0.01 level. <br>
+    Any value shown as 0 was too small to be reported in table (surpassed 10th decimal place).<br>
+    SE = Standard Errors. OLS = Ordinary Least Squares.
+</caption>
+<thead>
+<tr style="border-top:3px solid black;font-weight:bold;font-size: 24px ">
+  <th colspan="1" id="tableHTML_second_header_1" style="border-top:3px solid black;"></th>
+  <th colspan="2" id="tableHTML_second_header_2" style="border-top:3px solid black;border-bottom:3px solid black;text-align:center;">OLS Model</th>
+  <th colspan="2" id="tableHTML_second_header_3" style="border-top:3px solid black;border-bottom:3px solid black;text-align:center;">Spatial Lag Model</th>
+  <th colspan="2" id="tableHTML_second_header_4" style="border-top:3px solid black;border-bottom:3px solid black;text-align:center;text-decoration:">Spatial Error Model</th>
+</tr>
+<tr style="border-bottom:2px solid black;">
+  <th id="tableHTML_header_1"> </th>
+  <th id="tableHTML_header_2">Coefficients</th>
+  <th id="tableHTML_header_3">SE</th>
+  <th id="tableHTML_header_4">Coefficients</th>
+  <th id="tableHTML_header_5">SE</th>
+  <th id="tableHTML_header_6">Coefficients</th>
+  <th id="tableHTML_header_7">SE</th>
+</tr>
+</thead>
+<tbody>
+<tr> 
+  <td id="tableHTML_rownames">Altitude</td>
+  <td id="tableHTML_column_1" style="text-align:center;background-color:#FAFFB8 ">0.031</td>
+  <td id="tableHTML_column_2" style="text-align:center;background-color:#FAFFB8 ">0.001</td>
+  <td id="tableHTML_column_3" style="text-align:center;background-color:#FAFFB8">0.01</td>
+  <td id="tableHTML_column_4" style="text-align:center;background-color:#FAFFB8">0.00</td>
+  <td id="tableHTML_column_5" style="text-align:center;background-color:#FAFFB8">0.028</td>
+  <td id="tableHTML_column_6" style="text-align:center;background-color:#FAFFB8">0.001</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Speed</td>
+  <td id="tableHTML_column_1" style="text-align:center;background-color:#FAFFB8">0.009</td>
+  <td id="tableHTML_column_2" style="text-align:center;background-color:#FAFFB8">0.01</td>
+  <td id="tableHTML_column_3" style="text-align:center;">0.001</td>
+  <td id="tableHTML_column_4" style="text-align:center;">0.002</td>
+  <td id="tableHTML_column_5" style="text-align:center;">0.001</td>
+  <td id="tableHTML_column_6" style="text-align:center;">0.014</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Urban Areas</td>
+  <td id="tableHTML_column_1" style="text-align:center;background-color:#FAFFB8">0.008</td>
+  <td id="tableHTML_column_2" style="text-align:center;background-color:#FAFFB8">0.002</td>
+  <td id="tableHTML_column_3" style="text-align:center;background-color:#FAFFB8">-0.169</td>
+  <td id="tableHTML_column_4" style="text-align:center;background-color:#FAFFB8">0.001</td>
+  <td id="tableHTML_column_5" style="text-align:center;background-color:#FAFFB8">-0.428</td>
+  <td id="tableHTML_column_6" style="text-align:center;background-color:#FAFFB8">0.002</td>
+</tr>
+<tr>
+  <td id="tableHTML_rownames">Green Areas</td>
+  <td id="tableHTML_column_1" style="text-align:center;">0.081</td>
+  <td id="tableHTML_column_2" style="text-align:center;">0.019</td>
+  <td id="tableHTML_column_3" style="text-align:center;background-color:#FAFFB8">0.008</td>
+  <td id="tableHTML_column_4" style="text-align:center;background-color:#FAFFB8">0.016</td>
+  <td id="tableHTML_column_5" style="text-align:center;">0.004</td>
+  <td id="tableHTML_column_6" style="text-align:center;">0.024</td>
+</tr>
+<tr style="border-bottom:3px solid black;">
+  <td id="tableHTML_rownames">Water</td>
+  <td id="tableHTML_column_1" style="text-align:center;background-color:#FAFFB8">-0.48</td>
+  <td id="tableHTML_column_2" style="text-align:center;background-color:#FAFFB8">0.012</td>
+  <td id="tableHTML_column_3" style="text-align:center;background-color:#FAFFB8">0.032</td>
+  <td id="tableHTML_column_4" style="text-align:center;background-color:#FAFFB8">0.01</td>
+  <td id="tableHTML_column_5" style="text-align:center;">0.023</td>
+  <td id="tableHTML_column_6" style="text-align:center;">0.025</td>
+</tr>
+</tbody>
+</table>
+
+<aside class="notes"> 
+    “Spatial is special”; 
+
+    Spatial data exhibits spatial dependence (also known as spatial autocorrelation) and spatial heterogeneity (spatial non-stationarity) that make it difficult to meet the assumptions and requirements of traditional OLS regression and can bias OLS results.Spatial dependence is the extent to which the value of an attribute in one location is more likely to be similar to the value of the attribute in a nearby location than in a distant location. 
+    
+    Spatial dependence is a function of Tobler’s (1970) First Law of Geography, which stated that “everything is related to everything else, but near things are more related than distant things” (p. 236). Spatial dependence “is determined both by similarities in position,
+    and by similarities in attributes”  large residuals are likely to occur if geographic features are spatially autocorrelated when using nonspatial statistical methods such as OLS regression.
+
+    And this is exactly why you see here the OLS demonstrating large effect sizes.
+
+
+</aside>  
+</section> 
+
+
+
+<!-- Space-Time Cube --> 
+<section data-transition="slide" data-background="img/space_time_cube.gif" data-background-size="200" >
+
+<aside class="notes"> 
+  Good slide for discussing the issues of processing, analysizng, visualizing, and modeling spatio-temporal, physiological data.
+</aside>  
+</section>  
+
+
+<section data-transition="slide">
+<h5 style="color: #F0F0F0; font-size: 22px;">
+    Interactive Application Development</h5>
+    <iframe style="width:1600px; height: 650px;padding: 0em " src="https://gcmillar.github.io/stress3d/"></iframe>
+    <aside class="notes">
+      Due to these issues, i developed an application that can be used by researchers such as myself, researchers here today, as well as urban and city planners. Researchers can use it to discover interesting patterns in initial data explorations, to then better direct where they should focus their research efforts. But also, urban and city planners can use it to gain valuable insight into which spatial configurations contribute to both favorable (and unfavorable) physiological states of those who use that space. From here, we hope it can help urban planners develop high-quality urban spaces through a more evidence-based design, in comparison to traditionally subjective methods. 
+
+      So, just to quickly demonstrate. . . .
+
+    On the left, we can toggle back and forth between these different cyclists, which is an important thing to note due to the variability in skin conductance that can be exhibited across multiple people.
+
+    So, starting with Cyclist # 1, and looking at the colored markers displayed on the map (blue = low arousal, red = high arousal), we can see that they were experiencing some high levels of arousal in this area. 
+
+    We can also coordinate what we're seeing on the map, with the skin conductance chart in the top-right corner. 
+
+    [HOVER MOUSE OVER CHART TO DISPLAY NUMERICAL DATA]
+
+    This chart will graphically display all data that is currently loaded into the map frame. As I zoom in and out, and pan around in the map, it will automatically update (as you can see here).
+
+    Now lets throw a couple more cyclists into the mix to see if others are experiencing similar states of arousal, or if Cyclist 1 is just an overall anxious person.
+
+    [CLICK CYCLIST 3]
+
+    So here, it appears these two are experiencing similar levels of high physiological arousal. Lets zoom out a bit and add another cyclist to get a better idea of the bigger picture.
+
+    [ZOOM OUT]
+
+    [CLICK CYCLIST 10]
+
+    So this area [MOVE OVER WITH MOUSE], seems to be causing some heightened states of physiological arousal. Seeing this, we of course would like to explore what is present in the environment that might be causing such reactions. To do so, I can first click one one of the markers ... [CLICK POINT RIGHT BEFORE WATER] ... 
+    to view additional information such as the speed the cyclist was going at that specific point, as well as the current elevation (NL is extremely flat), the total distance travelled to that point, specific skin conductance levels, and which cyclist it is.
+
+    But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of stress.
+
+    [ZOOM TO SELECTED POINT] --> [ROTATE MAP VIEW, TILT, etc] 
+
+    There seemed to be another stretch of cycleway provoking some high levels of arousal...
+
+    [ZOOM OUT, ZOOM TO WASTE WATER TREATMENT PLANT, CLICK MARKER ON CORNER] 
+
+    From the building structure and water bodies, we can tell that this is a wastewater treatment plant. One that seems to be causing some high skin conductance readings. Do you think it would have anything to do with the likely smell ???   :-D
+
+    One of my personal favorites of the application is the 3D platform in which the data is displayed on the map. 
+
+    --> [ROTATE MAP VIEW, TILT, etc] 
+
+    The 3D buildings help give the application's users a better sense of the density of urban areas the cyclists travelled through, and their corresponding line of sight.
+
+    While the application is interesting visually, and is a good way to kill time (and I'm definitely not speaking from personal experience or anything), its main purpose is a research tool, designed to help researchers (THIS IS YOU ALL) better direct what they should focus their research efforts on. 
+
+    With the way the system's structure is designed, most spatiotemporal data, especially physiological data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but simialr domains such as analyse human movement and physiological data collected inside and outside museums. 
+    </aside>  
+</section>  
+
+
+<section data-transition="slide">
+<h5 style="color: #F0F0F0">
+CHIPS Work to be Done</h5>
+<ul style="color: #F0F0F0; text-align: left;">
+        <li style="font-size: 30px"> Geographic Weighted Regressions</li>
+        <li style="font-size: 30px"> More Intuitive Mapping & Visualizations</li>
+        <li style="font-size: 30px"> What about other than CHIPS?</li>
+    </ul>
+</section>
+
+<!-- <h3 style="color: #F0F0F0">
+Why do all of this?</h3> -->
+<!-- <img src="img/youdontgohere.jpg"> -->
+<section data-transition="slide" data-background="img/nuenen.gif" data-background-size="200" >
+
+<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+</section>  
+
+
+<!-- Methodology: GPS Data --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    GPS Data</h3>   
+    <img class="stretch" src="img/GPS_charts_all_Nuenen.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+
+<!-- Methodology: Skin Conductance --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Outdoors: Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Skin Conductance</h3>   
+    <img class="stretch" src="img/Conductance_charts_Nuenen.png">
+<aside class="notes"> 
+    . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section> 
+
+<section data-transition="none">
+  <h6 style="color: #909090">
+    Outdoors: Methodology</h6>
+<h3 style="color: #F0F0F0">
+Web Mapping</h3>
+<video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/nuenen_outdoor.mp4" type="video/mp4">
+</video>
+<!-- The video -->
+</section>   
+
+<section data-transition="none">
+  <h6 style="color: #909090">
+    Outdoors: Methodology</h6>
+<h3 style="color: #F0F0F0">
+Spatial Gridding & Averaging</h3>
+<img class="stretch" src="img/grid_maps.png">
+<!-- The video -->
+</section>   
+
+
+<section data-transition="none">
+  <h6 style="color: #909090">
+    Outdoors: Methodology</h6>
+<h3 style="color: #F0F0F0">
+Spatial Gridding & Averaging</h3>
+<video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/nuenen_outdoor_rast.mp4" type="video/mp4">
+</video>
+<!-- The video -->
+</section>   
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> Beacon Location Processing</h5>
+    <img style=" width: 30%;" src="img/beacons1.png">
+    
+<aside class="notes"> 
+</aside>      
+</section>    
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> Beacon Location Processing</h5>
+    <img style=" width: 60%;" src="img/beacons2.png">
+    
+<aside class="notes"> 
+</aside>      
+</section>    
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> Beacon Location Processing</h5>
+    <img style=" width: 100%;" src="img/beacons3.png">
+    
+<aside class="notes"> 
+</aside>      
+</section>    
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> Indoor Beacon Heatmap</h5>
+    <img style=" width: 100%;" src="img/indoor_heatmap.png">
+    
+<aside class="notes"> 
+</aside>      
+</section>   
+
+
+<section data-transition="slide">
+<h5 style="color: #F0F0F0; font-size: 22px;">
+    Interactive Application Development</h5>
+    <iframe style="width:1600px; height: 650px;padding: 0em " src="https://gcmillar.github.io/Nuenen3d/"></iframe>
+</section>  
+
+
+<section data-transition="slide">
+<h5 style="color: #F0F0F0"> Conclusion</h5>
+    <!-- <video width="100%"  data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/indoor_3d_model_PoC.mp4" type="video/mp4"> -->
+</video>
+    <aside class="notes"> 
+      Conclusion notes:
+
+      But, as a quick note, I don't believe it should stop there, as this approach can be valuable for any exploration of how geographic contextual factors, including exposure to nature, the built environment, the food environment, air pollution, light pollution, noise, and socioeconomic factors, impact human behavior.
+    </aside>  
+</section>  
+
+     
+<!-- Questions --> 
+<section data-transition="none">
+<h3 style="color: #F0F0F0">
+Questions?</h3>
+<video data-autoplay align="center" controls muted loop id="3d_app_movie">
+  <source src="video/stress3d.mp4" type="video/mp4">
+</video>
+<p style="color: #F0F0F0"> Thank you! </p>
+<!-- The video -->
+</section>   
+
+
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>
