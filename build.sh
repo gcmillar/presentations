@@ -40,7 +40,13 @@
     --outfile=CHIPS_ExperienceLab_NL.html \
     --title="CHIPS Experience Lab" \
     --meta-description="Slides for CHIPS Experience Lab (NL) Presentation" \
-    CHIPS_ExperienceLab_NL.html       
+    CHIPS_ExperienceLab_NL.html
+    
+./build-slides.py --outdir=build \
+    --outfile=CHIPS_Nuenen_NL_final_presentation.html \
+    --title="CHIPS Nuenen Presentation" \
+    --meta-description="Slides for CHIPS Nuenen Final Presentation" \
+    CHIPS_Nuenen_NL_final_presentation.html                    
     
 
 cp ncgis2017.html ./build/
@@ -56,6 +62,7 @@ cp agu2018 ./build/
 cp 710_proposal_presentation ./build/
 cp 715_research_presentation ./build/
 cp CHIPS_ExperienceLab_NL ./build/
+cp CHIPS_Nuenen_NL_final_presentation ./build/
 
 
 # make this presentation primary for convenience
