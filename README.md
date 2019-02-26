@@ -1,5 +1,6 @@
 Collection of presentations
 ===========================================
+ * https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/
  * https://gcmillar.github.io/presentations/CHIPS_ExperienceLab_NL#/
  * https://gcmillar.github.io/presentations/715_research_presentation#/
  * https://gcmillar.github.io/presentations/710_proposal_presentation#/
