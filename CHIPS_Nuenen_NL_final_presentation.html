@@ -229,32 +229,34 @@
 <img height="30px" style="margin-top: 0.2em" src="img/logos/cga&ncstate_white.png">
 
   <aside class="notes">
-    Good morning everyone, and thank you for coming to my talk. 
 
-    Hi everyone, my name is Garrett Millar, and I'm a PhD student at North Carolina State University. I'll be talking about my recent work which uses cyclists' physiological data collected from the CHIPS work (specifically skin conductance) to see how stress can be affected by our environment. 
+    Hi everyone, thank you for coming today, and more importantly thank you for your contributions to my last 3 weeks here. My name is Garrett Millar, I'm a PhD student in Geospatial Analytics at North Carolina State University. And Geospatial Analytics, or Spatial Analytics, is the science of where things happen.
 
-    We'll then get into how I plan to improve upon this work while I'm here, and how I can apply similar techniques and approaches to similar data such as those collected for Nuenen.
+    LETS GET STARTED!!
 
-    Before we start, I'd like to briefly explain why I'm doing what I'm doing, by mentioning my background in Cognitive Science, specifically Human-Computer Interaction. I began my graduate research assessing how humans interact with computers, and how computers can be best designed to facilitate users' interaction and experience with them. Here, I apply a similar research approach using geospatial analytics, specifically analyzing how humans interact with the environment, what sort of affects it can have on them, and how it can be best configured for its users.
+    I wanted to first share with you my research background and previous research work. I got my Bachelors in Psychology, and then went straight into a PhD in Human-Computer Interaction. During this time, I researched how people use technology, how they experience it, and how they learn from it. 
 
-    To do so, we must begin exploring emotional experiences using a spatial analytical framework.
+    When I transitioned to the Geospatial Analytics program, I took with me the same approach, but instead of how people interact with and experience technology, I wanted to find out how people interact with and experience space. With what we'll be discussing today, that space is experienced in the context of tourism and leisure, which I study to help manage those experiences. 
+
+    Specifically, when people experience tourism and leisure, they feel something, and they feel something in a particular place. And to manage these experiences, you have to know not only that they felt something, but where in their experience they felt it. And SO, I'll be showing you today, where tourism and leisure participants felt something.
 
   </aside>
 
 </section>
 
 
-<section>
+<section data-transition="slide">
     <h5 style="color: #F0F0F0"> My Netherlands Experience</h5>
-    <img style=" width: 500px;" src="img/stroopwafel1.png">
+    <img style=" width: 450px;" src="img/stroopwafel1.png">
     
 <aside class="notes"> 
+    Stroopwafel & analysis experience rambles . . .
 </aside>      
 </section>  
 
-<section>
+<section >
     <h5 style="color: #F0F0F0"> My Netherlands Experience</h5>
-    <img style=" width: 500px;" src="img/stroopwafel2.png">
+    <img style=" width: 450px;" src="img/stroopwafel2.png">
     
 <aside class="notes"> 
 </aside>      
@@ -289,7 +291,7 @@
 </section>
 
 <!-- Intro -->
-<section>
+<section data-transition="slide">
 <h3 style="color: #F0F0F0">
     Emotions</h3>
     <ul style="color: #F0F0F0">
@@ -306,7 +308,7 @@
 </section>  
 
 <!-- Intro -->
-<section>
+<section data-transition="slide">
 <h3 style="color: #F0F0F0">
     Emotions</h3>
     <ul style="color: #F0F0F0">
@@ -318,40 +320,43 @@
 <aside class="notes"> 
     However, emotions play a major role in our day-to-day lives, significantly contributing to how we perceive and experience the world. They can be interpreted many ways, but largely depend on the context, or the place, in which they are experienced. 
 
-    Despite their wide range of interpretation, they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. Bumper-to-bumper traffic, large noisy crowds, unpleasant smells, all will evoke a distinct emotional response. 
+    Despite their wide range of interpretation, they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. 
 
-    In fact, there is a complex interplay between emotion, mood, place, and space. While we may feel happy and secure in one place, we might feel worried and unhappy in another.
+    So, we have to have a way to look at what people are feeling not just generally, but exactly where they experience spikes of emotions, so we can design that place to be the emotional experience we want to deliver.
 
-    How we emotionally respond to a place depends on any number of factors.
-    Empirically examining every one of these factors is a significant undertaking. However, such an investigation could improve our understanding of how emotions vary across space and determine our perceptions of a place. This would be of considerable interest to those responsible for designing the spaces in which these emotional patterns occur, specifically lending great insight to urban and city planners.
-
-    This is what we concern ourselves within this work. How emotions vary as a function of location, specifically through space and time. To do so, we must begin exploring emotional experiences using a spatial analytical framework.
-
-    BUT first, lets see what kind of emotions (at the very least feelings of weariness and / or hesitance) can be invoked by space.... (MINI experiment)
-
+    To start with, lets look at the cycling highway data. 
 </aside>
 </section>  
 
 <!-- Relating to Cycling - Mini Experiment -->
 
 <!-- Mini Experiment --> 
-
 <section data-transition="slide" data-background="img/cycling_vid_1.gif" data-background-size="200" >
+<aside class="notes"> 
+Look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel?
 
-<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+</aside>
 </section>  
-
 
 
 <section data-transition="slide" data-background="img/cycling_vid_2.gif" data-background-size="200" >
 
-<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+<aside class="notes"> 
+Look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel?
+
+Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+</aside>
 </section>  
 
 
 <section data-transition="slide" data-background="img/cycling_vid_3.gif" data-background-size="200" >
 
-<!-- <img class="fixed-background" src="img/youdontgohere.jpg"> -->
+<aside class="notes"> 
+Look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel?
+
+Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+</aside>
 </section>  
 
 
@@ -363,13 +368,14 @@
     Study Area — Netherlands</h3>   
 <img height="570px" align="center"  src="img/NL_DEM_StudyArea_3D_line.png">
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+    These are all scenes from the Tilburg Waalwijk cycling highway. Now these videos are from the experiences of the couple of 12 people that rode this highway. Lets map where they went, what kind of places they went through, And how they felt while doing it.
+
+    First, lets map where they went. This shows you in detail the highway they took between Tilburg and Waalwijk.
 </aside>  
 </section> 
 
-
 <!-- Methodology: Skin Conductance --> 
-<section data-transition="slide">
+<!-- <section data-transition="slide">
     <h6 style="color: #909090">
     Methodology</h6> 
 <h3 style="color: #F0F0F0">
@@ -377,6 +383,20 @@
     <img class="stretch" src="img/Conductance_charts.png">
 <aside class="notes"> 
     . . . . .  NOTES HERE . . . . . . 
+</aside>  
+</section>  -->
+
+<!-- Methodology: Framework for Cyclists' Experiences --> 
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Methodology</h6> 
+<h3 style="color: #F0F0F0">
+    Framework for Cyclists' Emotional Experiences</h3>   
+    <img class="stretch" src="img/cyclist_exp_framework_no_descrip_2.png">
+<aside class="notes"> 
+     Then, lets look at what kind of places they went through, where were they? First, there a layer of roads, and theres different types of roads such as pedestrian, which would fall under small roads, and motorways, which would fall into your larger roads.
+
+     Then, theres different kinds of land use. Places like forests, parks, and playgrounds (any areas that have large green elements in them) make up your green areas, and theres other more urban places like businesses, and colleges wich of course make up urban areas, then last, areas close or near to large water bodies.
 </aside>  
 </section> 
 
@@ -388,22 +408,12 @@
     Buffers as an Environment Interaction Metric</h3>   
     <img class="stretch" src="img/100_yd_buffer.png">
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+    And how about how they felt going through those places? Well its very, very important to note, we dont experience the environment within the very immediate space around us, so we have to . . . .
+
+    So based on that, putting roads and land use types together, as well as accounting for the amount of the environment we experience using generated buffers, we can create a map colorized by road types and land uses to show what kind of areas they went through, which are then used to analyze their experiences statistically.
+    
 </aside>  
 </section> 
-
-<!-- Methodology: Framework for Cyclists' Experiences --> 
-<section data-transition="slide">
-    <h6 style="color: #909090">
-    Methodology</h6> 
-<h3 style="color: #F0F0F0">
-    Framework for Cyclists' Emotional Experiences</h3>   
-    <img class="stretch" src="img/cyclist_exp_framework_no_descrip_2.png">
-<aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
-</aside>  
-</section> 
-
 
 <!-- Methodology: Mapping Emotion --> 
 <section data-transition="slide">
@@ -413,7 +423,12 @@
     Mapping Emotion</h3>   
     <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts1-6.png">
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+
+    And an inital exploration of that statistical process is shown here. We can put on top of the map we just discussed, each participants' range of emotional arousal. 
+
+    That can be seen with these blue and red routes that are colored by emotional arousal (blue = low; red = high).
+
+    NEXT SLIDE -->
 </aside>  
 </section> 
 
@@ -425,34 +440,7 @@
     Mapping Emotion cont'd</h3>   
     <img class="stretch" src="img/conduct_landuse_roads_map_grey_pts7-11.png">
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
-</aside>  
-</section> 
-
-
-<!-- Results: Land Use Bar Charts -->
-<section data-transition="slide">
-    <h6 style="color: #909090">
-    Results</h6> 
-<h3 style="color: #F0F0F0">
-    Descriptive Statistics: Land Use by Type</h3>   
-    <img class="stretch" src="img/conductance_by_land_type.png">
-    <!-- <center><p style="color: #F0F0F0"> By Individual Land Use Types </p> </center> -->
-<aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
-</aside>  
-</section> 
- 
-
-<!-- Results: Land Use Bar Charts -->
-<section data-transition="slide">
-    <h6 style="color: #909090">
-    Results</h6> 
-<h3 style="color: #F0F0F0">
-    Descriptive Statistics: Land Use by Group </h3>   
-    <img class="stretch" src="img/conductance_by_land_group.png">
-<aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+     Overall, showing how emotional each person was at each individual point on the map. You cant see very much from that, so whats a way to find out more?
 </aside>  
 </section> 
 
@@ -466,7 +454,9 @@
     <img class="stretch" src="img/conductance_by_road_types.png">
     <!-- <center><p style="color: #F0F0F0"> By Individual Road Types </p> </center> -->
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+    Well, we can average their emotional experiences by each kind of road.
+
+    Discuss bar chart . . . 
 </aside>  
 </section> 
 
@@ -480,7 +470,36 @@
     <img class="stretch" src="img/conductance_by_road_groups.png">
     <!-- <center><p style="color: #F0F0F0"> By Group </p> </center> -->
 <aside class="notes"> 
-    . . . . .  NOTES HERE . . . . . . 
+    Discuss bar chart . . . 
+</aside>  
+</section> 
+
+
+<!-- Results: Land Use Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Type</h3>   
+    <img class="stretch" src="img/conductance_by_land_type.png">
+    <!-- <center><p style="color: #F0F0F0"> By Individual Land Use Types </p> </center> -->
+<aside class="notes"> 
+    As well as each type of land . . .
+
+    Discuss bar chart . . . 
+</aside>  
+</section> 
+ 
+
+<!-- Results: Land Use Bar Charts -->
+<section data-transition="slide">
+    <h6 style="color: #909090">
+    Results</h6> 
+<h3 style="color: #F0F0F0">
+    Descriptive Statistics: Land Use by Group </h3>   
+    <img class="stretch" src="img/conductance_by_land_group.png">
+<aside class="notes"> 
+    Discuss bar chart . . . 
 </aside>  
 </section> 
 
@@ -563,26 +582,38 @@
 </table>
 
 <aside class="notes"> 
-    “Spatial is special”; 
 
-    Spatial data exhibits spatial dependence (also known as spatial autocorrelation) and spatial heterogeneity (spatial non-stationarity) that make it difficult to meet the assumptions and requirements of traditional OLS regression and can bias OLS results.Spatial dependence is the extent to which the value of an attribute in one location is more likely to be similar to the value of the attribute in a nearby location than in a distant location. 
-    
-    Spatial dependence is a function of Tobler’s (1970) First Law of Geography, which stated that “everything is related to everything else, but near things are more related than distant things” (p. 236). Spatial dependence “is determined both by similarities in position,
-    and by similarities in attributes”  large residuals are likely to occur if geographic features are spatially autocorrelated when using nonspatial statistical methods such as OLS regression.
+    So here is a bunch of numbers representing the statistical analysis. And what these numbers specifically represent are the statistical relationships between different kinds of land use, namely urban, green, and water. And how emotional people were in those types of land.
 
-    And this is exactly why you see here the OLS demonstrating large effect sizes.
+    In the left column, you see your normal, run-of-the mill statistical analysis (regression). Yet, it doesnt mean a thing. Why? (maybe call on someone?) 
 
+    Because it doesnt account for how two points in space that are close to each other, fundamentally have more to do with each other than two points that are far away from one another. This is known as spatial autocorrelation. 
+
+    To better frame this effect, lets think about two coffee drinkers sitting next to each other at a table in a coffee shop. They're both sitting next to the same french press of coffee. So, they must both be huge coffee addicts right??? Well, what if the french press is only for one of them, in fact the other doesnt even drink coffee and tends to prefer tea?
+
+    Well, our standard run-of-the mill statistical regression (ordinary least squares) does not account for this spatially assumed correlation between two points.
+
+    So we of course need to account for the fact that just because things are close to one another, does not mean they directly affect one another.
+
+    The Spatial Lag Model is one way of controlling for this, but the Spatial Error model controls for it even better.
+
+    [...INSERT INTERPRETATION OF URBAN SPACES FINDING...]
+
+    [RE-READ UP ON DIFFERENCES BETWEEN SLM & SEM]
 
 </aside>  
 </section> 
-
 
 
 <!-- Space-Time Cube --> 
 <section data-transition="slide" data-background="img/space_time_cube.gif" data-background-size="200" >
 
 <aside class="notes"> 
-  Good slide for discussing the issues of processing, analysizng, visualizing, and modeling spatio-temporal, physiological data.
+
+    And we can illustrate what this looks like, in this case for one person (also possible for the average person) in what we call a space time cube. At the bottom of the space time cube we have a map, so those two dimnesions (width and depth), they show where a person is in space, and the height dimension shows them moving across time.
+
+    And the color of this particular noodle, is showing you their skin conductance. If you were turn this on its side, it would be diagonal meaning the person was moving at a constant speed, except when we can see these kinks, which show a person stopped, and in this case some of these stops are colored by high emotional experiences. A visualization such as this really helps us in the interpretation of why someone may be experiencing high emotional arousal. In this case, a stopped cyclist showing high emotional levels could be indicative of having to stop and wait for a large intersection. 
+
 </aside>  
 </section>  
 
@@ -592,52 +623,44 @@
     Interactive Application Development</h5>
     <iframe style="width:1600px; height: 650px;padding: 0em " src="https://gcmillar.github.io/stress3d/"></iframe>
     <aside class="notes">
-      Due to these issues, i developed an application that can be used by researchers such as myself, researchers here today, as well as urban and city planners. Researchers can use it to discover interesting patterns in initial data explorations, to then better direct where they should focus their research efforts. But also, urban and city planners can use it to gain valuable insight into which spatial configurations contribute to both favorable (and unfavorable) physiological states of those who use that space. From here, we hope it can help urban planners develop high-quality urban spaces through a more evidence-based design, in comparison to traditionally subjective methods. 
+      Due to these issues, 
 
-      So, just to quickly demonstrate. . . .
+      I made an app which can be used to look at where people are feeling things, and really zoom in on it, so that a manager can go, "Ok, a person felt something here, whats there??"
 
-    On the left, we can toggle back and forth between these different cyclists, which is an important thing to note due to the variability in skin conductance that can be exhibited across multiple people.
+      But, researchers can also use it to discover interesting patterns when exploring newly collected data, to then better direct where they should focus their research efforts.
 
-    So, starting with Cyclist # 1, and looking at the colored markers displayed on the map (blue = low arousal, red = high arousal), we can see that they were experiencing some high levels of arousal in this area. 
+      So, just to quickly demonstrate . . . .
 
-    We can also coordinate what we're seeing on the map, with the skin conductance chart in the top-right corner. 
+        On the left, we can toggle back and forth between these different cyclists, which is an important thing to note due to the variability in skin conductance that can be exhibited across multiple people.
 
-    [HOVER MOUSE OVER CHART TO DISPLAY NUMERICAL DATA]
+        So, starting with Cyclist # 1, and looking at the colored markers displayed on the map (blue = low arousal, red = high arousal), we can see that they were experiencing some high levels of arousal in this area. 
 
-    This chart will graphically display all data that is currently loaded into the map frame. As I zoom in and out, and pan around in the map, it will automatically update (as you can see here).
+        We can also coordinate what we're seeing on the map, with the skin conductance chart in the top-right corner. 
 
-    Now lets throw a couple more cyclists into the mix to see if others are experiencing similar states of arousal, or if Cyclist 1 is just an overall anxious person.
+        [HOVER MOUSE OVER CHART TO DISPLAY NUMERICAL DATA]
 
-    [CLICK CYCLIST 3]
+        This chart will graphically display all data that is currently loaded into the map frame. As I zoom in and out, and pan around in the map, it will automatically update (as you can see here).
 
-    So here, it appears these two are experiencing similar levels of high physiological arousal. Lets zoom out a bit and add another cyclist to get a better idea of the bigger picture.
+        Now lets throw a couple more cyclists into the mix to see if others are experiencing similar states of arousal, or if Cyclist 1 is just an overall anxious person.
 
-    [ZOOM OUT]
+        [CLICK CYCLIST 3]
 
-    [CLICK CYCLIST 10]
+        So here, it appears these two are experiencing similar levels of high physiological arousal. Lets zoom out a bit and add another cyclist to get a better idea of the bigger picture.
 
-    So this area [MOVE OVER WITH MOUSE], seems to be causing some heightened states of physiological arousal. Seeing this, we of course would like to explore what is present in the environment that might be causing such reactions. To do so, I can first click one one of the markers ... [CLICK POINT RIGHT BEFORE WATER] ... 
-    to view additional information such as the speed the cyclist was going at that specific point, as well as the current elevation (NL is extremely flat), the total distance travelled to that point, specific skin conductance levels, and which cyclist it is.
+        [ZOOM OUT]
 
-    But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of stress.
+        [CLICK CYCLIST 10]
 
-    [ZOOM TO SELECTED POINT] --> [ROTATE MAP VIEW, TILT, etc] 
+        So this area [MOVE OVER WITH MOUSE], seems to be causing some heightened states of physiological arousal. Seeing this, we of course would like to explore what is present in the environment that might be causing such reactions. To do so, I can first click one one of the markers ... [CLICK POINT RIGHT BEFORE WATER] ... 
+        to view additional information such as the speed the cyclist was going at that specific point, as well as the current elevation (NL is extremely flat), the total distance travelled to that point, specific skin conductance levels, and which cyclist it is.
 
-    There seemed to be another stretch of cycleway provoking some high levels of arousal...
+        But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of stress.
 
-    [ZOOM OUT, ZOOM TO WASTE WATER TREATMENT PLANT, CLICK MARKER ON CORNER] 
+        [ZOOM TO SELECTED POINT] --> [ROTATE MAP VIEW, TILT, etc] 
 
-    From the building structure and water bodies, we can tell that this is a wastewater treatment plant. One that seems to be causing some high skin conductance readings. Do you think it would have anything to do with the likely smell ???   :-D
+        While the application is interesting visually, and is a good way to kill time (and I'm definitely not speaking from personal experience or anything), its main purpose is a research tool, designed to help researchers (THIS IS YOU ALL) better direct what they should focus their research efforts on. 
 
-    One of my personal favorites of the application is the 3D platform in which the data is displayed on the map. 
-
-    --> [ROTATE MAP VIEW, TILT, etc] 
-
-    The 3D buildings help give the application's users a better sense of the density of urban areas the cyclists travelled through, and their corresponding line of sight.
-
-    While the application is interesting visually, and is a good way to kill time (and I'm definitely not speaking from personal experience or anything), its main purpose is a research tool, designed to help researchers (THIS IS YOU ALL) better direct what they should focus their research efforts on. 
-
-    With the way the system's structure is designed, most spatiotemporal data, especially physiological data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but simialr domains such as analyse human movement and physiological data collected inside and outside museums. 
+        With the way the system's structure is designed, most spatiotemporal data, especially physiological data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but similar domains such as the study of human movement and physiological data collected inside and outside museums. 
     </aside>  
 </section>  
 
