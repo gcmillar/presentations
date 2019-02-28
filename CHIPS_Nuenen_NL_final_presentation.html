@@ -286,7 +286,7 @@
 </section>
 
 <!-- Intro -->
-<section data-transition="slide">
+<!-- <section data-transition="slide">
 <h3 style="color: #F0F0F0">
     Emotions</h3>
     <ul style="color: #F0F0F0">
@@ -300,24 +300,26 @@
 
     In fact I wouldn't be the least bit surprised if some of you were thinking what in the world emotions have to do with spatial analytics, or vice versa. 
 </aside>
-</section>  
+</section>   -->
 
 <!-- Intro -->
 <section data-transition="slide">
 <h3 style="color: #F0F0F0">
     Emotions</h3>
     <ul style="color: #F0F0F0">
-        <li>Emotions</li>
-        <li>Measuring Emotion</li>
-        <li>Emotions in Space</li>
-        <li>Spatial-Emotional Analytics</li>
+        <li>Why do emotions matter?</li>
+        <li>Measuring emotion</li>
+        <!-- <li>Emotions in Space</li> -->
+        <li>Mapping emotional experiences</li>
     </ul>
 <aside class="notes"> 
-    However, emotions play a major role in our day-to-day lives, significantly contributing to how we perceive and experience the world. They can be interpreted in many ways, but largely depend on the context, or the place, in which they are experienced.  <br><br>
+    To start, why emotions? And why are we trying to map them? <br><br>
 
-    Despite their wide range of interpretation, they are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment.  <br><br>
+    Well, emotions play a major role in our day-to-day lives, as they play a large part in how we perceive and experience the world. People can experience a wide range of different emotions, but usually depend on the context, or the place, in which they are experienced.  <br><br>
 
-    So, as tourism and leisure managers, we need to have a way to look at what people are feeling not just in general, but exactly where they experience spikes of emotions, so we can design that place to be the emotional experience that we want to deliver. <br><br>
+    In fact, emotions are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. <br><br>
+
+    So, as tourism and leisure managers, we need to have a way to look at what people are feeling not just in general, but exactly where they are feeling it, so we can design that place to be the emotional experience that we want to deliver. <br><br>
 
     With this in mind, lets look at the cycling highway data. 
 </aside>
@@ -410,7 +412,7 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     To better account for peoples' wide range of poosbile interactions with the environment ... <br><br>
 
-    We can then use these more experience points to continue our statistical investigation  ... <br><br>
+    We can then use these more accurate experience points to continue our statistical investigation  ... <br><br>
 
     [extra text: as well as accounting for the amount of the environment we experience using generated buffers, ]
 
@@ -665,6 +667,9 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
 
 <section data-transition="slide" data-background="img/nuenen.gif" data-background-size="200" >
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
 </section>  
 
 
@@ -678,7 +683,7 @@ Web Mapping</h3>
 </video>
 <!-- The video -->
 <aside class="notes"> 
-    Here is the outdoor musuem data. It is showing individual peoples emotional arousal as they experienced the outdoor exhibits at the vincentre. Again, blue represents low emotional arousal, red represents high emotional arousal.
+    Here is the outdoor musuem data. It is showing individual peoples emotional arousal as they experienced the outdoor exhibits at the musuem. Again, blue represents low emotional arousal, red represents high emotional arousal.<br><br>
 
     We can also take a grand average of all participants' emotional arousal by location. SHOWN HERE (last selection made in video)
 </aside>  
@@ -690,10 +695,13 @@ Web Mapping</h3>
 <h3 style="color: #F0F0F0">
 Spatial Gridding & Averaging</h3>
 <img class="stretch" src="img/grid_rast.png">
-<!-- The video -->
-<aside class="notes"> 
-    The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). Then, an average is taken for each one of these pixels. This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
-</aside>  
+    <aside class="notes"> 
+        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
+
+        Then, an emotional arousal average is taken for each one of these pixels. <br><br>
+
+        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+    </aside>  
 </section> 
 
 
@@ -723,7 +731,11 @@ Spatial Gridding & Averaging</h3>
   </tr>
 </table>
     <aside class="notes">
-    The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). Then, an average is taken for each one of these pixels. This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
+        
+        Then, an average is taken for each one of these pixels. <br><br>
+
+        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
         </aside>
 </section>
 
@@ -754,7 +766,11 @@ Spatial Gridding & Averaging</h3>
 
 </table>
     <aside class="notes">
-        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). Then, an average is taken for each one of these pixels. This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
+        
+        Then, an average is taken for each one of these pixels. <br><br>
+
+        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
     </aside>
 </section>
 
@@ -785,7 +801,11 @@ Spatial Gridding & Averaging</h3>
     </table>
 
     <aside class="notes">
-        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). Then, an average is taken for each one of these pixels. This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
+
+        Then, an average is taken for each one of these pixels. <br><br>
+
+        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
 
     </aside>
 
@@ -829,6 +849,11 @@ Spatial Gridding & Averaging</h3>
   </tr>
 </table>
     <aside class="notes">
+        Now, lets talk about the indoor portion of the Van Gogh musuem. <br><br>
+
+        If you remember my stroopwafel drawing from earlier, I mentioned that beacons were used to collect peoples' locations during their visit. <br><br>
+
+        In order to use these for visualizations and analyses, I had to figure out where they were placed, specifically their spatial coordinates (lat and long).
     </aside>
 
 </section>
@@ -860,6 +885,11 @@ Spatial Gridding & Averaging</h3>
 
 </table>
     <aside class="notes">
+        I then performed a similar spatial technique we discussed for the cycling data, generating buffers around each beacon. <br><br>
+
+        This was done as a way to better associate visitors' collected emotional data, with the beacons that they were closest to at the time they were feeling something.... <br><br>
+
+        .... this helps us identify where visitors felt something within the musuem, and at which exhibits. 
     </aside>
 </section>
 
@@ -890,6 +920,7 @@ Spatial Gridding & Averaging</h3>
     </table>
 
     <aside class="notes">
+        The overall area of these buffers were then corrected by accounting for the musuems floor plans.
 
     </aside>
 
@@ -899,10 +930,27 @@ Spatial Gridding & Averaging</h3>
 <section>
   <h6 style="color: #909090">
     Indoors: Methodology</h6>
-    <h5 style="color: #F0F0F0"> Indoor Beacon Heatmap</h5>
-    <img style=" width: 50%;" src="img/indoor_heatmap.png">
+    <h5 style="color: #F0F0F0"> Indoor Beacon Heatmap: Ground Floor</h5>
+    <img style=" width: 43%;" src="img/0floor_beacon_locations.png">
+    <img style=" width: 51%;" src="img/indoor_heatmap_ground.png">
     
 <aside class="notes"> 
+    Finally, we can take these created buffers, and colorize them by the intensity of visitors' emotional experiences throughout the musuem. Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.
+</aside>      
+</section>   
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> Indoor Beacon Heatmap: First Floor</h5>
+    <img style=" width: 45%;" src="img/1stfloor_beacon_locations1.png">
+    <img style=" width: 49%;" src="img/indoor_heatmap.png">
+    
+<aside class="notes"> 
+    (SAME FOR FIRST FLOOR)
+    Finally, we can take these created buffers, and colorize them by the intensity of visitors' emotional experiences throughout the musuem. Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.
+
+    <b>[Insert Ondrej's comment on the face / hat exhibit here]</b>
 </aside>      
 </section>   
 
@@ -914,10 +962,19 @@ Spatial Gridding & Averaging</h3>
 </section>  
 
 
-<section data-transition="slide">
+<!-- <section data-transition="slide">
 <h5 style="color: #F0F0F0"> Conclusion</h5>
-    <!-- <video width="100%"  data-autoplay align="center" controls muted loop id="3d_app_movie">
-  <source src="video/indoor_3d_model_PoC.mp4" type="video/mp4"> -->
+</video>
+    <aside class="notes"> 
+      Conclusion notes:
+
+      But, as a quick note, I don't believe it should stop there, as this approach can be valuable for any exploration of how geographic contextual factors, including exposure to nature, the built environment, the food environment, air pollution, light pollution, noise, and socioeconomic factors, impact human behavior.
+    </aside>  
+</section>   -->
+
+
+<section data-transition="slide">
+<h1 style="color: #F0F0F0"> Next Steps?</h1>
 </video>
     <aside class="notes"> 
       Conclusion notes:
