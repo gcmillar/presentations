@@ -222,7 +222,7 @@
 </center>
 <h6 class="shadow" style="font-size:1.1em; color:#fff"> Measuring Human Behavior Across Space & Time <br>to Inform Tourism & Leisure Management</h6>
 <h6 style="margin-top: 0.5em;color: #F0F0F0; font-size: 24px">Garrett C. Millar</h6>
-<img height="30px" style="margin-top: 0.2em" src="img/logos/cga&ncstate_white.png">
+<img height="30px" style="margin-top: 0.2em" src="img/logos/cga_ncstate_buas.png">
 
   <aside class="notes">
 
@@ -408,14 +408,13 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     I'm trying to consider all of my audiences' different viewpoints, paying attention to any potential confused or disagreeing faces, while at risk of being distracted by a siren that may happen to pass by the building.  <br><br>
 
-    So we have to generate buffers... (100m)<br><br>
+    So we have to generate what are known as buffers. And what these do is basically stretch the sampled location point across a wider area (100m)<br><br>
 
-    To better account for peoples' wide range of poosbile interactions with the environment ... <br><br>
+    This helps us better account for peoples' wide range of poosbile interactions with the environment.  <br><br>
 
-    We can then use these more accurate experience points to continue our statistical investigation  ... <br><br>
+    For instance, a cyclist may see a large intersection 50m ahead, and already begin to show a spike in emotion. <br><br>
 
-    [extra text: as well as accounting for the amount of the environment we experience using generated buffers, ]
-
+    We can then use these more accurate environment experience points to continue our statistical investigation  ... <br><br>
     
 </aside>  
 </section> 
@@ -575,7 +574,9 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     So here is a bunch of numbers representing the statistical analysis. And what these numbers specifically represent are the statistical relationships between different kinds of land use, namely urban, green, and water. And how emotional people were in those types of land. <br><br>
 
-    In the left column, you see your normal, run-of-the mill statistical analysis (regression). Yet, it doesnt mean a thing. Why? (maybe call on someone?)  <br><br>
+    In the left column, you see your normal, run-of-the mill statistical analysis (regression). Yet, it doesnt mean a thing. Why? (Ask audience - Ondrej should raise his hand)  <br><br>
+
+    Pretty much what Dr. Mitas
 
     Because it doesnt account for how two points in space that are close to each other, fundamentally have more to do with each other than two points that are far away from one another. This is known as spatial autocorrelation.  <br><br>
 
@@ -597,16 +598,19 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
 <!-- Space-Time Cube --> 
 <section data-transition="slide" data-background="img/space_time_cube.gif" data-background-size="200" >
-
+    <!-- <h5 style="color: #F0F0F0; font-size: 8px;">
+    <a href="https://gcmillar.github.io/mapping-emotions-spacetime-cube/#space-time-cube">Interactive Version</a></h5> -->
 <aside class="notes"> 
 
-    And we can illustrate what this looks like, in this case for one person (also possible for the average person) in what we call a space time cube.  <br><br>
+    If you haven't already begun thinking this yourself, I wanted to use a visualization to demonstrate just how complex this data we are working with is.  <br><br>
 
-    At the bottom of the space time cube we have a map, so those two dimnesions (width and depth), they show where a person is in space, and the height dimension shows them moving across time. <br><br>
+    This is a space-time cube, showing the data of one cyclist in this case, but is also possilble for all cyclists.  <br><br>
 
-    And the color of this particular noodle, is showing you their skin conductance.  <br><br>
+    At the bottom of the space time cube we have a map, and those two dimnesions (width and depth), they show where a person is in space, and the height dimension shows them moving across time. <br><br>
 
-    If you were turn this on its side, it would be diagonal meaning the person was moving at a constant speed, except when we can see these kinks, which show a person stopped, and in this case some of these stops are colored by high emotional experiences.  <br><br>
+    And the color of this weird-looking noodle, is showing you their emotional arousal.  <br><br>
+
+    If you turn this on its side, it would be diagonal meaning the person was moving at a constant speed, except when we can see these kinks, which show a person stopped, and in this case some of these stops are colored by high emotional experiences.  <br><br>
 
     A visualization such as this really helps us in the interpretation of why someone may be experiencing high emotional arousal.  <br><br>
 
@@ -655,13 +659,13 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
         to view additional information such as the speed the cyclist was going at that specific point, as well as the current elevation (NL is extremely flat), the total distance travelled to that point, specific skin conductance levels, and which cyclist it is. <br><br>
 
-        But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of stress. <br><br>
+        But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of emotion. <br><br>
 
         [ZOOM TO SELECTED POINT] --> [ROTATE MAP VIEW, TILT, etc]  <br><br>
 
         While the application is interesting visually, and is a good way to kill time (and I'm definitely not speaking from personal experience or anything), its main purpose is a research tool, designed to help researchers (THIS IS YOU ALL) better direct what they should focus their research efforts on.  <br><br>
 
-        With the way the system's structure is designed, most spatiotemporal data, especially physiological data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but similar domains such as the study of human movement and physiological data collected inside and outside museums.  <br><br>
+        With the way the system's structure is designed, most spatiotemporal data, especially emotion data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but similar domains such as mapping emotional data collected inside and outside museums.  <br><br>
     </aside>  
 </section>  
 
@@ -683,7 +687,11 @@ Web Mapping</h3>
 </video>
 <!-- The video -->
 <aside class="notes"> 
-    Here is the outdoor musuem data. It is showing individual peoples emotional arousal as they experienced the outdoor exhibits at the musuem. Again, blue represents low emotional arousal, red represents high emotional arousal.<br><br>
+    Here is the outdoor musuem data. <br><br>
+
+    It is showing individual peoples' emotional arousal as they experienced the outdoor exhibits at the musuem. <br><br>
+
+    Again, blue represents low emotional arousal, red represents high emotional arousal. <br><br>
 
     We can also take a grand average of all participants' emotional arousal by location. SHOWN HERE (last selection made in video)
 </aside>  
@@ -920,7 +928,7 @@ Spatial Gridding & Averaging</h3>
     </table>
 
     <aside class="notes">
-        The overall area of these buffers were then corrected by accounting for the musuems floor plans.
+        The overall area of these buffers were then corrected (or cut) by accounting for the musuem's floor plans.
 
     </aside>
 
@@ -935,7 +943,8 @@ Spatial Gridding & Averaging</h3>
     <img style=" width: 51%;" src="img/indoor_heatmap_ground.png">
     
 <aside class="notes"> 
-    Finally, we can take these created buffers, and colorize them by the intensity of visitors' emotional experiences throughout the musuem. Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.
+    Finally, we can take these created buffers, associate them with the visitors' collected emotional data, and colorize them by the intensity of their emotional experiences throughout the musuem. <br><br>
+
 </aside>      
 </section>   
 
@@ -947,8 +956,9 @@ Spatial Gridding & Averaging</h3>
     <img style=" width: 49%;" src="img/indoor_heatmap.png">
     
 <aside class="notes"> 
-    (SAME FOR FIRST FLOOR)
-    Finally, we can take these created buffers, and colorize them by the intensity of visitors' emotional experiences throughout the musuem. Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.
+    (SAME FOR FIRST FLOOR)<br><br>
+
+    Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.<br><br>
 
     <b>[Insert Ondrej's comment on the face / hat exhibit here]</b>
 </aside>      
@@ -962,26 +972,55 @@ Spatial Gridding & Averaging</h3>
 </section>  
 
 
-<!-- <section data-transition="slide">
-<h5 style="color: #F0F0F0"> Conclusion</h5>
-</video>
-    <aside class="notes"> 
-      Conclusion notes:
-
-      But, as a quick note, I don't believe it should stop there, as this approach can be valuable for any exploration of how geographic contextual factors, including exposure to nature, the built environment, the food environment, air pollution, light pollution, noise, and socioeconomic factors, impact human behavior.
-    </aside>  
-</section>   -->
-
-
 <section data-transition="slide">
-<h1 style="color: #F0F0F0"> Next Steps?</h1>
-</video>
+<h5 style="color: #F0F0F0"> Wrapping Up</h5>
+<ul style="color: #F0F0F0">
+    <li>What have we learned?</li>
+        <ul style="color: #F0F0F0">
+        <li>Mapping emotions</li>
+        <li>Complexity of spatially analyzing and visualizing emotional data</li>
+        </ul>
+    <li>Whats next? Where do we go from here?</li>    
+    </ul>
     <aside class="notes"> 
-      Conclusion notes:
+        So, to go over what we've talked about and hopefully learned today . . .<br><br>
 
-      But, as a quick note, I don't believe it should stop there, as this approach can be valuable for any exploration of how geographic contextual factors, including exposure to nature, the built environment, the food environment, air pollution, light pollution, noise, and socioeconomic factors, impact human behavior.
+        We've learned why mapping emotional experiences is important, especially in the case of tourism and leisure management.<br><br>
+
+        But that doing so isn't all fun and stroopwafels. <br><br>
+
+        So, whats next? 
+
     </aside>  
 </section>  
+
+
+<section data-background="https://github.com/ptabriz/presentation_viewscape/raw/master/img/anim.gif" data-background-size="200" >
+<br/><br/>
+<br/><br/><br/>
+
+<h1  style="color: #F0F0F0">Next Steps?</h1>
+
+<br/>
+<br/>
+
+  <aside class="notes">
+
+    Conclusion notes:
+
+      But, as a quick note, I don't believe it should stop there, as this approach can be valuable for any exploration of how geographic contextual factors, including exposure to nature, the built environment, the food environment, air pollution, light pollution, noise, and socioeconomic factors, impact human behavior.
+
+  </aside>
+
+</section>
+
+<!-- <section data-transition="slide">
+<h1 style="color: #F0F0F0"> Next Steps?</h1>
+
+    <aside class="notes"> 
+      
+    </aside>  
+</section>   -->
 
      
 <!-- Questions --> 
