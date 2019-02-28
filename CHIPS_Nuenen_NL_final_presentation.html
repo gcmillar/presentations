@@ -396,13 +396,13 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 <aside class="notes"> 
      Then, lets look at what kind of places they went through, where were they?  <br><br>
 
-     First, there a layer of roads, and theres different types of roads such as smaller pedestrian roads, and then larger motorways<br><br>
+     First, we have different types of roads; such as smaller pedestrian roads, and then larger motorways<br><br>
 
      Then, theres different kinds of land use.  <br><br>
 
-     Places like forests, parks, businesses, and colleges, which can all be groupedinto overall landuse categories of green, urban, and water.  <br><br>
+     Places like forests, parks, businesses, and colleges. <br><br>
 
-     And based on that, putting roads and land use types together, we can create a map colorized by road types and land uses to show what kind of areas they went through, which are then used to analyze their experiences statistically.
+     And from putting roads and land use types together, we can create a colored map that shows what kind of areas they went through, which are then used to analyze their experiences statistically.
 </aside>  
 </section> 
 
@@ -468,11 +468,13 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
     <img class="stretch" src="img/conductance_by_road_types.png">
     <!-- <center><p style="color: #F0F0F0"> By Individual Road Types </p> </center> -->
 <aside class="notes"> 
-    Well, we can average their emotional experiences by each kind of road. <br><br>
+    Well, we can statistically average their emotional experiences different kinds of land. <br><br>
+
+    Different road types are shown here. <br><br>
 
     High emotional levels seen in pedestrian roads and tracks graded as level 4 (rough natural terrain). <br><br>
 
-    Low emotional levels seen in 
+    Low emotional levels seen in motorway links and residential roads.
 </aside>  
 </section> 
 
@@ -487,7 +489,11 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 <aside class="notes"> 
     As well as each type of land . . . <br><br>
 
-    Discuss bar chart . . . 
+    High emotional levels seen in bicycle parking and wetlands <br><br>
+
+    Low emotional levels seen around christian churches and playgrounds...<br><br>
+
+    <b>BUT... problem with # of sampled points (Christian) </b>
 </aside>  
 </section> 
  
@@ -500,7 +506,10 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
     Descriptive Statistics: Land Use by Group </h3>   
     <img class="stretch" src="img/conductance_by_land_group.png">
 <aside class="notes"> 
-    Discuss bar chart . . . 
+
+    So, its better to group these into larger land use categories. For instance: green, urban, and water. <br><br>
+
+    This helps us get a broader look into what sort of environments can be attributed to cyclists' emotional experiences. 
 </aside>  
 </section> 
 
@@ -588,9 +597,9 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     In the left column, you see your normal, run-of-the mill statistical analysis (regression). Yet, it doesnt mean a thing. Why? (Ask audience - Ondrej should raise his hand)  <br><br>
 
-    Pretty much what Dr. Mitas
+    Pretty much what Dr. Mitas has said . . . 
 
-    Because it doesnt account for how two points in space that are close to each other, fundamentally have more to do with each other than two points that are far away from one another. This is known as spatial autocorrelation.  <br><br>
+    Because the standard regression doesnt account for how two points in space that are close to each other, fundamentally have more to do with each other than two points that are far away from one another. This is known as spatial autocorrelation.  <br><br>
 
     To better frame this effect, lets think about two coffee drinkers sitting next to each other at a table in a coffee shop. They're both sitting next to the same french press of coffee. So, they must both be huge coffee addicts right??? Well, what if the french press is only for one of them, in fact the other doesnt even drink coffee and tends to prefer tea? <br><br>
 
@@ -598,9 +607,22 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     So we of course need to account for the fact that just because things are close to one another, does not mean they directly affect one another. <br><br>
 
+    I'm sure we've all heard the famous saying of : "CORRELATION DOES NOT EQUAL CAUSATION"
+
+    Well, we're interested in the causation in this case, and so we need to account for this effect of spatial autocorrelation.<br><br>
+
     The Spatial Lag Model is one way of controlling for this, but the Spatial Error model controls for it even better. <br><br>
 
-    [...INSERT INTERPRETATION OF URBAN SPACES FINDING...] <br><br>
+
+    We can see in the SEM that cyclists are signifcantly more emotionally excited when they are pedaling up a hilly cycleway.<br><br>
+
+
+     ALSO, they are more calm or less aroused in urban areas AS COMPARED to green areas or water areas. <br><br>
+
+
+    The altitude finding makes sense. However, I'm not really sure what the urban areas finding means. <br><br>
+
+    So I'm hoping Paul, if you're in the audience, to enact your urban design expertise and maybe offer up an interpretation or thoughts on  why we may be seeing people be more calm in urban areas in this study??<br><br>
 
     [RE-READ UP ON DIFFERENCES BETWEEN SLM & SEM]
 
@@ -616,7 +638,7 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     If you haven't already begun thinking this yourself, I wanted to use a visualization to demonstrate just how complex this data we are working with is.  <br><br>
 
-    This is a space-time cube, showing the data of one cyclist in this case, but is also possilble for all cyclists.  <br><br>
+    This is a space-time cube, showing the data of one cyclist in this case, but is also possilble to show an average of all cyclists.  <br><br>
 
     At the bottom of the space time cube we have a map, and those two dimnesions (width and depth), they show where a person is in space, and the height dimension shows them moving across time. <br><br>
 
@@ -624,9 +646,11 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
     If you turn this on its side, it would be diagonal meaning the person was moving at a constant speed, except when we can see these kinks, which show a person stopped, and in this case some of these stops are colored by high emotional experiences.  <br><br>
 
+    In this case, a stopped cyclist showing high emotional levels could indicate a cyclist needing to stop and wait to cross a large intersection. 
+
     A visualization such as this really helps us in the interpretation of why someone may be experiencing high emotional arousal.  <br><br>
 
-    In this case, a stopped cyclist showing high emotional levels could be indicative of having to stop and wait for a large intersection. 
+    However, its still not the best . . . NEXT SLIDE
 
 </aside>  
 </section>  
@@ -684,7 +708,9 @@ Call on someone, "Imagine yourself in this scenario. What are your initial thoug
 
 <section data-transition="slide" data-background="img/nuenen.gif" data-background-size="200" >
     <aside class="notes"> 
-    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
 </aside> 
 </section>  
 
@@ -751,11 +777,7 @@ Spatial Gridding & Averaging</h3>
   </tr>
 </table>
     <aside class="notes">
-        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
-        
-        Then, an average is taken for each one of these pixels. <br><br>
-
-        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        SpatialLY averaged emotional arousal on a road map
         </aside>
 </section>
 
@@ -786,11 +808,7 @@ Spatial Gridding & Averaging</h3>
 
 </table>
     <aside class="notes">
-        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
-        
-        Then, an average is taken for each one of these pixels. <br><br>
-
-        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        SpatialLY averaged emotional arousal with a satellite view
     </aside>
 </section>
 
@@ -821,11 +839,7 @@ Spatial Gridding & Averaging</h3>
     </table>
 
     <aside class="notes">
-        The grand average I just showed can be done in a more spatial way, where a spatial grid is first overalaid on the map (you can see blended pixels or squares now which represent this grid). <br><br>
-
-        Then, an average is taken for each one of these pixels. <br><br>
-
-        This means all conductance data to have been sampled at any location that falls within one of those pixels, they are averaged together and represented with what is known as a raster (something to display continuous data across a grid)
+        SpatialLY averaged emotional arousal on a topographical map
 
     </aside>
 
@@ -840,6 +854,10 @@ Spatial Gridding & Averaging</h3>
   <source src="video/nuenen_outdoor_rast.mp4" type="video/mp4">
 </video>
 <!-- The video -->
+<aside class="notes">
+        and the interactive version
+
+    </aside>
 </section>   
 
 
@@ -873,7 +891,7 @@ Spatial Gridding & Averaging</h3>
 
         If you remember my stroopwafel drawing from earlier, I mentioned that beacons were used to collect peoples' locations during their visit. <br><br>
 
-        In order to use these for visualizations and analyses, I had to figure out where they were placed, specifically their spatial coordinates (lat and long).
+        In order to use these for visualizations and analyses, I had to figure out where they were placed, specifically their spatial coordinates (latitude and longitude).
     </aside>
 
 </section>
@@ -972,9 +990,35 @@ Spatial Gridding & Averaging</h3>
 
     Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.<br><br>
 
-    <b>[Insert Ondrej's comment on the face / hat exhibit here]</b>
+    <b> 
+        These are the closets (blue circles), and these are the hats (red circles).
+
+        Looking at this, for this data, we can conclusively say that closets are not really making people emotional, but that hats are.
+        
+    </b>
 </aside>      
 </section>   
+
+<section>
+  <h6 style="color: #909090">
+    Indoors: Methodology</h6>
+    <h5 style="color: #F0F0F0"> First Floor Exhibits</h5>
+    <img style=" width: 45%;" src="img/nuenen_closets.png">
+    <img style=" width: 49%;" src="img/nuenen_hat.png">
+    
+<aside class="notes"> 
+
+    Taking a look at the floor plan with these beacon heat maps, we can start to identify which exhibits people felt strongly about something, and those they didnt feel strongly about anything at all.<br><br>
+
+    <b> 
+        These are the closets (blue circles), and these are the hats (red circles).
+
+        Looking at this, for this data, we can conclusively say that closets are not really making people emotional, but that hats are.
+        
+    </b>
+</aside>      
+</section>
+
 
 
 <section data-transition="slide">
