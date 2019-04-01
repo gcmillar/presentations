@@ -52,6 +52,13 @@
           background:    -moz-linear-gradient(to top,#648880, #293f50);
           background:         linear-gradient(to top,#648880, #293f50);
         }
+        @media print {
+            .slide-background {
+                background-color: #002b36 !important;
+                -webkit-print-color-adjust: exact; 
+                }
+            }
+
         .reveal section img {
             background: transparent;
 
