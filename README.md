@@ -1,5 +1,6 @@
 Collection of presentations
 ===========================================
+ * https://gcmillar.github.io/presentations/GIS714#/ 
  * https://gcmillar.github.io/presentations/GIS715_SLT#/
  * https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/
  * https://gcmillar.github.io/presentations/CHIPS_ExperienceLab_NL#/
