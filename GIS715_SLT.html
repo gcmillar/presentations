@@ -220,15 +220,9 @@
             <div class="slides">
 
 <!-- Title slide -->
-<section data-transition="slide">
-    <h1 style="color:#E7EBEB">5 Minutes of Garrett talking about his</h1>
-<!-- <h1 class="shadow" style="color:#E7EBEB">💩</h1> -->
-<center>
-    <img height="150px" src="http://66.media.tumblr.com/a9a0d2a3c566217e2bd53ca12dcdc693/tumblr_n1bzl6gDV01rby04wo1_400.gif">
-    <h2  style="color:#E7EBEB">(stuff)</h2>
+<section data-transition="slide" data-background="img/plotly_indoor_positioning.gif" muted loop data-background-autoplay data-background-color="#000000" >
     
-</center>
-
+    <h1 style="color:#FECC66;font-size: 72px; text-shadow: #64888">Humans, Environment & Emotions</h1>
 
   <aside class="notes">
 
@@ -249,201 +243,205 @@
     And its even worse if we used traditional visalization methods.
     
     Here's what I mean.
-
-    <!-- I'm going to show you some of my recent developments that get more at that properly mapping behavior notion. -->
-<!-- 
-    Science of where things happen
-
-    So, as tourism and leisure managers, we need to have a way to look at what people are feeling not just in general, but exactly where they are feeling it, so we can design that place to be the emotional experience that we want to deliver. <br><br> -->
+    <!-- So, as tourism and leisure managers, we need to have a way to look at what people are feeling not just in general, but exactly where they are feeling it, so we can design that place to be the emotional experience that we want to deliver. <br><br> --> -->
   </aside>
 
 </section>
 
-
-<!-- Methodology: GPS Data --> 
-<section data-transition="slide">
-
-<h3 style="color: #E7EBEB">
-    GPS & Stress Data</h3>   
-    <img style="width:600px;"  src="img/GPS_charts_all.png">
-    <img style="width:443px;"  src="img/Conductance_charts.png">
-<aside class="notes"> 
-    <!-- To see the "kindas", lets look at  -->
-    
-    This is the cycling data i think most are familiar with?<br><br>
-
-    Which is showing a timeline of someone's GPS & stress levels. <br><br>
-    
-    What can you tell from it?<br><br>
-
-    Speed, Elevation, and stress levels.<br><br>
-
-    Not much. Traditional data visualizations dont give us the context these stress levels occured, which is the most important factor. <br><br>
-
-    Sow what about the thing we like most, a map? <br><br>
-    
-    A map would show where people went, what kind of places they went through, And how they felt while doing it.
-    
-    <!-- with these stress levels as a colored route? <br><br>
-    That way, we map where they went, what kind of places they went through, And how they felt while doing it.  -->
-    
-</aside>  
-</section> 
-
-<section data-transition="slide">
-<h3 style="color: #E7EBEB">
-    Mapping Emotion</h3>   
-    <img class="stretch" src="img/conduct_landuse_roads_map_ALLpts.png">
-<aside class="notes"> 
-    I've never been more dissapointed in a map.<br><br>
-
-    Our knowledge of the context is still bad.
-
-    So what about some first person POV of the person showing those stress levels? That'd give us some better context right?
-</aside>  
-</section> 
-
-<!-- Mini Experiment --> 
-<section data-transition="slide" data-background="img/cycling_vid_1.gif" data-background-size="200" >
-    
+<section data-transition="slide" data-background="img/nuenen.gif" data-background-size="200" >
+    <h3 style="color: #E7EBEB">
+        Main question: which exhibit gets people most excited?</h3>  
     <aside class="notes"> 
-        Well this is useless. We know nothing about their stress levels now. <br><br>
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
 
-        And unfortunately, we cant just do this.
-
-    </aside>
-    </section>  
-
-
-<section data-transition="slide" data-background="img/cycling_vid_1.gif" data-background-size="200" >
-    <img style="width:400px;"  src="img/GPS_charts_all.png">
-    <img style="width:300px;"  src="img/Conductance_charts.png"><br><br>
-    <img style="width:350px;float: left;" src="img/conduct_landuse_roads_map_ALLpts.png">
-    <aside class="notes"> 
-        :)<br><br>
-
-        But, this is what we would kind of want right? Something to display all data at once, in the context the data is occuring in.
-
-    </aside>
-</section>      
-
-<section data-transition="slide">
-<h5 style="color: #E7EBEB; font-size: 22px;">
-    Interaction = Major 🔑</h5>
-    <iframe style="width:1600px; height: 650px;padding: 0em " src="https://gcmillar.github.io/stress3d/"></iframe>
-    <aside class="notes">
-      Due to these issues,  <br><br>
-
-      I made an app which can be used to look at where people are feeling things, and really zoom in on it, so that a manager can go, "Ok, a person felt something here, whats there??"  <br><br>
-
-      But, researchers can also use it to discover interesting patterns when exploring newly collected data, to then better direct where they should focus their research efforts.  <br><br>
-
-    </aside>  
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
 </section>  
 
 
-<section data-transition="slide" data-background="img/nuenen.gif" data-background-size="200" >
+<section data-transition="slide"  >
+    <h3 style="color: #E7EBEB">
+        Study Area (Outdoors & Indoors)</h3>  
+        <div style="display: flex; flex-wrap: wrap; padding: 0 4px;"" class="row"> 
+            <div style="flex: 50%;padding: 0 0px;" class="column">
+                <img width="62%" src="img/vincentre_dsm3D_elev.png">
+                <img width="36%"src="img/nuenen_indoors.png">
+            </div>
+            <div class="column">
+            </div> 
+          </div>
+<!-- 
+        <img class="stretch" src="img/vincentre_dsm3D_elev.png">
+        <img class="stretch" src="img/nuenen_indoors.png"> -->
+        
     <aside class="notes"> 
-    The really cool thing about this approach is that it can be applied to similar scenarios, like how people are experiencing and reacting to a museum's exhibits. <br><br>
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
 
-    And this is important because when spatially analyzing human behavior, you will always run into the same issues... insufficient data visualizations.
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
 
+
+<section data-transition="slide" >
+    <h3 style="color: #E7EBEB">
+        Data: Outdoors</h3>  
+        <div style="display: flex; flex-wrap: wrap; padding: 0 4px;"" class="row"> 
+            <div style="flex: 50%;padding: 0 0px;" class="column">
+                <img width="23%" src="img/time_bin_mean_8m.png">
+                <img width="23%"src="img/time_bin_mean_10m.png">
+                <img width="23%"src="img/time_bin_mean_12m.png">
+                <img width="23%"src="img/time_bin_mean_15m.png"><br>
+                <p style="color: #E7EBEB">Time</p>
+            </div>
+            <div class="column">
+                <img width="23%"src="img/phasic_bin_mean_8m.png">
+                <img width="23%"src="img/phasic_bin_mean_10m.png">
+                <img width="23%"src="img/phasic_bin_mean_12m.png">
+                <img width="23%"src="img/phasic_bin_mean_15m.png"><br>
+                <p style="color: #E7EBEB">Skin Conductivity</p>
+            </div> 
+          </div>
+
+
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
+
+<section data-transition="slide" >
+    <h3 style="color: #E7EBEB">
+        Preliminary Approach: Outdoors</h3>
+        <p style="color: #E7EBEB"> Binning & Correlations</p>  
+        <div style="display: flex; flex-wrap: wrap; padding: 0 4px;"" class="row"> 
+            <div style="flex: 50%;padding: 0 0px;" class="column">
+                <img width="20%" src="img/time_bin_mean_8m.png">
+                <img width="20%"src="img/time_bin_mean_10m.png">
+                <img width="20%"src="img/time_bin_mean_12m.png">
+                <img width="20%"src="img/time_bin_mean_15m.png">
+                <img width="20%"src="img/phasic_bin_mean_8m.png">
+                <img width="20%"src="img/phasic_bin_mean_10m.png">
+                <img width="20%"src="img/phasic_bin_mean_12m.png">
+                <img width="20%"src="img/phasic_bin_mean_15m.png"><br>
+                
+            </div>
+            <div class="column">
+                <img width="21%"src="img/time_phasic_8m.png">
+                <img width="20%"src="img/time_phasic_10m.png">
+                <img width="20%"src="img/time_phasic_12m.png">
+                <img width="20%"src="img/time_phasic_15m.png"><br>
+            </div> 
+          </div>
+
+
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
+
+
+<section data-transition="slide" >
+    <h3 style="color: #E7EBEB">
+        First Approach: Growing Exhibit Areas </h3>
+        <!-- <p style="color: #E7EBEB"> Binning & Correlations</p>   -->
+        <img width="45%"  src="img/exhibit_locations.png">
+        <img width="45%" src="img/all_exhibits_grown.png">
+
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
 </aside> 
 </section>  
 
 
 
-<section>
-    <h3 style="color: #E7EBEB"> I got 99 problems and they all insufficient data visualizations </h3>
-    <img style=" width: 43%;" src="img/0floor_beacon_locations.png">
-    <img style=" width: 51%;" src="img/indoor_heatmap_ground.png">
-    
-<aside class="notes"> 
-    Insufficient <br><br>
+<section data-transition="slide" >
+    <h3 style="color: #E7EBEB">
+        First Approach: Growing Exhibit Areas </h3>
+        <!-- <p style="color: #E7EBEB"> Binning & Correlations</p>   -->
+        <div style="display: flex; flex-wrap: wrap; padding: 0 4px;"" class="row"> 
+            <div style="flex: 50%;padding: 0 0px;" class="column">
+                <img width="18%" src="img/all_exhibits_10m_grown.png">
+                <img width="18%"src="img/all_exhibits_20m_grown.png">
+                <img width="18%"src="img/all_exhibits_30m_grown.png">
+                <img width="18%"src="img/all_exhibits_40m_grown.png">
+                <img width="18%"src="img/all_exhibits_60m_grown.png">
+                <!-- <p style="color: #E7EBEB">Time</p> -->
+            </div>
+          </div>
 
-</aside>      
-</section>   
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
 
-<section>
-    <h3 style="color: #E7EBEB"> I got 99 problems and they all insufficient data visualizations </h3>
-    <img style=" width: 45%;" src="img/1stfloor_beacon_locations1.png">
-    <img style=" width: 49%;" src="img/indoor_heatmap.png">
-    
-<aside class="notes"> 
-    Insufficient
-</aside>      
-</section>   
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
 
-<section>
-    <h3 style="color: #E7EBEB"> I got 99 problems and they all insufficient data visualizations </h3>
-    <img style=" width: 55%; box-shadow: 0 0 10px rgba(49,88,255, 0.95) " src="img/nuenen_closets.png">
-    <img style=" width: 27.8%; box-shadow: 0 0 10px rgba(255, 6,1, 0.95) " src="img/nuenen_hat.png">
-    
-<aside class="notes"> 
+<section data-transition="slide" >
+    <h3 style="color: #E7EBEB">
+        Second Approach: Viewsheds </h3>
+        <!-- <p style="color: #E7EBEB"> Binning & Correlations</p>   -->
+        <div style="display: flex; flex-wrap: wrap; padding: 0 4px;"" class="row"> 
+            <div style="padding: 0 0px;" class="column">
+                <img width="18%" src="img/exhibit_1_viewshed.png">
+                <img width="18%"src="img/exhibit_2_viewshed.png">
+                <img width="18%"src="img/exhibit_3_viewshed.png">
+                <img width="18%"src="img/exhibit_4_viewshed.png">
+                <img width="18%"src="img/exhibit_5_viewshed.png">
+                <!-- <p style="color: #E7EBEB">Time</p> -->
+            </div>
+          </div>
 
-    Insufficient
-        
-    </b>
-</aside>      
-</section>
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
 
-<section>
-    <h3 style="color: #E7EBEB"> The Road to Sufficiency </h3>
-    <img style=" width: 93%;" src="img/museum_progression_nolabels.png">
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
 
-    
-<aside class="notes"> 
-   <br><br>
-
-</aside>      
-</section>   
+<section data-transition="slide" data-background="img/vincentre_viewsheds_exhibits_only.gif" data-background-size="200" >
 
 
-<section data-transition="slide">
-<h5 style="color: #E7EBEB; font-size: 22px;">
-    Interactivity? Major 🔑 & Sufficient!</h5>
-    <iframe style="width:1600px; height: 650px;padding: 0em " src="https://gcmillar.github.io/Nuenen3d/"></iframe>
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section> 
+
+<section data-transition="slide" data-background="img/vincentre_viewsheds.gif" data-background-size="200" >
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
+</section>  
+
+
+<section data-transition="slide" >
+        <h3 style="color: #E7EBEB">
+                Indoors: Trilaterating Participant Locations </h3>
+                <img width="23%"  src="img/0floor_beacon_locations.png">
+                <img width="24%"  src="img/1stfloor_beacon_locations1.png">
+                <img width="23%"  src="img/2ndfloor_beacon_locations2.png">
+        <img width="50%" src="img/beaconsRSSI.png">
+                
+    <aside class="notes"> 
+    This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. <br><br>
+
+    Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.
+</aside> 
 </section>  
 
 
 
 
-<section >
-    <h3 style="color: #E7EBEB"> References & Inspiration </h3>
-    <br>
-    <table style= "font-size:18pt"  class= "no_bottom_border fade-in" width="100%">
-      <col width = "45%">
-      <col width = "45%">
-
-      <tr class="center_text">
-          <td style="color: #E7EBEB"> <b>Scott Mescudi:</b> "I got 99 problems and they all data visualizations." </td>
-          <td style="color: #E7EBEB;"> <b>DJ Khaled:</b> Rambles about things being major 🔑 while eating cereal with champagne.</td>
-      </tr>
-
-      <tr>
-        <td><img src="http://ichef.bbci.co.uk/news/976/cpsprodpb/5A02/production/_91524032_gettyimages-482703672.jpg" style="width:100%; border:1px solid black"></td>
-        <td><img src="https://www.truthinadvertising.org/wp-content/uploads/2018/04/Screen-Shot-2018-04-02-at-11.59.12-AM.png" style="width:100%; border:1px solid black"></td>
-      </tr>
-
-      </tr>
-    </table>
-    <table style= "font-size:18pt"  class= "no_bottom_border fade-in" width="100%">
-        <col width = "45%">
-        <col width = "25%">
-  
-        <tr>
-          <td style="color: #E7EBEB; font-size: 12px;border-bottom: none "> Note: In Mescudi quote, the term "data visualizations" replaced <br>original explicitive phrase inappropriate for current context. </td>
-        </tr>
-  
-        </tr>
-      </table>
-</section>
 
 
-<section data-transition="slide" data-background="img/cycling_vid_1.gif" data-background-size="200" >
-    <h1 style="color: #FFCC66"> Questions? </h1>
-</section>
-    
 <!-- This is a generated file. Do not edit. -->
         </div>  <!-- slides -->
     </div>  <!-- reveal -->
