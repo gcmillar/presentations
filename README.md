@@ -1,48 +1,37 @@
-Collection of presentations
-===========================================
- * https://gcmillar.github.io/presentations/GIS714#/ 
- * https://gcmillar.github.io/presentations/GIS715_SLT#/
- * https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/
- * https://gcmillar.github.io/presentations/CHIPS_ExperienceLab_NL#/
- * https://gcmillar.github.io/presentations/715_research_presentation#/
- * https://gcmillar.github.io/presentations/710_proposal_presentation#/
- * https://gcmillar.github.io/presentations/agu2018#/
- * https://gcmillar.github.io/presentations/713_final_presentation#/
- * https://gcmillar.github.io/presentations/chi2018#/
- * https://gcmillar.github.io/presentations/us_iale2018#/
+## Welcome to GitHub Pages
 
-Building and publishing pages for this repository
--------------------------------------------------
+You can use the [editor on GitHub](https://github.com/ptabriz/final_dissertation_presentation/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
-Clone the repository::
+Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-    git clone ...
+### Markdown
 
-Navigate to the first clone and build pages::
+Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-    ./build.sh
+```markdown
+Syntax highlighted code block
 
-To add new presentation, create new HTML file and edit `./build-slides.py`.
+# Header 1
+## Header 2
+### Header 3
 
-To publish your changes, do:
+- Bulleted
+- List
 
-    git add ...
-    git commit -am "new slides explaining the project"
-    git push
-    ./publish.sh
+1. Numbered
+2. List
 
-About the slides
-----------------
+**Bold** and _Italic_ and `Code` text
 
-Presentation is using on Reveal.js HTML Presentation Framework.
+[Link](url) and ![Image](src)
+```
 
- * http://lab.hakim.se/reveal-js/#/
- * https://github.com/hakimel/reveal.js/
+For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-License
--------
+### Jekyll Themes
 
-The presentation text and images are under the CC BY-SA 4.0 license.
+Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ptabriz/final_dissertation_presentation/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
-Note that many things are linked material, logos, data, fonts, styles
-from different sources which may have different licenses.
+### Support or Contact
+
+Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.

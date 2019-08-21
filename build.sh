@@ -46,8 +46,13 @@
     --outfile=CHIPS_Nuenen_NL_final_presentation.html \
     --title="CHIPS Nuenen Presentation" \
     --meta-description="Slides for CHIPS Nuenen Final Presentation" \
-    CHIPS_Nuenen_NL_final_presentation.html                    
-    
+    CHIPS_Nuenen_NL_final_presentation.html    
+                    
+./build-slides.py --outdir=build \
+    --outfile=pre-proposal.html \
+    --title="Pre-proposal presentation" \
+    --meta-description="Slides for pre-proposal committee meeting" \
+    pre-proposal.html      
 
 cp ncgis2017.html ./build/
 cp EDRA_2017.html ./build/
@@ -63,6 +68,7 @@ cp 710_proposal_presentation ./build/
 cp 715_research_presentation ./build/
 cp CHIPS_ExperienceLab_NL ./build/
 cp CHIPS_Nuenen_NL_final_presentation ./build/
+cp pre-proposal ./build/
 
 
 # make this presentation primary for convenience
