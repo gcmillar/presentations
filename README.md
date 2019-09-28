@@ -3,7 +3,7 @@ G. C. Millar Presentations
  * [CHI conference | April 2018](https://gcmillar.github.io/presentations/chi2018.html#/)
  * [USIALE conference | April 2018, Chicago, Il](https://gcmillar.github.io/presentations/us_iale2018.html#/)
  * [AGU conference | December 2018, Washington D.C.](https://gcmillar.github.io/presentations/agu2018.html#/)
- * [Visiting Scholar Residency| March 2019, Experience Lab; Breda, NL](https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/)
+ * [Visiting Scholar Residency | March 2019, Experience Lab, Breda, NL](https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/)
  
 Building & Publishing Pages for this Repository
 ------------------------------------------------
