@@ -1,0 +1,1899 @@
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Harvard University Center for Geographic Analysis</title>
+
+        <meta name="description" content="G.C. Millar Harvard University Center for Geographic Analysis Presentation">
+        <meta name="author" content="NCSU GeoForAll Lab members">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <!-- <a href="http://hakim.se" data-preview-link>Hakim El Hattab</a> -->
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/payam_grey.css" id="theme">
+        <link rel="stylesheet" href="./css/style.css">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- For chalkboard plugin -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+
+
+    </style><style type="text/css">.MJXp-script {font-size: .8em}
+      .MJXp-right {-webkit-transform-origin: right; -moz-transform-origin: right; -ms-transform-origin: right; -o-transform-origin: right; transform-origin: right}
+      .MJXp-bold {font-weight: bold}
+      .MJXp-italic {font-style: italic}
+      .MJXp-scr {font-family: MathJax_Script,'Times New Roman',Times,STIXGeneral,serif}
+      .MJXp-frak {font-family: MathJax_Fraktur,'Times New Roman',Times,STIXGeneral,serif}
+      .MJXp-sf {font-family: MathJax_SansSerif,'Times New Roman',Times,STIXGeneral,serif}
+      .MJXp-cal {font-family: MathJax_Caligraphic,'Times New Roman',Times,STIXGeneral,serif}
+      .MJXp-mono {font-family: MathJax_Typewriter,'Times New Roman',Times,STIXGeneral,serif}
+      .MJXp-largeop {font-size: 150%}
+      .MJXp-largeop.MJXp-int {vertical-align: -.2em}
+      .MJXp-math {display: inline-block; line-height: 1.2; text-indent: 0; font-family: 'Times New Roman',Times,STIXGeneral,serif; white-space: nowrap; border-collapse: collapse}
+      .MJXp-display {display: block; text-align: center; margin: 1em 0}
+      .MJXp-math span {display: inline-block}
+      .MJXp-box {display: block!important; text-align: center}
+      .MJXp-box:after {content: " "}
+      .MJXp-rule {display: block!important; margin-top: .1em}
+      .MJXp-char {display: block!important}
+      .MJXp-mo {margin: 0 .15em}
+      .MJXp-mfrac {margin: 0 .125em; vertical-align: .25em}
+      .MJXp-denom {display: inline-table!important; width: 100%}
+      .MJXp-denom > * {display: table-row!important}
+      .MJXp-surd {vertical-align: top}
+      .MJXp-surd > * {display: block!important}
+      .MJXp-script-box > *  {display: table!important; height: 50%}
+      .MJXp-script-box > * > * {display: table-cell!important; vertical-align: top}
+      .MJXp-script-box > *:last-child > * {vertical-align: bottom}
+      .MJXp-script-box > * > * > * {display: block!important}
+      .MJXp-mphantom {visibility: hidden}
+      .MJXp-munderover {display: inline-table!important}
+      .MJXp-over {display: inline-block!important; text-align: center}
+      .MJXp-over > * {display: block!important}
+      .MJXp-munderover > * {display: table-row!important}
+      .MJXp-mtable {vertical-align: .25em; margin: 0 .125em}
+      .MJXp-mtable > * {display: inline-table!important; vertical-align: middle}
+      .MJXp-mtr {display: table-row!important}
+      .MJXp-mtd {display: table-cell!important; text-align: center; padding: .5em 0 0 .5em}
+      .MJXp-mtr > .MJXp-mtd:first-child {padding-left: 0}
+      .MJXp-mtr:first-child > .MJXp-mtd {padding-top: 0}
+      .MJXp-mlabeledtr {display: table-row!important}
+      .MJXp-mlabeledtr > .MJXp-mtd:first-child {padding-left: 0}
+      .MJXp-mlabeledtr:first-child > .MJXp-mtd {padding-top: 0}
+      .MJXp-merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+      .MJXp-scale0 {-webkit-transform: scaleX(.0); -moz-transform: scaleX(.0); -ms-transform: scaleX(.0); -o-transform: scaleX(.0); transform: scaleX(.0)}
+      .MJXp-scale1 {-webkit-transform: scaleX(.1); -moz-transform: scaleX(.1); -ms-transform: scaleX(.1); -o-transform: scaleX(.1); transform: scaleX(.1)}
+      .MJXp-scale2 {-webkit-transform: scaleX(.2); -moz-transform: scaleX(.2); -ms-transform: scaleX(.2); -o-transform: scaleX(.2); transform: scaleX(.2)}
+      .MJXp-scale3 {-webkit-transform: scaleX(.3); -moz-transform: scaleX(.3); -ms-transform: scaleX(.3); -o-transform: scaleX(.3); transform: scaleX(.3)}
+      .MJXp-scale4 {-webkit-transform: scaleX(.4); -moz-transform: scaleX(.4); -ms-transform: scaleX(.4); -o-transform: scaleX(.4); transform: scaleX(.4)}
+      .MJXp-scale5 {-webkit-transform: scaleX(.5); -moz-transform: scaleX(.5); -ms-transform: scaleX(.5); -o-transform: scaleX(.5); transform: scaleX(.5)}
+      .MJXp-scale6 {-webkit-transform: scaleX(.6); -moz-transform: scaleX(.6); -ms-transform: scaleX(.6); -o-transform: scaleX(.6); transform: scaleX(.6)}
+      .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
+      .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
+      .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
+      .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+      </style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
+      .MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
+      .MathJax .MJX-monospace {font-family: monospace}
+      .MathJax .MJX-sans-serif {font-family: sans-serif}
+      #MathJax_Tooltip {background-color: InfoBackground; color: InfoText; border: 1px solid black; box-shadow: 2px 2px 5px #AAAAAA; -webkit-box-shadow: 2px 2px 5px #AAAAAA; -moz-box-shadow: 2px 2px 5px #AAAAAA; -khtml-box-shadow: 2px 2px 5px #AAAAAA; filter: progid:DXImageTransform.Microsoft.dropshadow(OffX=2, OffY=2, Color='gray', Positive='true'); padding: 3px 4px; z-index: 401; position: absolute; left: 0; top: 0; width: auto; height: auto; display: none}
+      .MathJax {display: inline; font-style: normal; font-weight: normal; line-height: normal; font-size: 100%; font-size-adjust: none; text-indent: 0; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0; min-height: 0; border: 0; padding: 0; margin: 0}
+      .MathJax:focus, body :focus .MathJax {display: inline-table}
+      .MathJax.MathJax_FullWidth {text-align: center; display: table-cell!important; width: 10000em!important}
+      .MathJax img, .MathJax nobr, .MathJax a {border: 0; padding: 0; margin: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+      img.MathJax_strut {border: 0!important; padding: 0!important; margin: 0!important; vertical-align: 0!important}
+      .MathJax span {display: inline; position: static; border: 0; padding: 0; margin: 0; vertical-align: 0; line-height: normal; text-decoration: none}
+      .MathJax nobr {white-space: nowrap!important}
+      .MathJax img {display: inline!important; float: none!important}
+      .MathJax * {transition: none; -webkit-transition: none; -moz-transition: none; -ms-transition: none; -o-transition: none}
+      .MathJax_Processing {visibility: hidden; position: fixed; width: 0; height: 0; overflow: hidden}
+      .MathJax_Processed {display: none!important}
+      .MathJax_ExBox {display: block!important; overflow: hidden; width: 1px; height: 60ex; min-height: 0; max-height: none}
+      .MathJax .MathJax_EmBox {display: block!important; overflow: hidden; width: 1px; height: 60em; min-height: 0; max-height: none}
+      .MathJax_LineBox {display: table!important}
+      .MathJax_LineBox span {display: table-cell!important; width: 10000em!important; min-width: 0; max-width: none; padding: 0; border: 0; margin: 0}
+      .MathJax .MathJax_HitBox {cursor: text; background: white; opacity: 0; filter: alpha(opacity=0)}
+      .MathJax .MathJax_HitBox * {filter: none; opacity: 1; background: transparent}
+      #MathJax_Tooltip * {filter: none; opacity: 1; background: transparent}
+      @font-face {font-family: MathJax_Main; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Main-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Main-Regular.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Main-bold; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Main-Bold.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Main-Bold.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Main-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Main-Italic.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Main-Italic.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Math-italic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Math-Italic.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Math-Italic.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Caligraphic; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Caligraphic-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Caligraphic-Regular.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Size1; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size1-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size1-Regular.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.0') format('opentype')}
+      @font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.0') format('opentype')}
+      .MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+      </style><style type="text/css">@font-face {font-family: MathJax_AMS; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf?V=2.7.0') format('opentype')}
+      </style></head><body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
+        <div id="MathJax_Hidden"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div></div><div id="MathJax_Message" style="display: none;"></div>
+
+        <header style="position: absolute;top: 50px; z-index:500; font-size:100px;background-color: rgba(0,0,0,0.5)"></header>
+
+        <style type="text/css">
+
+          html.dimbg_095 .slide-background.present {
+            opacity: 0.95 !important;
+          }
+          html.dimbg_08 .slide-background.present {
+            opacity: 0.8 !important;
+          }
+          html.dimbg_06 .slide-background.present {
+            opacity: 0.6 !important;
+          }
+          html.dimbg_05 .slide-background.present {
+            opacity: 0.5 !important;
+          }
+          html.dimbg_04 .slide-background.present {
+            opacity: 0.4 !important;
+          }
+          html.dimbg_03 .slide-background.present {
+            opacity: 0.2 !important;
+          }
+          html.dimbg_02 .slide-background.present {
+            opacity: 0.2 !important;
+          }
+          html.dimbg_01 .slide-background.present{
+            opacity: 0.1 !important;
+          }
+          .overl {
+            background-color:rgba(0,0,0,0.9);
+          }
+          .overlaybottom{
+            background-color:rgba(0,0,0,0.9);
+            margin-bottom: 20% !important;
+          }
+          .overlaytop{
+            background-color:rgba(0,0,0,0.9);
+            margin-top: 20% !important;
+          }
+          .overlayleft{
+            background-color:rgba(0,0,0,0.9);
+            margin-right: 50% !important;
+          }
+          .overlayright{
+            background-color:rgba(0,0,0,0.9);
+            margin-left: 50% !important;
+          }
+
+          .transp_bottom {
+              position:absolute;
+              left:0;
+              top: 350px;
+              background: rgba(0,0,0,.8);
+              height:1000px;
+              width: 100%;
+          }
+          .transp_top {
+              position:absolute;
+              left:0;
+              top: -600px;
+              background: rgba(0,0,0,.8);
+              height:600px;
+              width: 100%;
+          }
+
+        </style>
+
+        <!-- Printing and PDF exports -->
+        <script>
+          var link = document.createElement( 'link' );
+          link.rel = 'stylesheet';
+          link.type = 'text/css';
+          link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+          document.getElementsByTagName( 'head' )[0].appendChild( link );
+        </script>
+
+
+
+        <!-- If the query includes 'print-pdf', include the PDF print sheet -->
+        <script>
+            if( window.location.search.match( /print-pdf/gi ) ) {
+                var link = document.createElement( 'link' );
+                link.rel = 'stylesheet';
+                link.type = 'text/css';
+                link.href = 'css/print/pdf.css';
+                document.getElementsByTagName( 'head' )[0].appendChild( link );
+            }
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+
+        <style>
+        body {
+        background-color: #FFF !important;*/
+        /*
+          background-image: url("pictures/elevation-nagshead.gif");
+          background-repeat: no-repeat;
+          background-position: left bottom;
+        }
+        .reveal section img {
+            background: transparent;
+            border: 0;
+            box-shadow: 0 0 0 rgba(0, 0, 0, 0.15);
+        }
+        /* for standalone frame */
+        /*
+        iframe {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        */
+        /* display: inline; background-color: #002B36; padding: 0px; margin: 0px */
+        .rounded-corners {
+            border: 0px solid black;
+            border-radius: 5px;
+            -moz-border-radius: 5px;
+            -khtml-border-radius: 5px;
+            -webkit-border-radius: 5px;
+        }
+        a:hover {
+            color: #444 !important;
+            text-decoration: underline !important;
+        }
+        h1, h2, h3, h4, h5 {
+            text-transform: none !important;
+            /* word-break: keep-all; text-transform: none; font-size: 200%; line-height: 110%; */
+            /* color: #060 !important; */
+            /* color: #444 !important; */ /* grey from the wab page */
+            font-weight: bold !important;
+            -webkit-hyphens: none !important;
+            -moz-hyphens: none !important;
+            -ms-hyphens: none !important;
+            hyphens: none !important;
+            line-height: 110% !important;
+        }
+        .reveal .progress span {
+            background-color: #444 !important;
+        }
+        /* predefined element positioning */
+        .top {
+            /*position: relative;*/
+            top: 5%;
+            height: 45%; /* is the height even needed? */
+        }
+        .bottom {
+            height: 45%;
+        }
+        .ne {
+            position: absolute;
+            top: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .nw {
+            position: absolute;
+            top: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .se {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            height: 45%;
+            width: 45%;
+        }
+        .sw {
+            position: absolute;
+            bottom: 5%;
+            left: 5%;
+            height: 45%;
+            width: 45%;
+        }
+
+        /* classes for sections with predefined elements */
+        /* using !important because, reveal styles are applied afterwards  */
+        .right, .textimg > img, .textimg > video, .textimg > iframe, .imgtext > p, .imgtext > ul, .imgtext > ol, .imgtext > div {
+            float: right;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        .left, .imgtext > img, .imgtext > video, imgtext > iframe, .textimg > p, .textimg > ul, .textimg > ol, .textimg > div {
+            float: left;
+            text-align: left;
+            max-width: 47% !important;
+        }
+        li > ul, li > ol {
+            font-size: 85% !important;
+            line-height: 110% !important;
+        }
+        .small {
+            font-size: smaller !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .credit {
+            font-size: small !important;
+            color: gray;
+            margin: 0.1em !important;
+        }
+        .text-bottom {
+            position: fixed;
+            bottom: 0;
+            text-align: center; 
+        }
+        </style>
+    </head>
+
+    <body>
+        <div class="reveal">
+            <!-- Any section element inside of this container is displayed as a slide -->
+            <div class="slides">
+                
+<!-- Title slide -->
+<section data-background="white">
+    <br><h3 style="font-size:32px">People & the Environment: Geo-analytical Guidelines and Software Tools for Measuring Interaction and Experience with the Built Environment</h3>
+    <h6 style="color:grey;font-size:28px">Garrett C. Millar</h6>
+    <img style="position: relative;vertical-align:middle" width="32%" src="img/space_time_cube.gif">
+    <h3 style = "font-size: 24px">Harvard School of Public Health</h3>
+    <h6 style = "color : grey;font-size: 22px">September 2019 </h6>
+    <br>
+    <img height="30px" style="margin-top: 0.2em" src="img/logos/cga_ncstate_hms.png">
+    <aside class="notes">
+        <ul>
+            <li> Hi everyone, and thank you for coming today. A special thank you to Dr. Peter James for inviting and organizing this talk.
+            <li> My name is Garrett Millar, I'm a PhD student in Geospatial Analytics at North Carolina State University. Geospatial Analytics--the science of WHERE things HAPPEN. 
+            <li> I'm here today to talk with you all about People & the Environment. Well, that could mean just about anything right? So more specifically, we'll be looking at ways to measure and also map how people interact with the environment. 
+            <li> To do so, we'll go over different geo-analytical guidelines, techniques, and software tools, for empirically measuring people's environmental interaction and experience.
+            <li> LETS GET STARTED!!
+
+            <!-- Garrett Millar is a User Experience Researcher and Geospatial Scientist. In 2016, he earned his Bachelor's Degree in Psychology at North Carolina State University. Carrying extensive domain knowledge in the Cognitive Sciences, particularly the experience and knowhow for collecting biometric data, Garrett transitioned to the field of Geospatial Science in 2017. Where now, as a third year PhD student at North Carolina State's Center for Geospatial Analytics, he develops and evaluates geospatial applications and visualizations. A particular focus of his research is placed on using mobile sensing technologies like smart watches to improve our understanding of how people experience their environment. Lastly, he and his 6-month old German Shepherd puppy, Cassius, really enjoy the outdoors -->
+            <!-- Mobile sensing technologies like smart watches are going mainstream. With improvements in quality, affordability, and ability, they provide a unique opportunity for spatial sciences. They particularly provide the opportunity to understand not only how people behave, but more importantly, how they experience their environment. By providing a human-centered approach for extracting contextual physiological information from mobile sensor data, geospatial analytics provides the capability to derive where, when, and in particular, how people’s behavior, experience, and health relate to their surrounding environment. Results are directly applicable in domains such as urban planning, environmental health, and epidemiology, wherein researchers can efficiently explore how human behavior varies as a function of location, space, and time. This talk will be delivered with an overall focus on People & the Environment. During which, various geo-analytical guidelines, techniques, and software tools, will be presented for empirically measuring people's environmental interaction and experience. -->
+        </ul>
+        
+    </aside>
+
+</section>
+
+<section data-background="img/getting-around-loop-1MB.gif" data-background-size="100%" >
+  <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+    <!-- <p class="credit text-bottom" style="font-size: 8px">Credit: https://www.bu.edu/articles/2018/i-get-around</p> -->
+  <aside class="notes">
+      <ul> 
+          <li> In our daily comings and goings between home, work and school, the streets and bike paths we choose to navigate are also an emotional map of our commute. 
+          <li> Where do we consistently experience frustration with traffic? 
+          <li> Or anxiety from a tricky intersection?    
+          <li> I believe questions such as these are becoming more and more important to ask 
+          <li> Mainly because the ways we now get around town, or go to and from work and school, continue to become more diverse, and more popular: 
+            <ul> 
+                <li> skateboarding
+                <li> mopeds
+                <li> biking
+                <li> walking
+                <li> electric scooters
+            </ul>
+          <li> Questions such as places where we find ourselves consistently getting stressed, or always feel more at ease are the ones we'll be asking, exploring, and hopefully answering together today.
+          <li> And if some of you are able to walk away with some answers to these questions, then I'll consider today's presentation a success :D
+      </ul>
+    </aside>
+</section>
+
+
+
+<section data-background="img/emotion.jpg" data-background-size="100%" >
+  <aside class="notes">
+      <ul> 
+          <li> So what I'll particularly be talking about today is how mapping the locations of strong emotions can help improve the human experience
+          <li> Specifically because it can help decision-makers (urban / city planners) identify where environments inspire either calm or stress.
+          <li> But before we get into that, let's start from the very, very top, by asking some overarching questions: 
+              <ul> 
+                  <li> <b> why emotions? </b>
+                  <li> <b> and why would we want to try and map them? </b>
+              </ul>
+          <li> Well, emotions play a major role in our day-to-day lives, as they play a large part in how we perceive and experience the world. 
+          <li> People can experience a wide range of different emotions, but usually depend on the context, or the place, in which they are experienced.    
+      </ul>
+    </aside>
+</section>
+
+<!-- Intro -->
+<section data-background="img/emotions_stimuli.png" data-background-size="100%" >
+<!-- <h3>Emotions</h3> -->
+<aside class="notes"> 
+    <ul> 
+        <!-- <li class="fragment fade-in">Why do emotions matter?</li>
+        <li class="fragment fade-in">Measuring emotion (skin conductance)</li>
+        <li class="fragment fade-in">Mapping emotional experiences</li> -->
+        <li> In fact, emotions are nothing more than a physiological response to some sort of stimuli, which tend to arise from our environment. 
+        <li> Take for example whats being shown to you now. That is, a dog just trying to be friendly and say hello, but accidentally scares an unsuspecting cyclist passing by the dog's yard. I can promise the dog didn't mean to scare him, he's a good boy. 
+        <li> The good boy, an external stimulus in the environment, barks, scares the cyclist (an initial physiological response), who is then stressed (emotion) following the encounter.
+        <!-- <li> But, the cyclist still became scared, and continues to feel uneasy afterward. Not only that, but research shows that if the cyclist takes that route in the future, and remembers the dog, he will even become stressed before even passing by the yard. Just knowing a stressful event is going to occur will affect someone's stress levels. This is where the context of where people experience emotion gets foggy. If someone can be stressed before, during, AND after experienceing a stressor in the environment, how in the world can we identify the stress's true cause? -->
+        <li>  So, we need to not only have a way to look at what people are feeling not just in general, but EXACTLY where they are feeling it, so we can not only understand how we interact with our environment, but also understand and optimize our emotional and physical well-being.
+        <!-- <li> Traditional data, analytics, and visualizations fall short here. -->
+        <li> But, this apparent physiological response to a stimulus, would need to be measured in order to do so. So how would we go about that?
+</aside>
+</section>  
+
+<section data-background="white">
+    <h3>What is skin conductance?</h3>
+    <table class= "condensed no_border"  width="100%">
+      <col width="40%">
+      <col width="10%">
+      <col width="50%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  ">
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+        
+        <td style = "vertical-align : middle; ">
+        <img width="100%"  src="img/gsr_diagram/1-start.png">
+        </td>
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ul> 
+          <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+          <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+          <li> To break it down step by step:
+        </ul>
+    </aside>
+</section>  
+
+<section data-background="white">
+<h3>What is skin conductance?</h3>
+<table class= "condensed no_border"  width="100%">
+        <col width="40%">
+        <col width="10%">
+        <col width="50%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+            <ol >
+                    <li>Brain senses emotion</li>
+                </ol>
+    </td>
+    <td style = "vertical-align : middle; ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img width="100%"  src="img/gsr_diagram/2-brain.png">
+    </td>
+  </tr>
+  </table>
+    
+<aside class="notes"> 
+    <ul> 
+        <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+        <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+        <li> To break it down step by step:
+          <ul> 
+            <li>Brain senses emotion</li>
+          </ul> 
+      </ul>
+</aside>
+</section>  
+
+<section data-background="white">
+<h3>What is skin conductance?</h3>
+<table class= "condensed no_border"  width="100%">
+        <col width="40%">
+<col width="10%">
+<col width="50%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+            <ol >
+                    <li>Brain senses emotion</li>
+                    <li>Nervous system triggers sweat glands on hands and feet</li>
+                </ol>
+    </td>
+    <td style = "vertical-align : middle; ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img width="100%"  src="img/gsr_diagram/3-nervous_system.png">
+    </td>
+  </tr>
+  </table>
+    
+<aside class="notes"> 
+    <ul> 
+        <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+        <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+        <li> To break it down step by step:
+          <ul> 
+            <li>Brain senses emotion</li>
+            <li>Nervous system triggers sweat glands on hands and feet</li>
+          </ul> 
+      </ul>
+</aside>
+</section>  
+
+<section data-background="white">
+<h3>What is skin conductance?</h3>
+<table class= "condensed no_border"  width="100%">
+        <col width="40%">
+<col width="10%">
+<col width="50%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+            <ol >
+                    <li>Brain senses emotion</li>
+                    <li>Nervous system triggers sweat glands on hands and feet</li>
+                    <li>Hands and feet become slightly wetter</li>
+                </ol>
+    </td>
+    <td style = "vertical-align : middle; ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img width="100%"  src="img/gsr_diagram/4-sweat.png">
+    </td>
+  </tr>
+  </table>
+    
+<aside class="notes"> 
+    <ul> 
+        <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+            <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+            <li> To break it down step by step:
+          <ul> 
+            <li>Brain senses emotion</li>
+            <li>Nervous system triggers sweat glands on hands and feet</li>
+            <li>Hands and feet become slightly wetter</li>
+          </ul> 
+      </ul>
+</aside>
+</section>  
+
+
+
+<section data-background="white">
+<h3>What is skin conductance?</h3>
+<table class= "condensed no_border"  width="100%">
+        <col width="40%">
+<col width="10%">
+<col width="50%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+            <ol >
+                    <li>Brain senses emotion</li>
+                    <li>Nervous system triggers sweat glands on hands and feet</li>
+                    <li>Hands and feet become slightly wetter</li>
+                    <li>Water conducts electricity</li>
+                </ol>
+    </td>
+    <td style = "vertical-align : middle; ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img width="100%"  src="img/gsr_diagram/5-electricity.png">
+    </td>
+  </tr>
+  </table>
+    
+<aside class="notes"> 
+    <ul> 
+        <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+            <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+            <li> To break it down step by step:
+          <ul> 
+            <li>Brain senses emotion</li>
+            <li>Nervous system triggers sweat glands on hands and feet</li>
+            <li>Hands and feet become slightly wetter</li>
+            <li>Water conducts electricity</li>
+          </ul> 
+      </ul>
+</aside>
+</section>  
+
+<section data-background="white">
+<h3>What is skin conductance?</h3>
+<table class= "condensed no_border"  width="100%">
+        <col width="40%">
+        <col width="10%">
+        <col width="50%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+            <ol >
+                    <li>Brain senses emotion</li>
+                    <li>Nervous system triggers sweat glands on hands and feet</li>
+                    <li>Hands and feet become slightly wetter</li>
+                    <li>Water conducts electricity</li>
+                    <li>Electric current gets passed between two electrodes (conductivity)</li>
+                </ol>
+    </td>
+    <td style = "vertical-align : middle; ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img width="100%"  src="img/gsr_diagram/6-electrodes.png">
+    </td>
+  </tr>
+  </table>
+    
+<aside class="notes"> 
+    <ul> 
+        <li> Well, human emotion is a very complex phenomenon, and is extremely hard to pin down. 
+            <li> Fortunately, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. 
+            <li> To break it down step by step:
+          <ul> 
+            <li>Brain senses emotion</li>
+            <li>Nervous system triggers sweat glands on hands and feet</li>
+            <li>Hands and feet become slightly wetter</li>
+            <li>Water conducts electricity</li>
+            <li>Electric current gets passed between two electrodes (conductivity)</li>
+          </ul> 
+          <li>Then, technology like the Empatica E4, a wrist worn wearable specifically designed to measure skin conductance, uses two active electrodes on the bottom of the wrist to measure changes in people’s skin conductivity (or electric currents).
+      </ul>
+    
+    
+</aside>
+</section>  
+
+
+<!-- <section data-background="white">
+
+    <h3> Space-time Analytics of Human Physiology for Urban Planning </h3>
+      <ul>
+          <li class="fragment fade-in"><b>Research Objective</b>: Using mobile sensing to improve the understanding of how people experience their environment. 
+          <li class="fragment fade-in">How?
+              <ul>
+                <li class="fragment fade-in">Examining spatial variation in people’s physiological responses in relation to the surrounding environment, to provide urban planners objective metrics on how individuals experience urban design elements.
+              </ul>
+          <li class="fragment fade-in">CHIPS cycle highway project (with Ondrej Mitas, Joost de Kruijff, Lisette Hoeke, Paul de Coevering)
+          <li class="fragment fade-in">CELTH Storysperience project (with Ondrej Mitas, Moniek Hover, Marcel Bastiaansen, Wilco Boode)
+      <br>
+        </ul>
+  
+    <aside class="notes">
+        <ul>
+            <li> So to do this, I started levaraging mobile sensing technologies like smart watches  to try and improve our understanding of not only how people behave, but more importantly, how they experience their environment. 
+            <li> This is done with additional hopes that understanding how we experience our cities, can naturally give rise to more informed design and development of our cities, thus resulting in the ability to call our cities "Smart"
+            <li> That is, cities that are able to operate in a sustainable, efficient and intelligent manner, encompass hopes of more efficient and greener living, increasingly oriented toward people's needs and a resulting betterment of their daily lives. 
+        </ul>
+        <ul>
+            <li> I was given the opportunity to explore this research with two projects:
+              <ol>
+                <li> CHIPS: Cycle Highways Innovation for smarter People Transport and Spatial Planning
+                <li> CELTH: Centre of experience, leisure, tourism, & hospitality 
+                <li> And while I wont be discussing this 2nd one, CELTH, I wanted to note how many amazing opportunities it provided me:
+                    <ul>
+                        <li> I was introduced to concepts of indoor mapping . . .
+                    </ul>
+              </ol>
+        </ul>
+    
+    </aside>
+    </section> -->
+
+  <!-- Why map emotion? -->
+<section data-background="white" >
+      <h3> Why map emotion? </h3>
+      <table class= "condensed no_border"  width="100%">
+          <col width="5%">
+          <col width="95%">
+          <tr class = "border_top no_space">
+          <td style = "vertical-align : middle;  ">
+  
+          </td>
+          <td style = "vertical-align : middle; "><br>
+              <img class="fragment fade-in" src="img/emotions_stimuli.png">
+              <br><br>
+          </td>
+          
+        </tr>
+        </table>
+          
+      <aside class="notes"> 
+          <ul>
+              <li> Now that we know how it can be measured, why would we want to try mapping it?</li>
+              <li> Well, remember, our good boy from earlier. <b>[CLICK]</b>
+              <li> He accidentally scared the cyclist when passing the yard. The cyclist was of course initially scared, but he also continued to feel uneasy afterward. 
+              <li> Not only can someone continue to be stressed following a stressful event, but research also shows that if the cyclist takes that route in the future, and remembers the dog ahead of time, he will start to become stressed even before passing by the yard. 
+              <li> Just knowing a stressful event is going to occur will affect someone's stress levels before experiencing the event (anticipatory stress). 
+              <li> <b> This is where the context of where people experience emotion starts to get a bit foggy. </b>
+              <li> If someone can be stressed before, during, <b>AND</b> after experiencing a stressor in the environment, how in the world can we identify and locate the stress's true source? 
+              <li> This is where traditional data, analytics, and visualizations fall short. They just can't match this needed level of spatial specificity and contextual clarity.
+              <li> <b> To sum this all up, human emotion is a very complex phenomenon and extremely hard to pin down and measure. </b>
+              <li> <b> Spatial data provide a quantitative way of understanding the deeply important context of emotions, and the environmental stimuli that spark them.</b>
+              <li> However, these methods and resulting data are of course still far from perfect, so we need to consider and address certain methodological limitations when conducting research such as this.
+      </aside>
+  </section>  
+  <!-- <aside class="notes">
+      <li> Now that we know how it can be measured, why would we want to try mapping it?</li>
+      <li> Well, remember, our good boy from earlier. 
+      <li> He accidentally scared the cyclist when passing the yard. The cyclist was of course initially scared, but he also continued to feel uneasy afterward. 
+      <li> Not only can someone continue to be stressed following a stressful event, but research also shows that if the cyclist takes that route in the future, and remembers the dog ahead of time, he will start to become stressed even before passing by the yard. 
+      <li> Just knowing a stressful event is going to occur will affect someone's stress levels. This is where the context of where people experience emotion gets foggy. 
+      <li> If someone can be stressed before, during, <b>AND</b> after experiencing a stressor in the environment, how in the world can we identify the stress's true cause? 
+      <li> This is where we see issues with traditional data, analytics, and visualizations. They just can't match this needed level of spatial specificity and contextual clarity.
+      <li> To sum this all up, human emotion is a very complex phenomenon and extremely hard to pin down and measure. Spatial data provide a quantitative way of understanding the deeply important context of emotions, and the environmental stimuli that spark them. -->
+      <!-- <li> By developing interactive geovisualizations that pair physiological data with detailed maps, we can start to better understand why people are having particular experiences in specific places. -->
+          <!-- * ^^ CONSIDER KEEPING ^^ * -->
+
+        <!-- <li>  So, we need to have a way to look at what people are feeling not just in general, but EXACTLY where they are feeling it, so we can not only understand how we interact with our environment, but also understand and optimize our emotional and physical well-being. -->
+          <!-- <li> Traditional data, analytics, and visualizations fall short here. -->
+
+      <!-- What would even be mapped really?<br><br>
+      Could behavior even properly be mapped? <br><br>
+      Well turns out, people's stress can be mapped to measure how people respond to the environment, but properly? well kinda<br><br>
+      People are complex, and so is their behavior. Meaning we cant just rely on one data source to properly study it. 
+      And its even worse if we used traditional visalization methods.
+      Here's what I mean. -->
+    <!-- </aside>
+</section> -->
+
+
+<section data-background="white" >
+    <h3> <b>Limitations</b> of Wearable Sensors </h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+            <ul>
+                <li class="fragment fade-in">Measurement quality and accuracy
+                <li class="fragment fade-in">Less control over environmental factors
+                <li class="fragment fade-in">Physiological signals can contain noise and measurement errors
+                <li class="fragment fade-in"> <b>BUT</b>, all is not lost...
+            <br><br>
+              </ul>
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ol>
+            <li> First, measurement quality and accuracy of mobile-sensing devices cannot compete with laboratory instruments 
+              <ul>
+                  <li> This is mainly due to technical constraints of battery life and physical dimensions. 
+            </ul>
+            <li>Second, using mobile-sensing devices gives us researchers less control over environmental factors and stimuli our subjects are exposed to
+                <ul>
+                    <li> This of course makes it very difficult isolate how stimuli are impacting participants; and this weakens the internal validity of our results 
+              </ul>
+            <li> Relatedly, real-world measurements of physiological signals tend to contain noise and measurement errors, making data interpretation even more difficult 
+            
+        </ol>    
+    </aside>
+</section> 
+
+
+<section data-background="white" >
+    <h3> <b>Advantages</b> of Wearable Sensors </h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+            <ol>
+                <li class="fragment fade-in">More objective
+                <li class="fragment fade-in">Continuous measurement at high temporal resolutions
+                <li class="fragment fade-in">Reduce burden on participants
+                <li class="fragment fade-in">Provide clearest window into people's daily physiology
+            <br><br>
+              </ol>
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ol>
+            <li> Real-time physiological signals recorded by wearable sensors are considered more objective than self-reported assessments, which tend to be biased
+              
+            <li>Wearables allow for continuous measurement at a high temporal resolution of parts of seconds. This resolution cannot be obtained when relying on one-time measurements or self-report surveys alone.
+               
+            <li> Wearables significantly reduce the burden on participants, who are not required to repeatedly complete surveys. This makes an extended data collection period—ranging from a few hours to several months—possible.
+
+            <li> Finally, ambulatory measurements facilitate the investigation of people’s physiological signals during their daily routines in real-life situations, offering greater ecological validity than lab studies
+        </ol>    
+    </aside>
+</section> 
+
+
+<!-- Timeline -->
+<section data-background="img/intro_all_bw.png" data-background-size="100%" >
+    <aside class="notes">
+        <ul>
+            <li>So, I will be showing you two cases / projects of where I've applied these concepts and methods we've been talking about, as well as what can be learned from applying these methods to each case.
+            <li>then discuss how this may be applied in the future.
+        </ul>
+       
+      </aside>
+</section>
+    
+<section data-background= "img/intro_cycling.png" data-background-size="100%">
+
+      <aside class="notes">
+        We first have CHIPS, a project that I've been working on to study and map the stress of cyclists while biking down a cycling highway between two cities in the Netherlands Tilburg & Waalwijk.
+      </aside>
+</section>
+
+<section data-background= "img/intro_nuenen.png" data-background-size="100%">
+
+      <aside class="notes">
+
+      <ul>
+       <li>Then, there is Nuenen, a project measuring the emotional excitement and locations of its visitors, for both indoor, and outdoor exhibits.
+         <br><br><br>
+        <li><b> I wanted to add, for both of these projects, I will be discussing the methods applied to them, without really paying much attention to particular statistical results. </b><br><br>
+        <li>This is mainly for two reasons:
+        <ol>
+        <li> They are still currently being worked on. 
+        <li> But also, while our goal is to better understand exact environmental elements that affect human behavior and experience, evaluating them under traditional statistics is tricky. <b>
+            <ul>
+                <li>Researchers agree that a more dynamic investigation is required, looking for tools that allow a closer and more objective examination of moment-by-monet environmental interaction and its impact on behavior and health. 
+                <li>These tools are what I develop, specifcially for each of these projects, and is what I'll be showing you all today</b>
+         </ul>
+        </ul>
+
+        
+      </aside>
+
+</section>
+
+<section data-background= "img/intro_future.png" data-background-size="100%">
+
+      <aside class="notes">
+        And last hopefully we have some time to talk about what all this work will look like further down the road.
+      </aside>
+</section>
+    
+    <!-- Relating to Cycling - Mini Experiment -->
+    
+    <!-- Mini Experiment --> 
+    <section data-background="img/cycling_vid_1.gif" data-background-size="200">
+    <aside class="notes"> 
+    To introduce ourselves to the first project, the cycling work, lets take a look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel? <br><br>
+    
+    Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+    </aside>
+    </section>  
+    
+    
+    <section data-transition="slide" data-background="img/cycling_vid_2.gif" data-background-size="200" >
+    
+    <aside class="notes"> 
+    Look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel? <br><br>
+    
+    Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+    </aside>
+    </section>  
+    
+    
+    <section  data-transition="slide" data-background="img/cycling_vid_3.gif" data-background-size="200" >
+    
+    <aside class="notes"> 
+    Look at these videos. How do they make you feel? Look at the differences in the places. How do the differences in the places make you feel? <br><br>
+    
+    Call on someone, "Imagine yourself in this scenario. What are your initial thoughts and / or feelings?"
+    </aside>
+    </section>  
+
+
+<section data-background="white">
+    <h3> CHIPS: Cycle Highway Project </h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+            <ul>
+                <!-- <li class="fragment fade-in">Test new wayfinding concepts (signage) -->
+                <li class="fragment fade-in"><b>Participants</b>: 12 
+                <li class="fragment fade-in"><b>Cycle track</b>: 18 km cycle highway 
+                <li class="fragment fade-in"><b>Type of bike</b>: e-bike
+                <!-- <li class="fragment fade-in">Before and after implementing new wayfinding -->
+            <br><br>
+              </ul>
+
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+        
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ul>
+            <li> CHIPS: Cycle Highways Innovation for smarter People Transport and Spatial Planning
+            <li> Now my research on this topic stems from a much larger project, the CHIPS project which spans Belgium, Germany, the Netherlands and the UK. 
+            <!-- <li>  And it aims to develop and promote cycle highways as an effective and cost efficient low carbon solution for commuting towards and from work (in urban areas specifically).  -->
+            <li> And this project particularly involves infrastructure adaptation to increasing e-bike use. 
+            <li> Basically, existing cycling infrastructure is not up to the standards required by heavy e-bike use. 
+            <li> Just think how much faster an e-cyclist is in comparison to your standard manual bike. 
+            <li> Signs (directions) are too small, cycle paths cant properly account for the presence of both regular and e-bike use (e-bikes passing by fast)
+            <li> And so to begin exploring how these cycle highways might be adapted to account for increasing e-bike use, researchers at Breda University of Applied Sciences ran a small study to collect some data along a cycling track between Tilburg and Waalwijk ... <b>NEXT SLIDE</b>
+            <!-- <li> Project partners from Belgium, Germany, the Netherlands and the UK are striving to develop solutions that will help regions and mobility stakeholders to:
+            <ol>
+                <li> Position cycle highways as a new mobility product
+                <li> Overcome physical and behavioural barriers that keep commuters from using cycle highways
+                <li> Maximize synergies between cycle highways and trains, buses and cars
+                <li> Upgrade cycle highways to key structuring elements in future spatial planning
+                <li> Monitor performance and assess impact
+            </ol> -->
+    </aside>
+</section>  
+
+<section data-background="white">
+    <h3> Study Area & Cycle Track </h3>
+    
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="35%">
+        <col width="5%">
+        <col width="65%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+        <img style = "width:300px" src="img/NL_DEM_marker.png">
+    </td>
+    <td style = "vertical-align : middle;  ">
+
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+    <img  src="img/cycleway_location_3d_noNL.png">
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+    <ul>
+        <li> Just to quickly show what sort of cycling highway these participants biked on while their data was collected
+      <li> Also note that its about a 2 hour long bike ride or so
+    </ul>
+      
+    </aside>
+  </section> 
+
+
+  <section data-background="white">
+    <h3> Study Area & Cycle Track </h3>
+    
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="5%">
+        <col width="65%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+    <img  width="100%" src="img/chips_3d_ortho.png">
+    <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+    <ul>
+        <li> Just to quickly show what sort of cycling highway these participants biked on while their data was collected
+      <li> Also note that its about a 2 hour long bike ride or so
+    </ul>
+      
+    </aside>
+  </section> 
+
+
+  <section data-background="white">
+      <h3> Data Collection </h3>
+
+      <table class= "condensed no_border"  width="100%">
+          <col width="100%">
+
+      <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  ">
+          <img style = "width:100%" src="img/chips_data_collection_diagram.png">
+      </td>
+    </tr>
+    </table>
+
+      <br>
+
+    <p class="credit text-bottom" style="font-size: 12px">Credit: Lisette Hoeke | Breda University of Applied Sciences</p>
+  
+  <aside class="notes">
+      <ul>
+          <li> <b> Briefly, describe / list the data collection efforts and methods here first . . .  </b>
+            <br> <br>
+          
+          </ul>
+      </ul>
+    </aside>
+
+</section> 
+
+  <section data-background="img/Participant5_annotated_clipped_small.gif" data-background-size="100%" >
+
+    <aside class="notes">
+        <ul>
+            <li>  And this is a resulting, 1st person POV video annotated with the collected data. 
+            <li>  Since I'm not going into detail about my analyses, I wanted to show this as a prime example for the data I have been working with, and continue to work with for publication in CEUS.
+            <li>  We plan to really only use these videos to verify some of my analytics (if needed)
+            <li>  But, these also leads to a very interesting discussion and questions to consider, ones I wanted to pose to you all:
+              <ul>
+                <li>  We always think about big data as big data where we have a global datset for landcover, or an entire NC dataset at 1m resolution.
+                <li>  But... here in this study, we have 12 people riding a bicycle, and we have terabytes of data. 
+                <li> Should this be considered as another kind of geospatial big data?? 
+                <li> Its a very different type of data because its geospatial, but you are also getting this street imagery, which, is very different from landsat
+                <li>In any case, the data is availabe and there is a lot of potential to do more work on it.
+              </ul>
+            
+      </ul>
+      </aside>
+
+    </section> 
+
+
+
+  <section data-background="white">
+      <h3>Software | Interactive Application</h3>
+
+      <table class= "condensed no_border"  width="100%">
+          <col width="1%">
+          <col width="75%">
+      <tr class = "border_top no_space">
+          
+      <td style = "vertical-align : middle;  ">
+      </td>
+      
+      <td style = "vertical-align : middle; "><br>
+        
+          <center><video data-autoplay align="middle" vertical-align="center" height="550" controls muted loop>
+              <source src="video/stress3d.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video></center>
+            <p3> 
+                <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Stress3d - </a>
+                Uses cyclists' physiological data to see how stress and emotions can be affected by our environment. </p3><br><br>
+      </td>
+    </tr>
+    </table>
+  
+    <aside class="notes">
+        As i mentioned earlier, researchers want to more dynamically investigate moment-by-monet environmental interaction and its impact on behavior and health. So, I've developed a tool that allows us to gain a closer and more objective examination. <br><br>
+
+        I made an app which can be used to look at where people are feeling things, and really zoom in on it, so that a manager can go, "Ok, a person felt something here, whats there??"  <br><br>
+  
+        But, researchers can also use it to discover interesting patterns when exploring newly collected data, to then better direct where they should focus their research efforts.  <br><br>
+  
+        So, just to quickly demonstrate . . . .  <br><br>
+  
+          On the left, we can toggle back and forth between these different cyclists, which is an important thing to note due to the variability in skin conductance that can be exhibited across multiple people.  <br><br>
+  
+          So, starting with Cyclist # 1, and looking at the colored markers displayed on the map (blue = low arousal, red = high arousal), we can see that they were experiencing some high levels of arousal in this area.  <br><br>
+  
+          We can also coordinate what we're seeing on the map, with the skin conductance chart in the top-right corner.  <br><br>
+  
+          [HOVER MOUSE OVER CHART TO DISPLAY NUMERICAL DATA] <br><br>
+  
+          This chart will graphically display all data that is currently loaded into the map frame. As I zoom in and out, and pan around in the map, it will automatically update (as you can see here). v<br>
+  
+          Now lets throw a couple more cyclists into the mix to see if others are experiencing similar states of arousal, or if Cyclist 1 is just an overall anxious person. <br><br>
+  
+          [CLICK CYCLIST 3] <br><br>
+  
+          So here, it appears these two are experiencing similar levels of high physiological arousal. Lets zoom out a bit and add another cyclist to get a better idea of the bigger picture. <br><br>
+  
+          [ZOOM OUT] <br><br>
+  
+          [CLICK CYCLIST 10] <br><br>
+  
+          So this area [MOVE OVER WITH MOUSE], seems to be causing some heightened states of physiological arousal. Seeing this, we of course would like to explore what is present in the environment that might be causing such reactions. To do so, I can first click one one of the markers ...  <br><br>
+  
+          [CLICK POINT RIGHT BEFORE WATER] ...  <br><br>
+  
+          to view additional information such as the speed the cyclist was going at that specific point, as well as the current elevation (NL is extremely flat), the total distance travelled to that point, specific skin conductance levels, and which cyclist it is. <br><br>
+  
+          But, as you may have noticed, a street view image is also concurrently and automatically displayed in the bottom right corner. With this, it is easier to understand what sort of environment the cyclist is interacting with and experiencing while exhibiting high (or low) levels of emotion. <br><br>
+  
+          [ZOOM TO SELECTED POINT] --> [ROTATE MAP VIEW, TILT, etc]  <br><br>
+  
+          While the application is interesting visually, and is a good way to kill time (and I'm definitely not speaking from personal experience or anything), its main purpose is a research tool, designed to help researchers (THIS IS YOU ALL) better direct what they should focus their research efforts on.  <br><br>
+  
+          With the way the system's structure is designed, most spatiotemporal data, especially emotion data, can be easily inputted and explored. For example, the analyses just discussed, as well as the visualizations and interactive application presented, can be applied to other interesting, but similar domains such as mapping emotional data collected inside and outside museums.  <br><br>
+        
+      </aside>
+    </section> 
+
+
+
+<section data-background="white">
+    <h3> CELTH: Storysperience Project </h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+            <ul>
+
+                    <li class="fragment fade-in"><b>Participants</b>: 16
+                    <li class="fragment fade-in"><b>Vincentre museum</b>: Indoor & Outdoor Exhibits 
+                    <li class="fragment fade-in"><b>Type of experience</b>: Guided walking tour
+
+                <br><br>
+                  </ul>
+
+
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+        
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ul>
+            <li> This brings us to our next project in Nuenen at the Vincent Van Gogh Musuem. 
+            <li> Visitors' location and emotional experiences were again collected while experiencing both inside and outside exhibits at the museum.<br><br>
+            <li> CELTH: Centre of experience, leisure, tourism, & hospitality 
+            
+      </ul>
+    </aside>
+</section>  
+
+
+
+
+
+<section data-background="white">
+    <h3> Study Area (Outdoors & Indoors) </h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="5%">
+        <col width="65%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+        <img width="100%" src="img/outdoorDSM_indoorModel.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+   <ul>
+            <li> The area of analysis was the new Vincent Van Gogh Centre located on the Berg in Nuenen, The Netherlands.
+            <li> The Netherlands. Known as the Vincentre, in it visitors are able to discover how Vincent van Gogh lived and painted while in Nuenen.
+            <li> They experience and witness his life events in two stages: 
+            <ol>
+              <li> inside the Vincentre, traveling up three floors each representative of specific stages of his life; and 
+              <li> outside the Vincentre, visiting five outdoor exhibits by way of a walking tour. The Vincent Van Gogh Centre is currently being planned to undergo renovation.
+            </ol>
+            <li> As such, this work strives to inform the Vincentre’s directors and managers with objective information on what exhibits visitors find the most exciting and those which they do not. As a result, renovation plans can more effectively focus on exhibits that should be emphasized, and those that should be considered for alteration, respectively
+      </ul>
+
+    </aside>
+  </section> 
+
+
+<section data-background="white">
+    <h3 >Geospatial & Physiological Data</h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+            <ul >
+                <li class="fragment fade-in">Person ID</li>
+                <li class="fragment fade-in">Location (x,y)</li>
+                <li class="fragment fade-in">Time (spent in location)</li>
+                <li class="fragment fade-in">Skin Conductance </li>
+                <li class="fragment fade-in">Direction (to & from exhibits)</li>
+                <li class="fragment fade-in">Velocity </li>
+                <li class="fragment fade-in">Distance to Exhibits </li>
+                <li class="fragment fade-in">Viewshed (indoors & outdoors)</li>
+            <br><br>
+          </ul>
+
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+        
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        The ideal set of spatial and physiological data needed to examine . . .
+    </aside>
+</section>  
+
+
+
+  <section data-background="white">
+      <h3> Study Area: Outdoor Exhibits</h3>  
+  
+      <table class= "condensed no_border"  width="100%">
+          <col width="12%">
+          <col width="65%">
+      <tr class = "border_top no_space">
+          
+      <td style = "vertical-align : middle;  ">
+      </td>
+      
+      <td style = "vertical-align : middle; "><br>
+          <img width="80%" src="img/pt_locations_and_exhibits copy.png">
+          <br><br>
+      </td>
+    </tr>
+    </table>
+  
+    <aside class="notes">
+        5 ourdoor exhibits, along with all participant locations recorded during guided tour
+      </aside>
+    </section> 
+
+
+
+
+
+<section data-background="white">
+    <h3> Data: Outdoors</h3>  
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="99%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "> <br>
+        <img width="100%"  src="img/all_binned_variables_start.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      Spatially gridded maps (rasters) of some of the earlier varibles mentioned, and their mean, standard deviations, and range:
+      <ol>
+      <li> time in location
+      <li> skin conductance
+      <li> amount of data points sampled
+      </ol>
+    </aside>
+  </section> 
+
+
+<section data-background="white">
+    <h3> Data: Outdoors</h3>  
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="99%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "> <br>
+        <img width="100%"  src="img/all_binned_variables_mean.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      Spatially gridded (rasters) maps of some of the earlier varibles mentioned, and their mean, standard deviations, and range:
+      <ol>
+      <li> time in location
+      <li> skin conductance
+      <li> amount of data points sampled
+      </ol>
+    </aside>
+  </section> 
+
+
+
+<section data-background="white">
+    <h3> Data: Outdoors</h3>  
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="99%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "> <br>
+        <img width="100%"  src="img/all_binned_variables_std.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      Spatially gridded maps (rasters) of some of the earlier varibles mentioned, and their mean, standard deviations, and range:
+      <ol>
+      <li> time in location
+      <li> skin conductance
+      <li> amount of data points sampled
+      </ol>
+    </aside>
+  </section> 
+
+  <section data-background="white">
+      <h3> Data: Outdoors</h3>  
+  
+      <table class= "condensed no_border"  width="100%">
+          <col width="1%">
+          <col width="99%">
+      <tr class = "border_top no_space">
+          
+      <td style = "vertical-align : middle;  ">
+      </td>
+      
+      <td style = "vertical-align : middle; "> <br>
+          <img width="100%"  src="img/all_binned_variables_range.png">
+          <br><br>
+      </td>
+    </tr>
+    </table>
+  
+    <aside class="notes">
+        Spatially gridded maps (rasters) of some of the earlier varibles mentioned, and their mean, standard deviations, and range:
+      <ol>
+      <li> time in location
+      <li> skin conductance
+      <li> amount of data points sampled
+      </ol>
+      </aside>
+    </section> 
+
+  <section data-background="white">
+      <h3> First Approach: Growing Exhibit Areas </h3>
+  
+      <table class= "condensed no_border"  width="100%">
+          <col width="15%">
+          <col width="85%">
+      <tr class = "border_top no_space">
+          
+      <td style = "vertical-align : middle;  ">
+      </td>
+      
+      <td style = "vertical-align : middle; "><br>
+          <img width="80%" src="img/grow_exhibits_new.png">
+          <br><br>
+      </td>
+    </tr>
+    </table>
+  
+    <aside class="notes">
+        Gives you: distance from exhibits as associated with emotion response.
+        
+      </aside>
+    </section> 
+
+
+<section data-background="white">
+    <h3> Second Approach: Viewsheds </h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="15%">
+        <col width="85%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+        <img width="80%" src="img/all_exhibits_viewshed_numbered.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      Gives you: people's actual experience of museum and exhibits (line of sight)
+    </aside>
+  </section> 
+
+
+<section  data-background="img/vincentre_viewsheds_exhibits_only.gif" data-background-size="200" >
+
+
+    <aside class="notes"> 
+    
+</aside> 
+</section> 
+
+<section  data-background="img/vincentre_viewsheds.gif" data-background-size="200" >
+    <aside class="notes"> 
+    
+</aside> 
+</section>  
+
+
+<section data-background="white">
+    <h3> Results </h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="99%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+
+    <td style = "vertical-align : middle; "><br>
+        <img width="150%" src="img/dist_to_exhibits_scatterplots_colored.png"><br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+  distance to exhibits results / graphs
+
+    </aside>
+  </section> 
+
+
+
+<section data-background="white">
+    <h3> Indoors: Trilaterating Participant Locations </h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="5%">
+        <col width="95%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+        <img width="100%" src="img/vincentre_floor_plans_new.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      
+    </aside>
+  </section> 
+
+
+  <section data-background="white">
+      <h3> Indoors: Trilaterating Participant Locations </h3>
+  
+      <table class= "condensed no_border"  width="100%">
+          <col width="25%">
+          <col width="75%">
+      <tr class = "border_top no_space">
+          
+      <td style = "vertical-align : middle;  ">
+      </td>
+      
+      <td style = "vertical-align : middle; "><br>
+          <img width="70%" src="img/beacons_rssi.png">
+          <br><br>
+      </td>
+    </tr>
+    </table>
+  
+    <aside class="notes">
+    <ul>
+            <li> The prediction of indoor positions requires a reference set of data where the signal strength between a hand-held device such as a cellular phone and fixed access points (beacons) are measured at known locations throughout the building. 
+            <li> With these data, we can build a model for the location of a device asa function of signal strength between the device and each access point.
+       
+      </aside>
+    </section> 
+
+
+
+<section data-background="white">
+    <h3> Predicted Locations & Conductance </h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="25%">
+        <col width="75%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+        <img width="70%" src="img/pred_indoor_locations.png">
+        <br><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      resulting map of predictions
+    </aside>
+  </section> 
+
+
+
+<section data-background="white">
+    <h3>Software | Interactive Application</h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="75%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; ">
+      
+        <center><video data-autoplay align="middle" vertical-align="center" height="550" controls muted loop>
+            <source src="video/nuenen3d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video></center>
+          <p3> 
+              <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/Nuenen3d/">Emotion Musuem - </a>
+              Uses a 3D model of a museum and geotagged emotion data to explore which exhibits in the Vincent Van Gogh Centre visitors find the most exciting.  
+              <br>
+            </p3>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+  
+      
+    </aside>
+  </section> 
+
+
+
+<!-- <section  data-background="img/now_what.gif" data-background-size="200">
+
+<aside class="notes">
+
+  
+</aside>
+</section>  -->
+
+
+<section data-background="white">
+    <h3> Nurses' Health Study </h3>
+    <table class= "condensed no_border"  width="100%">
+        <col width="95%">
+        <col width="5%">
+        <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  "><br>
+          <ul>
+            <li class="fragment fade-in"><b>Participants</b>: ???
+            <li class="fragment fade-in"><b>Sample population</b>: healthcare workers
+            <li class="fragment fade-in"><b>Variables</b>: 
+              <ul>
+                  <li class="fragment fade-in">risk factors for major chronic diseases
+                  <li class="fragment fade-in">physical well-being 
+                  <li class="fragment fade-in"> neighborhood walkability
+              </ul>
+              <br>
+          </ul>
+        </td>
+        <td style = "vertical-align : middle; ">
+        </td>
+        
+      </tr>
+      </table>
+        
+    <aside class="notes"> 
+        <ul>
+            <li> 
+            <li> conducted in partnership with Brigham and Women’s Hospital, which has been investigating risk factors for major chronic diseases since the 1970s.
+      </ul>
+    </aside>
+</section> 
+
+
+<section data-background="white">
+    <h3>Applying Methods to Commercial Smartwatches | Fitbit Data</h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="75%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+      
+        <center><video data-autoplay align="middle" vertical-align="center" height="550" controls muted loop>
+            <source src="video/HarvardMed_PoC.3.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video></center><br>
+
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+
+      
+    </aside>
+  </section> 
+
+
+<section data-background="white">
+    <h3>Ongoing Analytic Development: Mapping People Toolbox</h3>
+    
+    <table class= "condensed no_border"  width="100%">
+        <col width="42%">
+        <col width="50%">
+        <col width="10%">
+        <!-- <col width="10%"> -->
+    <tr>
+    
+    <td style = "vertical-align : middle; border-bottom:0px;border-right:0px">
+      <p4 style = "font-size: 24px"><strong><a target="_blank" href = "https://www.overleaf.com/6515463368wqbrthphpqhq">People & the Environment: Geo-analytical Guidelines and Software Tools for Measuring Environmental Interaction and Experience</a></strong>
+      <br>
+      <br>
+      
+      <img style="position: relative;vertical-align:middle" width="75%" src="img/space_time_cube.gif"></p4> 
+    </td>
+
+    <td style = "vertical-align : middle; border-bottom:0px;border-right:0px">
+        <br>
+        <img width="700px" src="img/paper_icons/People_and_the_Environment.png">
+    </td>
+    
+    </tr>
+  
+    </table>
+
+    <aside class="notes">
+        <ul>
+          <li> What should be said about this?
+        </ul>
+
+      </aside>
+
+    </section>
+
+
+
+<section data-background="white">
+<h3>Related Publications</h3>
+
+<p3>
+<strong>Millar, G. C.</strong>,
+Mitas, O., 
+Boode, W., 
+Hoeke, L., 
+de Kruijff, J., 
+& Mitasova, H. (under review). 
+<a target="_blank" href = "https://www.journals.elsevier.com/computers-environment-and-urban-systems/call-for-papers/advances-in-portable-sensing-methodologies">
+  Space-time Analytics of Human Physiology for Urban Planning.</a>,
+<i>To be published as a Special Issue of: Computers, Environment and Urban Systems (CEUS).</i>
+</p3>
+
+<p3>
+    <strong>Millar, G. C.</strong>,
+    Mitas, O., 
+    Boode, W., 
+    Hoeke, L., 
+    de Kruijff, J., 
+    Tateosian, L.,
+    & Mitasova, H. (in preparation). 
+    <a target="_blank" href = "">
+      Stress3d: An Interactive & 3D Framework for Exploring Human Behavior</a>.
+    <!-- <i>To be published as a Special Issue of: Computers, Environment and Urban Systems (CEUS).</i> -->
+</p3><br><br><br>
+
+
+<h3>Software & Applications</h3>
+<p3> 
+  <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Stress3d - </a>
+  Uses cyclists' physiological data to see how stress and emotions can be affected by our environment. 
+<br></p3>
+
+<p3> 
+  <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Emotion Musuem - </a>
+  Uses a 3D model of a museum and geotagged emotion data to explore which exhibits in the Vincent Van Gogh Centre visitors find the most exciting.  
+  <br>
+</p3>
+
+<br>
+<br><br><br>
+    <p style = "font-size: 20px">Presentation Link:<a target="_blank" href = "https://gcmillar.github.io/presentations/Harvard-CGA"> https://gcmillar.github.io/presentations/Harvard-CGA</a></p>
+
+<aside class="notes">
+
+        <ul>
+          <li> Are speaking notes needed here?
+        </ul>
+  
+</aside>
+
+</section>
+
+
+
+<section data-background="white">
+    <h3>Concluding Remarks</h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="75%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+      
+        <center><video data-autoplay align="middle" vertical-align="center" height="550" controls muted loop>
+            <source src="video/stress3d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video></center><br>
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+
+      <ul>
+          <li>  Basically, what I hoped to be able to show you all today is how linking location and physiological data helps us contextualize and understand how people respond to their surrounding environment . . . 
+          <li>  Because we, as people, don’t exist without our environment. Understanding that environment is therefore key to understanding, and optimizing, our emotional and physical well-being.
+          <li>  <b>And if we can figure out how we respond to the environment, we can figure out a better way to live in it.</b>
+          <li>  With that, I thank you all very much for your time. Now let's hear some questions...
+      </ul>
+
+     
+
+     
+      
+      
+      
+    </aside>
+  </section> 
+
+<section data-background="white">
+    <h3>Questions?</h3>
+
+    <table class= "condensed no_border"  width="100%">
+        <col width="1%">
+        <col width="75%">
+    <tr class = "border_top no_space">
+        
+    <td style = "vertical-align : middle;  ">
+    </td>
+    
+    <td style = "vertical-align : middle; "><br>
+      
+        <center><video data-autoplay align="middle" vertical-align="center" height="550" controls muted loop>
+            <source src="video/stress3d.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video></center><br>
+          <!-- <p3> 
+              <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Stress3d - </a>
+              Uses cyclists' physiological data to see how stress and emotions can be affected by our environment. </p3><br><br> -->
+    </td>
+  </tr>
+  </table>
+
+  <aside class="notes">
+      
+    </aside>
+  </section> 
+
+
+    <!-- Methods: Materials & Scoring -->
+<section data-background="white">
+
+    <h3> Extra Slides  </h3>
+        
+    <aside class="notes">
+    
+    </aside>
+        
+</section>
+
+
+
+        
+    
+    
+<!-- This is a generated file. Do not edit. -->
+        </div>  <!-- slides -->
+    </div>  <!-- reveal -->
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.js"></script>
+        <script>
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                // Display controls in the bottom right corner
+                controls: false,
+                // Display a presentation progress bar
+                progress: true,
+                
+                center: true,
+                
+                // Display the page number of the current slide
+                slideNumber: false,
+                // Enable the slide overview mode
+                overview: true,
+                // Turns fragments on and off globally
+                fragments: true,
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                 width: 1060,
+                // height: 700,
+                
+                // Factor of the display size that should remain empty around the content
+                margin: 0.05,  // increase?
+                // Bounds for smallest/largest possible scale to apply to content
+                minScale: 0.5,
+                maxScale: 5.0,
+                theme: Reveal.getQueryHash().theme,  // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'none', // default/cube/page/concave/zoom/linear/fade/none
+                // Push each slide change to the browser history
+                history: true,
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+                // Vertical centering of slides
+                center: true,
+                // Enables touch navigation on devices with touch input
+                touch: true,
+                // Loop the presentation
+                loop: false,
+                // Flags if the presentation is running in an embedded mode,
+                // i.e. contained within a limited portion of the screen
+                embedded: false,
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                autoSlide: 0,
+                // Stop auto-sliding after user input
+                autoSlideStoppable: true,
+                // Enable slide navigation via mouse wheel
+                mouseWheel: false,
+                // Hides the address bar on mobile devices
+                hideAddressBar: true,
+                // Opens links in an iframe preview overlay
+                previewLinks: false,
+                // Transition speed
+                transitionSpeed: 'default', // default/fast/slow
+                // Transition style for full page slide backgrounds
+                backgroundTransition: 'none', // default/none/slide/concave/convex/zoom
+                // Number of slides away from the current that are visible
+                viewDistance: 3,
+                // Parallax background image
+                //parallaxBackgroundImage: '', // e.g. "'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg'"
+                // Parallax background size
+                //parallaxBackgroundSize: '' // CSS syntax, e.g. "2100px 900px"
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/math/math.js', async: true }
+                ]
+            });
+        </script>
+    </body>
+</html>

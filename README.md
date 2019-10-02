@@ -1,12 +1,12 @@
 G. C. Millar Presentations
 ===========================
- * [CHI conference | April 2018](https://gcmillar.github.io/presentations/chi2018.html#/)
- * [USIALE conference | April 2018, Chicago, Il](https://gcmillar.github.io/presentations/us_iale2018.html#/)
- * [AGU conference | December 2018, Washington D.C.](https://gcmillar.github.io/presentations/agu2018.html#/)
- * [Visiting Scholar Residency | March 2019, Experience Lab, Breda, NL](https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/)
- * [Pre-Proposal Committee Meeting | August 2019, CGA](https://gcmillar.github.io/presentations/pre-proposal.html#/)
- * [Harvard University Center for Geographic Analysis | September 2019, Boston, MA](https://gcmillar.github.io/presentations/Harvard-CGA.html#/)
- * [Harvard School of Public Health | September 2019, Boston, MA](https://gcmillar.github.io/presentations/Harvard-HSPH.html#/)
+ * <img src="img/logos/chi_logo.png" alt="drawing" width="70"/> [CHI Conference | April 2018](https://gcmillar.github.io/presentations/chi2018.html#/)
+ * <img src="img/logos/iale.png" alt="drawing" width="70"/>  [USIALE Conference | April 2018, Chicago, Il](https://gcmillar.github.io/presentations/us_iale2018.html#/)
+ * <img src="img/logos/agu.png" alt="drawing" width="70"/> [AGU Conference | December 2018, Washington D.C.](https://gcmillar.github.io/presentations/agu2018.html#/)
+ * <img src="img/logos/BUAS_logo.png" alt="drawing" width="70"/> [Visiting Scholar Residency | March 2019, Experience Lab, Breda, NL](https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/)
+ * <img src="img/logos/ncstate2.png" alt="drawing" width="70"/>[Pre-Proposal Committee Meeting | August 2019, CGA](https://gcmillar.github.io/presentations/pre-proposal.html#/)
+ * <img src="img/logos/harvard.png" alt="drawing" width="70"/>[Harvard University Center for Geographic Analysis | September 2019, Boston, MA](https://gcmillar.github.io/presentations/Harvard-CGA.html#/)
+ * <img src="img/logos/hms_logo.png" alt="drawing" width="70"/>[Harvard School of Public Health | September 2019, Boston, MA](https://gcmillar.github.io/presentations/Harvard-HSPH.html#/)
  
 Building & Publishing Pages for this Repository
 ------------------------------------------------
