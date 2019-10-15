@@ -8,7 +8,7 @@ G. C. Millar Presentations
 
 <img src="img/logos/BUAS_logo.png" alt="drawing" width="70"/>  &nbsp;[Visiting Scholar Residency | March 2019, Experience Lab, Breda, NL](https://gcmillar.github.io/presentations/CHIPS_Nuenen_NL_final_presentation#/)
 
-<img src="img/logos/ncstate2.png" alt="drawing" width="70"/>  &nbsp;[Pre-Proposal Committee Meeting | August 2019, CGA](https://gcmillar.github.io/presentations/pre-proposal.html#/)
+<img src="img/logos/cgaBlack.png" alt="drawing" width="70"/>  &nbsp;[Pre-Proposal Committee Meeting | August 2019, CGA](https://gcmillar.github.io/presentations/pre-proposal.html#/)
 
 <img src="img/logos/harvard.png" alt="drawing" width="70"/>  &nbsp;[Harvard University Center for Geographic Analysis | September 2019, Boston, MA](https://gcmillar.github.io/presentations/Harvard-CGA.html#/)
 
