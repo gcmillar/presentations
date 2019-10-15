@@ -2,7 +2,7 @@ G. C. Millar Presentations
 ===========================
  <img src="img/logos/chi_logo.png" alt="drawing" width="70"/>  &nbsp;[CHI Conference | April 2018](https://gcmillar.github.io/presentations/chi2018.html#/)
 
-<img src="img/logos/iale.png" alt="drawing" width="70"/>  &nbsp;[USIALE Conference | April 2018, Chicago, Il](https://gcmillar.github.io/presentations/us_iale2018.html#/)
+<img src="img/logos/iale.png" alt="drawing" width="65"/>  &nbsp;[USIALE Conference | April 2018, Chicago, Il](https://gcmillar.github.io/presentations/us_iale2018.html#/)
 
 <img src="img/logos/agu.png" alt="drawing" width="70"/>  &nbsp;[AGU Conference | December 2018, Washington D.C.](https://gcmillar.github.io/presentations/agu2018.html#/)
 
