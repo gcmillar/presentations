@@ -7,7 +7,11 @@ body{
 	height: 100%;
 	background-color: #111;
 }
-
+.hangingindent {
+  padding-left: 22px ;
+  text-indent: -22px ;
+  /* -left: 20px; */
+}
 #overImg{
 	background: url(../img/overImg.png) no-repeat center center;
 	-webkit-background-size: cover;
