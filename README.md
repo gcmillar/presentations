@@ -1,7 +1,7 @@
 G. C. Millar Presentations
 ===========================
 
-<img src="img/logos/cgaBlack.png" alt="drawing" width="100"/>  &nbsp;[Preliminary Exam Presentation| August 2019, CGA](https://gcmillar.github.io/presentations/prelim_presentation.html#/)
+<img src="img/logos/cgaBlack.png" alt="drawing" width="100"/>  &nbsp;[Preliminary Exam Presentation | November 2020, CGA](https://gcmillar.github.io/presentations/prelim_presentation.html#/)
 
  <img src="img/logos/chi_logo.png" alt="drawing" width="100"/>  &nbsp;[CHI Conference | April 2018](https://gcmillar.github.io/presentations/chi2018.html#/)
 
