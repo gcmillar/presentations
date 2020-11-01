@@ -78,7 +78,7 @@
       .MJXp-scale7 {-webkit-transform: scaleX(.7); -moz-transform: scaleX(.7); -ms-transform: scaleX(.7); -o-transform: scaleX(.7); transform: scaleX(.7)}
       .MJXp-scale8 {-webkit-transform: scaleX(.8); -moz-transform: scaleX(.8); -ms-transform: scaleX(.8); -o-transform: scaleX(.8); transform: scaleX(.8)}
       .MJXp-scale9 {-webkit-transform: scaleX(.9); -moz-transform: scaleX(.9); -ms-transform: scaleX(.9); -o-transform: scaleX(.9); transform: scaleX(.9)}
-      .MathJax_PHTML .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+      .MathJax_PHTML .noError { font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
       </style><style type="text/css">.MathJax_Display {text-align: center; margin: 1em 0em; position: relative; display: block!important; text-indent: 0; max-width: none; max-height: none; min-width: 0; min-height: 0; width: 100%}
       .MathJax .merror {background-color: #FFFF88; color: #CC0000; border: 1px solid #CC0000; padding: 1px 3px; font-style: normal; font-size: 90%}
       .MathJax .MJX-monospace {font-family: monospace}
@@ -111,7 +111,7 @@
       @font-face {font-family: MathJax_Size2; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size2-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size2-Regular.otf?V=2.7.0') format('opentype')}
       @font-face {font-family: MathJax_Size3; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size3-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size3-Regular.otf?V=2.7.0') format('opentype')}
       @font-face {font-family: MathJax_Size4; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_Size4-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_Size4-Regular.otf?V=2.7.0') format('opentype')}
-      .MathJax .noError {vertical-align: ; font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
+      .MathJax .noError { font-size: 90%; text-align: left; color: black; padding: 1px 3px; border: 1px solid}
       </style><style type="text/css">@font-face {font-family: MathJax_AMS; src: url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/woff/MathJax_AMS-Regular.woff?V=2.7.0') format('woff'), url('https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/fonts/HTML-CSS/TeX/otf/MathJax_AMS-Regular.otf?V=2.7.0') format('opentype')}
       </style></head><body><div style="visibility: hidden; overflow: hidden; position: absolute; top: 0px; height: 1px; width: auto; padding: 0px; border: 0px; margin: 0px; text-align: left; text-indent: 0px; text-transform: none; line-height: normal; letter-spacing: normal; word-spacing: normal;">
         <div id="MathJax_Hidden"><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br></div></div><div id="MathJax_Message" style="display: none;"></div>
@@ -211,12 +211,48 @@
 
         <style>
         body {
-        background-color: #FFF !important;*/
+        background-color: #FFF !important;
+        }
         /*
           background-image: url("pictures/elevation-nagshead.gif");
           background-repeat: no-repeat;
           background-position: left bottom;
         }
+
+ /* // Stack multiple elements on top of each other */
+ .reveal .r-stack {
+   display: grid;
+ }
+ 
+ .reveal .r-stack > * {
+   grid-area: 1/1;
+   margin: auto;
+ }
+ 
+ /* // Horizontal and vertical stacks */
+ .reveal .r-vstack,
+ .reveal .r-hstack {
+   display: flex;
+ }
+ 
+   img, video {
+     min-width: 0;
+     min-height: 0;
+     object-fit: contain;
+   }
+ 
+ 
+ .reveal .r-vstack {
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+ }
+ 
+ .reveal .r-hstack {
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+ }
         .reveal section img {
             background: transparent;
             border: 0;
@@ -326,6 +362,7 @@
             bottom: 0;
             text-align: center; 
         }
+        
         </style>
     </head>
 
@@ -374,76 +411,163 @@
 </table>
 
 <aside class="notes">
-  <ul>
-      <li > 
+    <ul>
+      <li >  Read title / introductiions, etc.... <br>
+      <li >  To begin my presentation, and introduce you all to my dissertation work as a whole, I thought it best to bring it all back a bit, and give a brief background on my overall research career. 
+      <li >  As you all know, I started my research career in psychology, or “cognitive science”. 
+      <li > I specifically started out in a Human Factors (HCI) research lab (in the psychology department) my junior year of undergrad. [the SMART lab]
+      <li >  This lab was devoted to the study of learning, wanting to see how computers can help people learn better.
+    </ul>
+<!-- 
+      <li > Hi everyone, thank you very much for being here today, it means a lot. I really couldnt be more excited about presenting to you all today. With that said, lets go ahead and jump right in eh??
+        <li >  This presentation serves as a disseration proposal for a Doctorate degree in the field of Geospatial Analytics.
+          <li >   And that dissertation's title? 
+            <ul>
+              <li ><i>MAPS & MINDS: GEOSPATIAL ANALYTICS FOR STUDYING HUMAN COGNITION" </i><br> <br>
+              </ul>
+
         <li >  To begin my presentation, and introduce you all to my dissertation work as a whole, I thought it best to bring it all back a bit, and give a brief background on my overall research career. 
         <li >  As you all know, I started my research career in psychology, or “cognitive science”. 
-        <li > I specifically started out in a Human Factors (HCI) research lab (in the psychology department) my junior year of undergrad.
-        <li >  [the SMART lab]
+        <li > I specifically started out in a Human Factors (HCI) research lab (in the psychology department) my junior year of undergrad  [the SMART lab].
         <li >  This lab was devoted to the study of learning, wanting to see how computers can help people learn better.
-  </ul>
+  </ul> -->
 </aside>
 </section>
 
-
-
 <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
-    <!-- <h3 style="vertical-align: text-top; font-size:32px" >Background </h3> -->
-      <table class= "condensed no_border  no_space "  width="100%">
-        <col width="33.33%">
-        <col width="33.33%">
-        <col width="33.33%">
-          <tr class = "no_border  no_space condensed">
-            <td style = "vertical-align : middle;  " class="no_border no_space condensed fragment fade-in">
-              <img style = "width:320px" src="img/oral_prelim_intro-01.png">
-            </td>
-            <td style = "vertical-align : middle; " class="no_border no_space condensed fragment fade-in">
-              <img style = "width:320px"  src="img/oral_prelim_intro-02.png">
-            </td>
-            <td style = "vertical-align : middle; " class="no_border no_space condensed fragment fade-in">
-              <img  style = "width:320px" src="img/oral_prelim_intro-03.png">
-            </td>
-        </tr>
-      </table> 
-      <table class= "condensed no_bottom_border  no_space "  width="100%">
-        <col width="33.33%">
-        <col width="33.33%">
-        <col width="33.33%">
-          <tr class=" ">
-            <td style = "vertical-align : top;  " class="no_border no_bottom_border condensed no_space fragment fade-in">
-              <img style = "width: 320px;" src="img/cyclestress.gif">
-            </td>
-            <td style = "vertical-align : top; " class="no_border no_bottom_border condensed no_space fragment fade-in">
-              <img style = "width:320px"  src="img/tl_interaction.gif">
-            </td>
-            <td style = "vertical-align : top; " class="no_border no_bottom_border condensed no_space fragment fade-in">
-              <img style = "width:320px"  src="img/pops.gif">
-            </td>
-        </tr>
-      </table>
+  <!-- <h3 style="vertical-align: text-top; font-size:32px" >Background </h3> -->
+    <h3 >Background & Motivation</h3>
 
-        <aside class="notes">
-            <ul>
-              <li >  Overall, this research involved a few major cognitive science topics : 
-              <li >  (1) emotion, (2) learning, and (3) human–computer interaction. 
-              <li >  It also involved the collection of human biometric information / data such as skin conductance, heart rate, facial expressions, and so on.
-              <li >  I stuck with this research for 2 years as an undergrad, and then continued it for 2 years as a graduate student.
-              <li >  In those 4 years, I became very well-versed in these Cog Sci topics (emotion, learning, and HCI), and picked up technical knowhow for collecting, processing, and analyzing human biometric data; as well as people’s self-report data, and learning outcome measures (← what about administering???)
-              <li >  Well, I ended up thinking more could be done, and I wanted to see if I could apply my knowledge in cognitive science elsewhere, in new and exciting ways.
-              <li >  Luckily enough, I got extremely interested in Geospatial Analytics.. And I mean obsessed. 
-              <li >  Mainly because I saw extremely exciting opportunities to combine methods from Geospatial Analytics with concepts from Cognitive Science.
-              <li >  Specifically, I, as a Geospatial Scientist, have been able to:
-                <ol> 
-                  <li > develop and use geo-statistics and -modeling techniques to explore interactions between the environment and human emotions / behavior (CH 1); 
-                  <li > merge theories of learning and embodied cognition to facilitate more natural ways to learn about landscapes (CH 2); 
-                  <li > and use HCI principles to evaluate and improve geospatial technologies for better decision-making (CH 3)
-                </ol>
-               <li > These are what have formed the three chapters of my dissertation, and is what we will be talking about today d:-D
-              <li > So, lets get started!!!  
-            </ul>
-        </aside>
-    </section> 
+    <table class= "condensed no_border"  width="100%">
+      <col width="35%">
+      <col width="35%">
+      <col width="35%">
+  <tr class = "border_top no_space">
+      
+  <td style = "vertical-align : middle;  ">
+      <img style = "width:300px" src="img/oral_prelim_intro-01-a-01.png">
+  </td>
+  
+  <td style = "vertical-align : middle; ">
+  <img   src="img/oral_prelim_intro-02-b-01.png">
+  </td>
+  <td style = "vertical-align : middle; ">
+    <img  src="img/oral_prelim_intro-03-a-01.png">
+    </td>
+</tr>
+</table>
 
+    <table class= "condensed no_border"  width="100%">
+      <col width="35%">
+      <col width="35%">
+      <col width="35%">
+  <tr class = "border_top no_space">
+      
+  <td style = "vertical-align : middle;  ">
+      <img style = "width:300px" src="img/cyclestress.gif">
+  </td>
+  
+  <td style = "vertical-align : middle; ">
+  <img width="83%" src="img/tl_interaction.gif">
+  </td>
+  <td style = "vertical-align : middle; ">
+    <img  src="img/PoPS_Dashboard_square.gif">
+    </td>
+</tr>
+</table>
+
+    <!-- <table class= "condensed no_border  no_bottom_border no_space " style = "width: 100%;padding: 0px 0px 0px 0px;margin-top: -50px;" width="100%" height="100%">
+      <col width="35.33%">
+      <td style = "width: 100%;padding: 0px 0px 0px 0px;" class=" no_bottom_border no_space condensed "></td>
+        <tr class = "no_border no_bottom_border no_space condensed" style = "width: 100%;padding-top:-30px;padding: 0px 0px 0px 0px;" >
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-01-a-01.png">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-02-a-01.png">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-03-a-01.png">
+          </tr>
+          <tr class = "no_border no_bottom_border no_space condensed" style = "width: 100%;margin-top:-30px;padding: 0px 0px 0px 0px;"  >
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-01-b-01.png">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-02-b-01.png">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/oral_prelim_intro-03-b-01.png">
+          </tr>
+          <tr class = "no_border no-repeat  no_space condensed" style = "width: 100%;margin-top:-30px;padding: 0px 0px 0px 0px;" >
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/cyclestress.gif">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/tl_interaction.gif">
+            <img style = "width: 310px;padding: 0px 0px 0px 0px;" class="fragment fade-in" src="img/PoPS_Dashboard_square.gif">
+          </tr>
+        </td>
+          </table>  -->
+          <!-- </td>
+          <td class="no_border no_space condensed ">
+<img style = "width:310px" class="fragment fade-in" src="img/oral_prelim_intro-02-a-01.png">
+            <img style = "width:310px"  class="fragment fade-in" src="img/oral_prelim_intro-02-b-01.png">
+            <img style = "width: 310px;" class="fragment fade-in"src="img/tl_interaction.gif">          </td>
+          <td  class="no_border no_space condensed  ">
+<img style = "width:320px" class="fragment fade-in" src="img/oral_prelim_intro-03-a-01.png">
+            <img style = "width:320px"  class="fragment fade-in" src="img/oral_prelim_intro-03-b-01.png">
+            <img style = "width: 320px;" class="fragment fade-in"src="img/pops.gif">          </td>
+      </tr> -->
+    <!-- </table> 
+<table class= "condensed no_bottom_border  no_space "  width="100%">
+      <col width="33.33%">
+      <col width="33.33%">
+      <col width="33.33%">
+        <tr class = "no_border  no_space condensed">
+          <td class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width:320px"  class="fragment fade-in" src="img/oral_prelim_intro-01-b-01.png">
+          </td>
+          <td  class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width:320px"  class="fragment fade-in" src="img/oral_prelim_intro-02-b-01.png">
+          </td>
+          <td s class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width:320px"  class="fragment fade-in" src="img/oral_prelim_intro-03-b-01.png">
+          </td>
+      </tr>
+    </table>
+    <table class= "condensed no_bottom_border  no_space "  width="100%">
+      <col width="33.33%">
+      <col width="33.33%">
+      <col width="33.33%">
+      <tr class = "no_border  no_space condensed">
+          <td class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width: 320px;" src="img/cyclestress.gif">
+          </td>
+          <td class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width:320px"  src="img/tl_interaction.gif">
+          </td>
+          <td  class="no_border no_bottom_border condensed no_space fragment fade-in">
+            <img style = "width:320px"  src="img/pops.gif">
+          </td>
+      </tr>
+    </table> -->
+
+      <aside class="notes">
+        <ul>
+          <li >  Overall, this research involved a few major cognitive science topics : 
+            <b>[HIT NEXT]</b>
+              <ol>
+                <li >  (1) emotion,  <b><hl>[HIT NEXT]</b></hl>
+                <li>(2) learning, and  <b>[HIT NEXT]</b>
+                <li> (3) human–computer interaction.   <b>[HIT NEXT]</b>
+            </ol>
+          <!-- <li >  It also involved the collection of human biometric information / data such as skin conductance, heart rate, facial expressions, and so on. -->
+          <li >  I stuck with this research for 2 years as an undergrad, and then continued it for 2 years as a graduate student.
+          <li >  In those 4 years, I became very well-versed in these Cog Sci topics (emotion, learning, and HCI), and picked up technical knowhow for collecting, processing, and analyzing human biometric data; as well as people’s self-report data, and learning outcome measures <!-- (← what about administering???) -->
+          <li >  Well, I ended up thinking more could be done, and I wanted to see if I could apply my knowledge in cognitive science elsewhere, in new and exciting ways.
+          <li >  Luckily enough, I got extremely interested in Geospatial Analytics.. And I mean obsessed. 
+            <li>     <b>[HIT NEXT]</b>
+              <li> <b>[RUN THROUGH 3 STEPS]</b> -->
+          <li >  Mainly because I saw extremely exciting opportunities to combine methods from Geospatial Analytics with concepts from Cognitive Science.
+          <li >  Specifically, I, as a Geospatial Scientist, have been able to:   <li>     <b>[HIT NEXT]</b>
+            <ol> 
+              <li > develop and use geo-statistics and -modeling techniques to explore interactions between the environment and human emotions / behavior (CH 1); <b>[HIT NEXT]</b>
+              <li > merge theories of learning and embodied cognition to facilitate more natural ways to learn about landscapes (CH 2); <b>[HIT NEXT]</b>
+              <li > and use HCI principles to evaluate and improve geospatial technologies for better decision-making (CH 3)<b>[HIT NEXT]</b>
+            </ol>
+           <li > These are what have formed the three chapters of my dissertation, and is what we will be talking about today d:-D
+          <li > So, lets get started!!!  
+        </ul>
+      </aside>
+  </section> 
 
 
  <section style="font-size:32px;" data-background="white">
@@ -468,73 +592,74 @@
   </ul>
   
       <aside class="notes">
-          <ul>
-              <li > 
-        </ul>
+        Outline and bullshit.
       </aside>
   
   </section>
 
  
+ 
 
-<section data-background="img/getting-around-loop-1MB.gif" data-background-size="100%" >
+  <section data-background="img/getting-around-loop-1MB.gif" data-background-size="100%" >
+    <!-- <section data-background="img/getting-around-loop-1MB_orig.gif" data-background-size="100%" > -->
+    <h4 style="color: white;	text-shadow: 4px 4px 0px #000;" class="shadow" >  Space-time Analytics of Human Physiology for Urban Planning
+    </h4> 
+    <!-- <h4 class="shadow" style="font-size:1.3em"> through viewscape analysis of lidar and immersive virtual environments survey </h4> -->
+    <aside class="notes">
+      <ul> 
+          <li> In our daily commutes between home, work and school, the streets and bike paths we take are also an emotional map of our commute. 
+          <li> Where do we consistently experience frustration with traffic? 
+          <li> Or anxiety from a tricky intersection?    
+          <li>  These were the questions i was interested in exploring for the research in Chapter 1.
+          <li> Well, wearable technologies can actually give us the opprtunity to answer these types of questions, and in result, help us understand how people experience their environment. 
+          <!-- <li>  This understanding can inform urban design decisions -->
   
-  <h4 class="shadow">  Space-time Analytics of Human Physiology for Urban Planning
-  </h4> 
-  <!-- <h4 class="shadow" style="font-size:1.3em"> through viewscape analysis of lidar and immersive virtual environments survey </h4> -->
-  <aside class="notes">
-    <ul> 
-        <li> In our daily comings and goings between home, work and school, the streets and bike paths we choose to navigate are also an emotional map of our commute. 
-        <li> Where do we consistently experience frustration with traffic? 
-        <li> Or anxiety from a tricky intersection?    
-        <li>  These questions are becoming more and more important to ask, and if youre an urban planner, well, you want the answers.
-        <li>wearable technologies give us the opprtunity to answer these types of questions and in result help us understand how people experience their environment. 
-        <li>  This understanding can inform urban design decisions
-
-    </ul>
-  </aside>
-</section>
-
-
-
-<section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
-<div style="font-size:26px;">
-    &nbsp; <h3 style="font-size:36px;"> <highlight style = "background-color:lightgray;font-size:36px;">Chapter 1</highlight>&nbsp; Space-time Analytics of Human Physiology for Urban Planning </h3>
-      <hr>
-      <h6 class="fragment fade-in" style="color: #888;font-size:32px;">
-        Background</h6>
-          <ul style="font-size:30px;">
-              <li class="fragment fade-in"><b>Research Objective</b>:&nbsp; Use mobile sensing to improve the understanding of how people experience their environment. <br>
-              <li class="fragment fade-in">How? &nbsp;
-                  <ul>
-                    <li class="fragment fade-in"> Combine location and wearable emotion data to inform urban design decisions.
-                    <li class="fragment fade-in"> Use visual stimuli derived from viewsheds to provide more accurate environment interaction metrics.
-                    <li class="fragment fade-in"> Develop web-based mapping system to explore complex human physiology data across urban landscapes. 
-                  </ul>
-          <br>
-            </ul>
-            <hr>
-            
-            <p style="color:grey;font-size:22px;text-align: left;"class="hangingindent ">
-              &nbsp;&nbsp;&nbsp;<strong >Millar, G. C.</strong>,  Mitas, O., Boode, W., Hoeke, L., de Kruijf, J., Petrasova, A., & Mitasova, H. (2020).  
-              <strong>
-                Space-time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analytics of Human Physiology for Urban Planning.
-              </strong> <i>  Computers, Environment and Urban Systems, 85, 101554.</i> <a target="_blank" href= "https://doi.org/https://doi.org/10.1016/j.compenvurbsys.2020.101554">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://doi.org/10.1016/j.compenvurbsys.2020.101554
-              </a>
-                  </p>
-      
-        <aside class="notes">
-            <ul>
-                
-                <li > Currently, an important urban design issue is the adaptation of infrastructure to increasing cycle and e-bike use. 
-                <li > Using location and wearable emotion data collected at a high spatiotemporal resolution, we calculated viewsheds of what cyclists saw along a cycle highway, to link their cycling experience to actual visual stimuli present at specific locations along their ride.
-                   <br>
-                 
-                 <li >   <b>Stress nobody has taken some body on e-bike (25 km/h) stopping here and there and analyzed the composition of the viewscape that they see and linked it with their physiological response.
-                <li > There were people measuring physiological response and correlating with what was in their vicinity.  Those studies were there but not really people moving this fast and looking at the viewshed which took into account the full 3D information from lidar, not just looking at land-use, but actually all 3d data so that we could even see that their real views were actually quite limited due to vegetation  </b>
-            </ul>
+      </ul>
     </aside>
   </section>
+  
+  
+  
+  <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
+  <div style="font-size:26px;">
+      &nbsp; <h3 style="font-size:36px;"> <highlight style = "background-color:lightgray;font-size:36px;">Chapter 1</highlight>&nbsp; Space-time Analytics of Human Physiology for Urban Planning </h3>
+        <hr>
+        <h6 class="fragment fade-in" style="color: #888;font-size:32px;">
+          Background</h6>
+            <ul style="font-size:30px;">
+                <li class="fragment fade-in"><b>Research Objective</b>:&nbsp; Use mobile sensing to improve the understanding of how people experience their environment. <br>
+                <li class="fragment fade-in">How? &nbsp;
+                    <ul style="font-size:27px;">
+                      <li style="font-size:27px;" class="fragment fade-in"> Combine location and wearable emotion data to inform urban design decisions.
+                      <li style="font-size:27px;" class="fragment fade-in"> Use visual stimuli derived from viewsheds to provide more accurate environment interaction metrics.
+                      <li style="font-size:27px;" class="fragment fade-in"> Develop web-based mapping system to explore complex human physiology data across urban landscapes. 
+                    </ul>
+            <br>
+              </ul>
+              <hr>
+              
+              <p style="color:grey;font-size:22px;text-align: left;"class="hangingindent ">
+                &nbsp;&nbsp;&nbsp;<strong >Millar, G. C.</strong>,  Mitas, O., Boode, W., Hoeke, L., de Kruijf, J., Petrasova, A., & Mitasova, H. (2020).  
+                <strong>
+                  Space-time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analytics of Human Physiology for Urban Planning.
+                </strong> <i>  Computers, Environment and Urban Systems, 85, 101554.</i> <a target="_blank" href= "https://doi.org/https://doi.org/10.1016/j.compenvurbsys.2020.101554">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;https://doi.org/10.1016/j.compenvurbsys.2020.101554
+                </a>
+                    </p>
+        
+          <aside class="notes">
+              <ul>
+                <li > <b><i>mention newly published CEUS article!!!</i> </b><br><br>
+                <li > So, this research's main objective was to: <b>Use mobile sensing to improve the understanding of how people experience their environment.</b>
+  
+                  <!-- <li > Currently, an important urban design issue is the adaptation of infrastructure to increasing cycle and e-bike use.  -->
+                  <li > We did this by using location and wearable emotion data collected at a high spatiotemporal resolution to calculate viewsheds of what cyclists saw along a cycle highway. 
+                  <li> These viewsheds were then used to link cycling experiences to visual stimuli that were actually present at specific locations along particpants ride.
+                  <li> A dynamic web-based mapping system was also developed to help us and researchers alike better explore complex moment-by-moment human physiology data across urban landscapes. 
+                    <br><br>
+                 
+              </ul>
+      </aside>
+    </section>
 
 
     <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
@@ -572,14 +697,6 @@
               <li> Just think how much faster an e-cyclist is in comparison to your standard manual bike. 
               <li> Signs (directions) are too small, cycle paths cant properly account for the presence of both regular and e-bike use (e-bikes passing by fast)
               <li> And so to begin exploring how these cycle highways might be adapted to account for increasing e-bike use, researchers at Breda University of Applied Sciences ran a small study to collect some data along a cycling track between Tilburg and Waalwijk ... <b>NEXT SLIDE</b>
-              <!-- <li> Project partners from Belgium, Germany, the Netherlands and the UK are striving to develop solutions that will help regions and mobility stakeholders to:
-              <ol>
-                  <li> Position cycle highways as a new mobility product
-                  <li> Overcome physical and behavioural barriers that keep commuters from using cycle highways
-                  <li> Maximize synergies between cycle highways and trains, buses and cars
-                  <li> Upgrade cycle highways to key structuring elements in future spatial planning
-                  <li> Monitor performance and assess impact
-              </ol> -->
       </aside>
   </section>  
   
@@ -591,7 +708,8 @@
     <h6 style="color: #888">
       Data & Methods</h6>
 
-  <h3> Mobile Data Collection </h3>
+  <!-- <h3> Mobile Data Collection </h3> -->
+  <h3> Human Movement & Physiology </h3>
 
       <table class= "condensed no_border"  width="100%">
           <col width="100%">
@@ -603,108 +721,150 @@
     </tr>
     </table>
 
-
-
-    <!-- <p class="credit text-bottom" style="font-size: 12px">Credit: Lisette Hoeke | Breda University of Applied Sciences</p> -->
   
     <aside class="notes">
       <ul>
           <li> <b> Briefly, describe / list the data collection efforts and methods here first . . .  </b>
-            <br> <br>
-          <li> Mention stress last, then say the following :
-          <ul>
-            <li>  So while human emotion is a very complex phenomenon, and extremely hard to pin down, there are physiological indicators that our bodies exhibit which can be used to infer whether or not someone is feeling an emotion in the first place. To break it down step by step:
-              <ol>
-                  <li>  Brain senses emotion
-                  <li>  Nervous system triggers sweat glands on hands and feet
-                  <li>  Hands and feet become slightly wetter
-                  <li>  Water conducts electricity
-                  <li>  More current gets passed between two electrodes (conductivity)
-              </ol>
-
-              <li>  Then, technology like the Empatica E4, a wrist worn wearable specifically designed to measure skin conductance, uses two active electrodes on the bottom of the wrist to measure changes in people’s skin conductivity (or electric currents).
-          </ul>
+              <li>  Technology like the Empatica E4, a wrist worn wearable specifically designed to measure skin conductance, uses two active electrodes on the bottom of the wrist to measure changes in people’s skin conductivity (or electric currents).
       </ul>
     </aside>
   </section>
 
     
 
-
-
-
-
   
 <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
   <h6 style="color: #888">
     Data & Methods</h6>
-  <h3> Geospatial Data </h3>
-
+  <h3> Environmental Location </h3>
 
   <table class= "condensed no_border"  width="100%">
       <!-- <col width="35%"> -->
       <col width="95%">
   <tr class = "border_top no_space">
-      
   <td style = "vertical-align : middle;  ">
       <img src="img/study_area_final.png">
   </td>
-  
-
 </tr>
 </table>
 
 <aside class="notes">
   <ul>
+   
+
+<!-- 
+    <li>Visual perception of environmental features often has a significant impact on how cyclists value their environment and the trips themselves.
+      <li>land classification data were categorized into seven overarching land use groups: 1) developed,  2) natural, 3) recreation, 4) water, 5) business, 6) agriculture, and 7)  forest.
+        <li> We felt that seven land cover types offered a reasonable compromise among 
+          <ol>
+            <li>representing visual stimuli as realistically as possible,
+            <li> creating a statistical model of emotional arousal based on sufficiently few parameters that it can be readily estimated and interpreted, and 
+            <li> grouping the visual stimuli experienced along this particular cycle path in sufficiently few types so that each type comprises a substantial number of data points.
+          </ol> -->
+  <!-- 
       <li> Just to quickly show what sort of cycling highway these participants biked on while their data was collected
-    <li> Also note that its about a 2 hour long bike ride or so
+    <li> Also note that its about a 2 hour long bike ride or so -->
   </ul>
     
   </aside>
 </section> 
 
 
-
-
-<section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
+<!-- <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
   <h6 style="color: #888">
     Data & Methods</h6>
-  <h3> Geospatial Data </h3>
-
-
-  <table class= "condensed no_border"  width="100%">
+    <h3> Environmental Location </h3>
+    <table class= "condensed no_border"  width="100%">
       <col width="95%">
-
   <tr class = "border_top no_space">
-      
- 
-  
   <td style = "vertical-align : middle;  ">
     <img src="img/3d_dsm_ortho_final.png">
 </td>
-
 </tr>
 </table>
 
 <aside class="notes">
   <ul>
-      <li> Just to quickly show what sort of cycling highway these participants biked on while their data was collected
-    <li> Also note that its about a 2 hour long bike ride or so
+      <li>  High resolution digital surface model (DSM) was interpolated from first-return lidar points at 0.5 m resolution to provide input for computation of viewsheds along the cyclists path while capturing the impact of buildings and other structures
   </ul>
     
   </aside>
-</section> 
+</section>  -->
 
 
+<section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
 
+  <!-- <h6 style="color: #888">
+    Analysis </h6> -->
+    <h6 style="color: #888">
+      Data & Methods </h6>
+  <h3>Dynamic Visualization</h3>
+    <hr>
+    <img style = "width:80%" src="img/stress3d.gif">
+        <hr> 
+        <p3> 
+            <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Stress3d - </a>
+            Uses cyclists' physiological data to see how stress and emotions can be affected by our environment. </p3><br><br> 
+
+<aside class="notes">
+  First attempt at combining human and environmental data resulted in this dynamic viz tool 
+  <li>Developed an application where you can dive into the detail of every single measuremnt that was done.
+  <li>Helped us (and can help researchers alike) analyze the data second by second to inform investigative efforts / analyses (such as our methodolgical / statistical approach)
+  <li>Helped us realize cyclists line of sight needed to be considered.
+  </aside>
+</section>
 
 
 
   <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
     <h6 style="color: #888">
-      Analysis & Results</h6>
-    <h3> Viewsheds </h3>
+      Analysis </h6>
+    <h3 style="font-size:36px;"> Environment Interaction Metrics </h3>
+    <table class= "condensed no_border"  width="100%">
+          <col width="95%">
+          <col width="5%">
+          <tr class = "border_top no_space">
+          <td style = "vertical-align : middle;  "><br>
+              <ul>
+                  <li class="fragment fade-in">Distance to Roads
+                  <li class="fragment fade-in">Direction 
+                  <li class="fragment fade-in">Viewsheds        <br>        <br>
+                </ul>
+          </td>
+          <td style = "vertical-align : middle; ">
+          </td>
+        </tr>
+        </table>
+    <!-- <hr> -->
 
+  <aside class="notes">
+    <ul>
+      <!-- <li>Using geospatial data and methods to derive the parameters that will go into the statistical models to relate environmental data with human data: -->
+        <li>  The parameters are:
+          <ul>
+            <li>Distance to Roads
+              <ul>
+                <li> We used v.distance1, a GRASS GIS module to map the distances between each cyclist’s locational point and the closest roads. These were stored for later statistical analyses to determine possible relationships between how far away cyclists were from roads and observed levels of emotional arousal
+              </ul>
+          <li>Direction
+          <li>Viewsheds
+        <uL>
+
+        <!-- <li>  Procedure for computing viewshed for a single viewpoint: 
+          <ul>
+            <li>(a) viewpoints were set along the cycling highway at 20 m evenly distributed intervals; 
+            <li>(b) riding  direction angle was established with line direction in degrees counter-clockwise from east; 
+            <li>(c) binary viewsheds were generated on the DSM, horizontally limited to 180◦ ; 
+            <li>(d) viewshed maps were then intersected with land cover data layer to extract visible land cover classes.
+    </ul>     -->
+  </ul>
+    </aside>
+  </section>
+
+  <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
+    <h6 style="color: #888">
+      Analysis </h6>
+    <h3> Viewsheds </h3>
     <table class= "condensed no_border"  width="100%">
         <col width="100%">
 
@@ -714,46 +874,58 @@
     </td>
   </tr>
   </table>
-
-  </section>
-
-
-  <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
-    <h6 style="color: #888">
-      Analysis & Results</h6>
-    <h3>Dynamic Visualization</h3>
-      <hr>
-        <center><video data-autoplay align="middle" vertical-align="center" height="480" controls muted loop>
-            <source src="video/stress3d.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-          </video></center>  <hr>
-          <p3> 
-              <highlight style="background-color: lightgray ; font-size:.7em">Geospatial Application</highlight> <a target="_blank" href = "https://gcmillar.github.io/stress3d/">Stress3d - </a>
-              Uses cyclists' physiological data to see how stress and emotions can be affected by our environment. </p3><br><br> 
-
   <aside class="notes">
-    - nobody else has a visualization  tool that allows a researcher to that allows the researcher to go second by second, look at the data and tie with the geographical information. 
+    <ul>
+
+        <!-- <li>  Procedure for computing viewshed for a single viewpoint: 
+          <ul>
+            <li>(a) viewpoints were set along the cycling highway at 20 m evenly distributed intervals; 
+            <li>(b) riding  direction angle was established with line direction in degrees counter-clockwise from east; 
+            <li>(c) binary viewsheds were generated on the DSM, horizontally limited to 180◦ ; 
+            <li>(d) viewshed maps were then intersected with land cover data layer to extract visible land cover classes.
+    </ul>     -->
+  </ul>
     </aside>
   </section>
 
-
-
   <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
-    <h6 style="color: #888">
-      Analysis & Results</h6>
+    <!-- <h6 style="color: #888">
+      Analysis & Results</h6> -->
     <h3>Results</h3>
-      <hr>
-      <img style = "width:70%" src="img/hex_bin_stats_final.png">
-      <hr>
+    <table class= "condensed no_border"  width="100%">
+      <col width="50%">
+      <col width="45%">
+        <tr class = "border_top condensed no_space">
+        <td class = "border_top condensed no_space" style = "vertical-align : middle;  ">
+          <img height="50%" src="img/hex_bin_stats_final_split.png">
+      </td>
+      <td style = "text-align: left; vertical-align: middle;">
+        <ul>
+          <li class="fragment fade-in"> ⬆︎ - Less developed and more recreational, agricultural, and forest land cover in view.
+          <li class="fragment fade-in"> ⬇︎ - More developed and less covered in visible recreational, agricultural, and forest land cover
+        </ul>
+      </td>
+    </tr>
+</table>
+
+
+      
 
   <aside class="notes">
     <!-- BUT: <br> -->
-    My results really are the methods and the visualization tool. I essentially provided the input to the statistics. But developing the tools for processing the data and visualizing the data was my main contribution, which was valued the most by the journal's reviewer's 
-      
-    <br>
-    Statistics:<br>
-
-    Because our central question (RQ??) was to determine the effects of environmental stimuli on experience,  weused variables representing stimuli––viewable area in different land cover types, direction, distance to road, andspeed––as  predictors.   We  added  a  measure  of  directional  change  to  the  model  to  tackle  our  second  researchquestion (RQ??), which significantly improved the model’s fit.This definitive model demonstrated ride segments containing relatively less-developed and more recreational,agricultural,  and  forest  land  cover  in  view,  were  more  physiologically  arousing  for  participants.    Oppositely,segments which were more developed and less covered in visible recreational, agricultural, and forest land coverwere less arousing.  Thus, in locations of similar land cover, slower, straighter segments which were further fromroads offer higher emotional arousal.
+    <ul>
+      <li >My results really are the methods and the visualization tool. I essentially provided the input to the statistics. But developing the tools for processing the data and visualizing the data was my main contribution, which was valued the most by the journal's reviewer's 
+        <br>
+        <li ><b>Statistics</b>:<br>
+          <ul>
+          <li >Because our central question was to determine the effects of environmental stimuli on experience,  weused variables representing stimuli––viewable area in different land cover types, direction, distance to road, andspeed––as  predictors.   
+          <li >We  added  a  measure  of  directional  change  to  the  model  to  tackle  our  second  researchquestion (RQ??), which significantly improved the model’s fit.This definitive model demonstrated ride segments containing relatively less-developed and more recreational,agricultural,  and  forest  land  cover  in  view,  were  more  physiologically  arousing  for  participants.    
+          <li >Oppositely,segments which were more developed and less covered in visible recreational, agricultural, and forest land coverwere less arousing.  
+          <li >Thus, in locations of similar land cover, slower, straighter segments which were further fromroads offer higher emotional arousal.
+          </ul>
+    
+        </ul>
+    
 
     </aside>
   </section> 
@@ -761,30 +933,37 @@
 
 
   <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
-    <h3>Importance</h3>
+    <!-- <section data-background-image="img/stress3d.gif" data-background-size="88%" data-state="dimbg" > -->
+      <h3>Importance & Contributions</h3>
       <hr>
-      <ul>
-              <li class="fragment fade-in"> Highlight what was new about CEUS paper: 
-                <ul>
-                  <li class="fragment fade-in"> Yes we linked it to Urban Planning, but it wasn't the core purpose of this work. The main purpose was studying the relationships between the physiological data and the geospatial data that reflect what people actually see, how fast they go and things like that as they experience their environment.
-                  <li class="fragment fade-in">Stress its applicability to other use cases - widely aplicable. Where true value comes in.
-                  </ul>
-                </ul>
-
-              <br>
-              <hr>
-            <p2>
-            <br>
-            <ul>
-          <highlight class="fragment condensed" style="background-color:#eeeeee">Acknowledgements</highlight>
-          <ul>
-              <li class="fragment fade-in">    
-                2nd author Dr. Ondrej Mitas, Joost de Kruijf, the CHIPS project as a whole, and Amit Birenboim for guidance as special issue editor.
-        </ul>
-  
-
+      <ul style="font-size:30px;">
+        <li class="fragment fade-in"> Presents novel approach for linking biosensing with location data to examine how the visible environment affects peoples' experiences.   <!--    to reflect what people actually see, how fast they go and things like that as they experience their environment.-->
+        <li class="fragment fade-in"> Developed methods are highly applicable to other use cases. 
+        <li class="fragment fade-in"> First of its kind dynamic visualization tool.
+        <!-- <li class="fragment fade-in"> -->
+      </ul>
+    <br>
+      </ul>
+      <!-- <hr> -->
+      <!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+      <!-- <h4 class="shadow"> Importance
+      </h4>  -->
+      <!-- <center><video data-autoplay align="middle" vertical-align="center" height="480" controls muted loop>
+        <source src="video/stress3d.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video></center>  -->
+      <hr>
   <aside class="notes">
-      
+    <ul>
+      <li >   <b>Stress nobody has taken some body on e-bike (25 km/h) stopping here and there and analyzed the composition of the viewscape that they see and linked it with their physiological response.
+      <ul>
+          <li > Yes we linked it to Urban Planning, but it wasn't the core purpose of this work. The main purpose was studying the relationships between the physiological data and the geospatial data that reflect what people actually see, how fast they go and things like that as they experience their environment.
+          <li > There were people measuring physiological response and correlating with what was in their vicinity.  Those studies were there but not really people moving this fast and looking at the viewshed which took into account the full 3D information from lidar, not just looking at land-use, but actually all 3d data so that we could even see that their real views were actually quite limited due to vegetation  </b>
+          </ul>
+          <li >Stress its applicability to other use cases - widely aplicable. Where true value comes in.
+          <li >   nobody else has a visualization  tool that allows a researcher to go second by second, look at the data and tie with the geographical information. 
+      </ul
+      >
     </aside>
   </section> 
 
@@ -828,7 +1007,7 @@
 
     <section data-background-image="img/interaction/tl_interaction.gif" data-background-size="100%" data-state="dimbg" >
   
-      <h4 class="shadow"> Tangible landscape: A hands-on method for teaching terrain analysis
+      <h4 style="color: white;	text-shadow: 4px 4px 0px #000;" class="shadow" > Tangible landscape: A hands-on method for teaching terrain analysis
       </h4> 
       <!-- <h4 class="shadow" style="font-size:1.3em"> through viewscape analysis of lidar and immersive virtual environments survey </h4> -->
       <aside class="notes">
@@ -853,9 +1032,9 @@
                 <ul style="font-size:30px;">
                     <li class="fragment fade-in"><b>Research Objective</b>:&nbsp; Test the effectiveness of a hands-on method for teaching spatial concepts using Tangible Landscape.
                         <li class="fragment fade-in">How? &nbsp;
-                          <ul>
-                            <li class="fragment fade-in">Test students’ acquisition & transfer of knowledge.
-                              <li class="fragment fade-in">Examine students’ ratings of the system’s usability & user experience.
+                          <ul style="font-size:27px;">
+                            <li style="font-size:27px;" class="fragment fade-in">Test students’ acquisition & transfer of knowledge.
+                              <li style="font-size:27px;" class="fragment fade-in">Examine students’ ratings of the system’s usability & user experience.
                             </ul>
                 <br>
                   </ul>
@@ -1059,9 +1238,9 @@
 
 
         
-    <section data-background-image="img/pops_dash.gif" data-background-size="100%" data-state="dimbg" >
+    <section data-background-image="img/PoPS_Dashboard.gif" data-background-size="100%" data-state="dimbg" >
   
-      <h4 class="shadow"> Usability Evaluation of Web-Based SDSS for Collaborative Management of Biological Invasions 
+      <h4 style="text-shadow: 4px 4px 0px #000;" class="shadow"> Usability Evaluation of Web-Based SDSS for Collaborative Management of Biological Invasions 
       </h4> 
       <aside class="notes">
         <ul> 
@@ -1082,18 +1261,24 @@
                   <li class="fragment fade-in"><b>Research Objective</b>:&nbsp; Investigate and discover how web-based SDSS can better support collaborative ecological decision-making. 
                       <li class="fragment fade-in">How? &nbsp;
                         <ul>
-                          <li class="fragment fade-in"> Conduct HCI experiment to investigate information acquisition patterns of decision-making groups.
+                          <li style="font-size:27px;" class="fragment fade-in"> Conduct HCI experiment to investigate information acquisition patterns of decision-making groups.
                             <!-- esearch will investigate information acquisition behaviors (HCI patterns) of decision-making groups as they use a web-based SDSS for the collaborative management of plant pathogen spread. -->
-                          <li class="fragment fade-in"> Collect user metrics to investigate and standardize constructs of system suitability for web collaboration contexts.
+                          <li  style="font-size:27px;" class="fragment fade-in"> Collect user metrics to investigate and standardize constructs of system suitability for web collaboration contexts.
                           </ul>
                 </ul>
                 <hr>
           
             <aside class="notes">
               <ul>
-                <li>With this in mind, this research will investigate information acquisition behaviors (HCI patterns) of decision-making groups as they use a web-based SDSS for the collaborative management of plant pathogen spread. 
+                <li>And so for the final chapter (read title: <i>Usability Evaluation of Web-Based SDSS for Collaborative Management of Biological Invasions</i>)
+                <li>The overall objective is to disvoer and investigate how web-based SDSS can better support collaborative ecological decision making.
+                <li>Basically seeing how we can facilitate online / remote collaboration as people are trying to understand and manage the spread of plant disease.
+                <li>And so to do this I'm proposing a HCI experiment that will specifically investigate the information acquisition patterns of decision making groups as they try to solve specific disease management problems together.
+                <li>And while they do that, I'm proposing to collect user metrics similar to what was shown in TL study (UX survey, etc) to investigate and standardize constructs of system suitability for web collaboration contexts in the specific problem space of managing plant disease spread virtually. 
+
+                <!-- <li>With this in mind, this research will investigate information acquisition behaviors (HCI patterns) of decision-making groups as they use a web-based SDSS for the collaborative management of plant pathogen spread. 
                 <li>A HCI experiment  will  be  the  main  focus  and  contribution  of  this  work,  empirically  designed  to  discover  how  these technologies  can  better  support  collaborative  ecological  decision-making,  in  real-world  contexts.   
-                <li>Ultimately, this  work  intends  to  establish  the  first  steps  toward  an empirically  supported,  user-guided  general  framework for online SDSS design, functionality, and use for collaborative ecological decision-making
+                <li>Ultimately, this  work  intends  to  establish  the  first  steps  toward  an empirically  supported,  user-guided  general  framework for online SDSS design, functionality, and use for collaborative ecological decision-making -->
               </ul>
         </aside>
   </section>
@@ -1121,9 +1306,14 @@
 
           <aside class="notes"> 
               <ul>
-                  <li> using task complexity (disease scenario), and the collaboration mode as the independent factors, andhuman-computer  interaction  (HCI)  metrics  as  the  dependent  variables,  this  study  adopts  a  2  (collaborationmode) x 2 (task difficulty) within-subjects experimental design (or repeated-measures design). 
+                <li>This study will adopt a 2x2 within-subjects experimental design, in which every participant will experience every possible problem space; aka no one will only work by themselves, everyone will experience both collaboration conditions, and attempt to solve both disease scenarios.
+
+                <li>Using task complexity (disease scenario) and collaboration mode (split between people working in group and splitting off and working individually) - these are the IVs, and the HCI metrics (user metrics) are the DVs (how long it takes them to think of a solution, how many times they had to try a solution until it was correct.
+                  
+                <li> This is will be done in efforts to flesh out possible effects collaboration can have on people's ability to understand and properly manage spreading various cases of biological invasions (differing disease characteristics), how to manage them, and how their decisions and actions can influence can influence their predicted spread.
+                  <!-- <li> using task complexity (disease scenario), and the collaboration mode as the independent factors, andhuman-computer  interaction  (HCI)  metrics  as  the  dependent  variables,  this  study  adopts  a  2  (collaborationmode) x 2 (task difficulty) within-subjects experimental design (or repeated-measures design). 
                   <li>The collaborationgrouping variable will be within-subjects, split by completing both disease scenarios, with each scenario beingcarried  out  both  individually  and  collectively  in  a  three-person  group.   
-                  <li>Task  difficulty  will  be  categorized  bylow- and high-difficulty disease control conditions.  
+                  <li>Task  difficulty  will  be  categorized  bylow- and high-difficulty disease control conditions.   -->
           </aside>
   </section>  
   
@@ -1141,8 +1331,11 @@
         
     <aside class="notes"> 
         <ul>
-          <li>In the proposed research, users must collaboratively use the Pest or Pathogen Spread Web Platform (PoPS2), an interactive online geospatial user interface system (i.e., SDSS), to effectively reduce predicted pest and pathogenspread while minimizing treatment costs during a management scenario
-          <li> PoPS (Fig.  2.2) is an online interface that allows users to  design  management  scenarios  by  drawing  treatment polygons  on  a  web  map  of  the  study  area.   PoPS  stores detailed  statistical  information  about  all  scenarios  sousers  can  quickly  and  intuitively  test  and  compare  pest and pathogen management scenarios
+          <li>In the proposed research, users must collaboratively use PoPS which is the Pest or Pathogen Spread Web Platform, an interactive online geospatial user interface system (also can be known as an SDSS), to effectively reduce predicted pest and pathogenspread while minimizing treatment costs during a management scenario<br><br>
+          <li>To predict the spread of their species of interest, users provide PoPS with a host raster and the locations and timing of species detections, as well as information about the species’ biology. The model then predicts when and where a species is likely to establish, based on where it is already found, its dispersal capability, the locations of suitable hosts, and the impact of precipitation and temperature on its survival and reproduction. Model outputs include predicted infested or infected area, number of infested or infected hosts, the probability of the pest or pathogen escaping quarantine and spread in the cardinal directions.
+
+          <li>PoPS is uniquely suited for examining the potential impact of management strategies on spread, allowing users to compare a forecast without management to forecasts based on “what-if” scenarios that treat or remove hosts.
+          <!-- <li> PoPS (Fig.  2.2) is an online interface that allows users to  design  management  scenarios  by  drawing  treatment polygons  on  a  web  map  of  the  study  area.   PoPS  stores detailed  statistical  information  about  all  scenarios  sousers  can  quickly  and  intuitively  test  and  compare  pest and pathogen management scenarios -->
     </aside>
 </section>  
 
@@ -1156,6 +1349,11 @@
           <col width="100%">
       <tr class = "border_top no_space">
         <td style = "vertical-align : middle;  ">
+
+        <center><video data-autoplay align="middle" vertical-align="center" height="480" controls muted loop>
+          <source src="img/agu_pops_demo_med.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video></center> 
       </td>
       </tr>
     </table>
@@ -1163,24 +1361,50 @@
     <aside class="notes"> 
         <ul>
           <li>The disease management scenarios will be designed as individual problems aiming to test knowledge and skills related to environmental and ecological aspects of epidemic behavior and processes, as well as the participants' ability to explore and understand their forecasted outcomes.
+          <li>  Basically if they can understand understand that okay we need to start maybe thinking about management in this area as opposed to this area
           <li>Two scenarios will be completed using PoPS. 
-          <li>They will differ in overall complexity and in result, the difficulty of submitting optimal disease control solutions---referred to as task difficulty. 
-          <li>They will differ in overall complexity and in result, the difficulty of submitting optimal disease control solutions—referred toas  task  difficulty.   
-          <li>Task  difficulty  will  be  operationalized based   on   three   general   disease   characteristics:
+          <li>They will differ in overall complexity and in result, the difficulty coming up with the right disease  solution and this is referred to as task difficulty like i should  such as what as i showed you in the experimental design figure.
+         
+    </aside>
+</section>  
+
+
+
+  <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
+    <h6 style="color: #888">
+      Methods</h6>
+    <h3> Disease Scenarios</h3>
+    <table class= "condensed no_border"  width="100%">
+          <col width="100%">
+      <tr class = "border_top no_space">
+        <td style = "vertical-align : middle;  ">
+ <ul>
+          <li>Task difficulty defined by three general disease characteristics:
+            <ol  >
+              <li class="fragment fade-in" style= "font-size:20pt" >Dispersal  ability
+              <li class="fragment fade-in" style= "font-size:20pt" >Detection  ability
+              <li class="fragment fade-in" style= "font-size:20pt" >Landscape heterogeneity
+          </ol>
+          </ul>
+      </td>
+      </tr>
+    </table>
+        
+    <aside class="notes"> 
+        <ul>
+    
+          <li>This task difficulty is defined on three general disease characteristics:
             <ol>
               <li>dispersal  ability
               <li>detection  ability
               <li>landscape heterogeneity
           </ol>
           <li> Each  of  these  characteristics  are  to  be split   into   two   categories,   representative   of   low   and high  difficulty.   
-          <li> For  instance,  low  difficulty  will  involve a fictitious pathogen   capable   of short-range   dispersal (dispersal ability),  isnot  asymptomatic and thus easy todetect (detection ability), and operate within and across a homogeneous landscape (landscape heterogeneity). 
+          <li> For  instance,  low  difficulty  will  involve a fictitious pathogen  (<b>NOT a real-world pathogen</b>) capable   of short-range   dispersal (dispersal ability,  is not  asymptomatic and thus easy todetect (detection ability), and operate within and across a homogeneous landscape (landscape heterogeneity). 
           <li> Oppositely, the high difficulty disease scenario will entail a fictitious pathogen capable of long-range dispersal (dispersal ability), is asymptomatic and thus difficult to detect (detection ability), and operate within and across a heterogeneous landscape (landscape heterogeneity)
     </aside>
 </section>  
 
-        
-
-          
         
         
 <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
@@ -1188,28 +1412,43 @@
         Data & Methods</h6>
     <h3> Evaluation </h3>
       <table style= "font-size:18pt"  class= "no_bottom_border fragment fade-in" width="98%">
-        <col width = "42%">
+        <col width = "40%">
         <col width = "2%">
-        <col width = "35%">
+        <col width = "45%">
         <tr class="center_text">
-          <td style="border-bottom: 1px solid black; border-top: 1px solid black">SUS</td>
+          <td style="border-bottom: 1px solid black; border-top: 1px solid black">System Usabilty Scale</td>
           <td style="border-bottom: 1px solid black; border-top: 1px solid black"></td>
           <td style="border-bottom: 1px solid black; border-top: 1px solid black">Semi-structured Interview</td>
         </tr>
         <tr>
-          <td class="fragment fade-in"><img src="img/sus.png" style="width:85.5%;"></td>
+          <!-- <td class="fragment fade-in condensed">
+            <img src="img/SUS.jpg" style="width:85.5%;"> -->
+            <!-- <ul style="vertical-align: middle;">
+            <li > Effectiveness
+            <li > Efficiency 
+            <li >Satisfaction
+      </ul>  -->
+          <!-- </td>
+          <td class="fragment fade-in"></td> -->
+          <!-- <td class="fragment fade-in"><img src="img/semi-structured-interview.jpg" style="width:93%; vertical-align: center"></td> -->
+          <td class="fragment fade-in">
+            <img src="img/sus.png" style="width:90.5%;">
+          </td>
           <td class="fragment fade-in"></td>
           <td class="fragment fade-in"><img src="img/semi-struct_interview.png" style="width:93%; vertical-align: center"></td>
         </tr>
       </table>
   <aside class="notes">
     <ul>
-      <li>Participants will then fill out a user experience survey.  
-        <li>Specifically, an adapted version of the System Usability Scale (SUS) [Brooke et al., 1996] will be administered for the evaluation of usability and user experience of the online SDSS–PoPS Web Platform (see sample SUS4). 
+        <li>once participants complete these scenarios will then be asked to fill out 
+        <!-- <li>Specifically, an adapted version of the System Usability Scale (SUS) [Brooke et al., 1996] will be administered for the evaluation of usability and user experience of the online SDSS–PoPS Web Platform (see sample SUS4).  -->
+        <li>   fill out a user experience survey very similar to the one that was used in the tangible landscape study 
+        <li>this is specifically an adapted version of the system usability scale and this evaluates overall usability and user experience of the online platform pops (or online spatial decision support system)
         <li>The primary constructs the user experience survey assesses are  effectiveness,  efficiency,  and  satisfaction.  
-        <li> These  constructs  are  general  classes  of  usability  and  should  be incorporated in any attempted measures of usability. 
+        <li> These  constructs  are  general  classes  of  usability  that really  should  be incorporated in any attempted measures of usability. 
         <li> After  having  completed  the  scenarios,  a  post-workshop  discussion  group  will  be  held  during  the  end  of the  workshop  to  address  PoPS’s  effectiveness  for  managing  plant  disease  spread  and  its  ability  to  facilitate collaborative decision making among stakeholders and policy makers.  
-        <li>Discussions will follow a semi-structured interview  format  to  allow  for  probing  and  elaboration.   
+        <li>Discussions will follow a semi-structured interview  format  to  offer a  more natural and relaxed environment for participants to explain or state what issues they might have run into or what they really liked about this system
+        <li>and in my opinion it really allows for more natural and more open and honest answers instead of having to fill out a more rigid questionnaire
     </ul>
   </aside>
 </section>
@@ -1220,19 +1459,46 @@
   <h6 style="color: #888">
     Data & Methods</h6>
   <h3> Proposed Analysis</h3>
-      <table class= "condensed no_border"  width="100%">
-          <!-- <col width="35%"> -->
-          <col width="95%">
-      <tr class = "border_top no_space">
-      <td style = "vertical-align : middle;  ">
-          <!-- <img src="img/study_area_final.png"> -->
-      </td>
-    </tr>
-    </table>
+   
+  <hr>
+      <ul style="font-size:30px;">
+          <li class="fragment fade-in"> Prediction: Participants in collaboration group will engage in more effective and accurate decision making.
+                <ul> 
+                  <li style="font-size:27px;" class="fragment fade-in">Analyses: 
+                    <ul> 
+                      <li style="font-size:27px;" class="fragment fade-in">T-test examining differences between collaboration and individual groups on overall disease management task performance.
+                  </ul>
+                </ul>
+            <li style="font-size:27px;" class="fragment fade-in"> Prediction: Higher usability and user experience ratings with higher disease management task performance.
+                    <ul> 
+                      <li style="font-size:27px;" class="fragment fade-in">Analyses:  </li>
+                     
+                      <ul> 
+                        <li style="font-size:27px;" class="fragment fade-in">Pearson product-moment correlation </li>
+                        <li style="font-size:27px;" class="fragment fade-in">Regression using collaboration type as predictor variable and ratings of usability and user experience as outcome.</li>
+                        </ul>
+                        <!-- <li style="font-size:27px;" class="fragment fade-in"></li>Regression using collaboration type as predictor variable and ratings of usability and user experience as outcome  -->
+                      </ul>
+                    </ul>
+                  </ul>
+
+        <hr>
 
     <aside class="notes">
       <ul>
-          <li> 
+          <li> so i'll conduct statistical analyses to investigate overall constructs of the participants ability to solve these problems 
+
+          <li> because this research actually predicts that in the collaborative  setting  participants will engage in more effective decision making because they are allowed to discuss with their team members about what the best possible solution would be and kind of help each other resolve any uncertainty in the proposed solutions 
+          
+          <li> so to carry this analyses out i'll just run a really simple t-test comparing the differences between the collaboration group and the individual group on their overall performance on the disease management scenarios and tasks 
+          
+          <li> then for usability and user experience the only thing that i'm really able to predict with this is to say that usability and user experience will be rated higher given higher performance on these disease management scenarios 
+          
+          <li> my predictions for this are limited because there really isn't a lot of literature out on if people perceive a system better or a like a system more if they're allowed to work with others on it 
+          
+          <li> and this is what i'm really actually very interested in seeing in the results; seeing how their ratings of the system's usability and effectiveness to manage the spread of plant disease changes between working with others or working alone.
+          
+          
       </ul>
   </aside>
 </section> 
@@ -1242,17 +1508,36 @@
 <section   data-background="white" data-transition="fade-in" data-transition-speed="fast">
   <!-- <h6 style="color: #888">
     Analysis & Results</h6> -->
-  <h3>Importance</h3>
-  <hr>
-    <ul>  
-      <li > Identify issues and principles in SDSS design for environmental problem solving.
-        <li>Help policy makers and land managers access and understand spatial data to assist their managemt of plant disease.</li>
-        <li>Ultimately, it is hoped that a structured identification of observed and potential issues and corresponding principles in SDSS design for environmental problem solving will encourage much-needed and systematic evaluation of their use, so we can help policymakers, practitioners, and managers access, interpret, and understand information from data, analyses, and models, while guiding them in the identification of the most suitable actions during decision-making\ processes for the management of plant disease.</li>
-    </ul>
-    <hr>
+  <h3>Importance & Contributions</h3>
 
+  <hr>
+      <ul style="font-size:30px;">
+          <li class="fragment fade-in"> Identification of user experience and usability constructs of SDSS use within the overarching problem space of environmental problem solving.
+          <li style="font-size:27px;" class="fragment fade-in"> First to use HCI principles to improve SDSS.
+            <li style="font-size:27px;" class="fragment fade-in">  General usability framework that can be applied and used for multiple use cases .
+      </ul>
+
+<hr>
+
+
+ 
 <aside class="notes">
-    
+  <ul>  
+    <li > study's overall purpose and importance is really to identify any potential issues in spatial decision support system design specifically for environmental problem solving 
+
+    <li > this will be done in the hopes that we can help policy makers and land managers access and understand spatial data to assist their overall management of of plant disease 
+
+    <li > i do think it's very important to note with this is the apparent lack of existing research that really takes a heavy focus on usability and user experience in human computer interaction to improve SDSS 
+
+    <li > a lot of spatial decision support systems do already exist but they always seem to be specifically designed, developed, and used for the specific and individual use case in which they're developed for 
+
+    <li > There isn't anything that gets close to an overall general  framework or standard that can be applied and used for multiple use cases 
+
+    <li > which, more or less, is what i'm shooting for with this research: the identification of user experience and usability constructs of SDSS use within the overarching problem space of environmental problem solving 
+    <!-- <li > Identify issues and principles in SDSS design for environmental problem solving.
+      <li>Help policy makers and land managers access and understand spatial data to assist their managemt of plant disease.</li>
+      <li>Ultimately, it is hoped that a structured identification of observed and potential issues and corresponding principles in SDSS design for environmental problem solving will encourage much-needed and systematic evaluation of their use, so we can help policymakers, practitioners, and managers access, interpret, and understand information from data, analyses, and models, while guiding them in the identification of the most suitable actions during decision-making\ processes for the management of plant disease.</li> -->
+  </ul>
   </aside>
 </section> 
         
@@ -1279,7 +1564,12 @@
 
       <aside class="notes">
               <ul>
-                <li> 
+                <li> a publication kind of already exists; devon's most recent publication
+                  and  i've also been applying 
+                  similar
+                  concepts and ideas to the ongoing
+                  development with
+                  the pandemic projects dashboard
               </ul>
       </aside>
       
