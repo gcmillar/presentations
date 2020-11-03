@@ -647,7 +647,7 @@
               </ul>
               <hr>
               
-              <p style="color:grey;font-size:22px;text-align: left;"class="hangingindent ">
+              <p style="color:grey;font-size:22px;text-align: left;"class="hangingindent fragment fade-in ">
                 &nbsp;&nbsp;&nbsp;<strong >Millar, G. C.</strong>,  Mitas, O., Boode, W., Hoeke, L., de Kruijf, J., Petrasova, A., & Mitasova, H. (2020).  
                 <strong>
                   Space-time &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Analytics of Human Physiology for Urban Planning.
@@ -657,7 +657,6 @@
         
           <aside class="notes">
               <ul>
-                <li > <b><i>mention newly published CEUS article!!!</i> </b><br><br>
                 <li > So, this research's main objective was to: <b>&nbsp;NEXT STEP ⇒&nbsp;</b> <br><b> &nbsp; <i>Use mobile sensing to improve the understanding of how people experience their environment.</b></i>
   
                   <!-- <li > Currently, an important urban design issue is the adaptation of infrastructure to increasing cycle and e-bike use.  -->
@@ -665,7 +664,8 @@
                   <li> <b>&nbsp;NEXT STEP ⇒&nbsp;</b> These viewsheds were then used to link cycling experiences to visual stimuli that were actually present at specific locations along particpants ride.
                   <li> <b>&nbsp;NEXT STEP ⇒&nbsp;</b>A dynamic web-based mapping system was also developed to help us and researchers alike better explore complex moment-by-moment human physiology data across urban landscapes. 
                     <br><br>
-                 
+                    <li > <b>&nbsp;NEXT STEP ⇒&nbsp;</b><b><i>mention newly published CEUS article!!!</i> </b><br><br>
+
               </ul>
       </aside>
     </section>
@@ -855,20 +855,21 @@
           <tr class = "border_top no_space">
           <td style = "vertical-align : middle;  ">
               <ul style="line-height: 40px;" >
-                <li class="fragment fade-in">Viewable Land Cover Area:</b></b></b>&nbsp;<br>
-                  <ul style="line-height: 40px;">
-                    <li style="font-size:26px;">Developed
-                    <li style="font-size:26px;">Natural 
-                    <li style="font-size:26px;">Recreation 
-                    <li style="font-size:26px;">Water 
-                    <li style="font-size:26px;">Business 
-                    <li style="font-size:26px;">Agriculture 
-                    <li style="font-size:26px;">Forest
-                  </ul>  
+                
                 <li class="fragment fade-in"><b><b><b>Speed
                 <li class="fragment fade-in">Distance to Roads
                 <li class="fragment fade-in">Direction 
                 <li class="fragment fade-in">Direction Change (Turning)
+                  <li class="fragment fade-in">Viewable Land Cover Area:</b></b></b>&nbsp;<br>
+                    <ul style="line-height: 40px;">
+                      <li style="font-size:26px;">Developed
+                      <li style="font-size:26px;">Natural 
+                      <li style="font-size:26px;">Recreation 
+                      <li style="font-size:26px;">Water 
+                      <li style="font-size:26px;">Business 
+                      <li style="font-size:26px;">Agriculture 
+                      <li style="font-size:26px;">Forest
+                    </ul>  
                
                 </ul>
           </td>
@@ -885,14 +886,15 @@
         <li >Because our central question was to determine the effects of environmental stimuli on experience,  we used geospatial data and methods to derive the parameters that would go into the statistical models <b>as predictors</b> to relate environmental data with human data
           <li>These parameters/predictors were:
           <ul>
-              <li >viewable area in different land cover types
               <li >speed
               <li >distance to road
                 <ul>
                   <li> We used v.distance, a GRASS GIS module to map the distances between each cyclist’s locational point and the closest roads. These were stored for later statistical analyses to determine possible relationships between how far away cyclists were from roads and observed levels of emotional arousal
                 </ul>
               <li > direction
-              <li >We also added  directional  change  to  our statistical model  which significantly improved the model’s fit. 
+              <li >We added  directional  change  to  our statistical model  which significantly improved the model’s fit.
+                <li >viewable area in different land cover types
+ 
         <!-- <li>  Procedure for computing viewshed for a single viewpoint: 
           <ul>
             <li>(a) viewpoints were set along the cycling highway at 20 m evenly distributed intervals; 
@@ -921,7 +923,14 @@
   <aside class="notes">
     <ul>
 
-        <!-- <li>  Procedure for computing viewshed for a single viewpoint: 
+        <li>  Presents overview of Procedure for computing  maps with viewable land cover areas
+          <li>  All viewshed maps  were then intersected with land cover data layer to extract visible land cover classes.
+            <li>   These were stored for later statistical analyses to determine possible relationships in the cyclists' perceptual and related mental states as they experience their environment.
+
+<!-- 
+            By coupling these with associated Z-transformed SCR data (phasic z), we can then statistically associate variations in the cyclists' perceptual and related mental states as they experience their environment.
+
+          viewshed for a single viewpoint: 
           <ul>
             <li>(a) viewpoints were set along the cycling highway at 20 m evenly distributed intervals; 
             <li>(b) riding  direction angle was established with line direction in degrees counter-clockwise from east; 
@@ -975,7 +984,7 @@
     <td class="fragment fade-in"></td> -->
     <!-- <td class="fragment fade-in"><img src="img/semi-structured-interview.jpg" style="width:93%; vertical-align: center"></td> -->
     <td " class="fragment   fade-in">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="40%" src="img/hex_bin_stats_final_split.png">
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img height="50%" src="img/hex_bin_stats_final_split.png">
     </td>
     <td class="fragment fade-in"></td>
     <td style="vertical-align: middle;" class="fragment  fade-in">
@@ -993,12 +1002,12 @@
     <ul>
       <li>DESCRIPTIVE STATISTICS :
         <ul> 
-          <li>To summarize and graphically represent descriptive statistical results from the measured data, we used a hexagonal binning process
+          <li>First, we used a hexagonal binning process to summarize and graphically represent summary statistics of the measured data
             <li>  A in Figure: Phasic means; B: Standard deviation
             <li>  These spatially distributed summary metrics indicate prevailing lower values of phasic skin conductance in urban areas, while higher phasic skin conductance values are seen midway along the route in more rural settings
             </ul>
             <br>
-      <li>MIXED-EFFECT LINER MODELS: <br>
+      <li>to relate environmental data with human data, we used MIXED-EFFECT LINER MODELS: <br>
         <i>[of the connections among viewable land cover, speed, direction, distance to roads, direction changes, and emotional arousal]</i>
         <ul> 
             <!-- This definitive model demonstrated ride segments containing relatively less-developed and more recreational,agricultural,  and  forest  land  cover  in  view,  were  more  exciting   for  participants.     -->
@@ -1051,10 +1060,11 @@ Direction Change	−28.494⁎⁎⁎	<br>
       <hr>
   <aside class="notes">
     <ul>
-      <li >   <b>Stress nobody has taken some body on e-bike (25 km/h) stopping here and there and analyzed the composition of the viewscape that they see and linked it with their physiological response.
-      <ul>
+<b>
+
           <li > Yes we linked it to Urban Planning, but it wasn't the core purpose of this work. The main purpose was studying the relationships between the physiological data and the geospatial data that reflect what people actually see, how fast they go and things like that as they experience their environment.
           <li > There were people measuring physiological response and correlating with what was in their vicinity.  Those studies were there but not really people moving this fast and looking at the viewshed which took into account the full 3D information from lidar, not just looking at land-use, but actually all 3d data so that we could even see that their real views were actually quite limited due to vegetation  </b>
+            <li >  Stress nobody has taken some body on e-bike (25 km/h) stopping here and there and analyzed the composition of the viewscape that they see and linked it with their physiological response.
           </ul>
           <li >Stress its applicability to other use cases - widely aplicable. Where true value comes in.
           <li >BIGGEST CONTRIBUTION really are the methods and the visualization tool. I essentially provided the input to the statistics. But developing the tools for processing the data and visualizing the data was my main contribution, which was valued the most by the journal's reviewer's 
